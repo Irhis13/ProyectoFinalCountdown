@@ -13,7 +13,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String nombre;
     private String apellidos;
     private String imagenDni;
