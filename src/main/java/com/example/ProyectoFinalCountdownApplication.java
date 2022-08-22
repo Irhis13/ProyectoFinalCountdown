@@ -9,5 +9,4 @@ public class ProyectoFinalCountdownApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoFinalCountdownApplication.class, args);
 	}
-
 }
