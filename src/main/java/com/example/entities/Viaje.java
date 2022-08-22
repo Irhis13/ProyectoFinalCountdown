@@ -27,7 +27,7 @@ public class Viaje {
     //Booleanos
     private boolean niñosApto;
     private boolean vestuarioExtra;
-    private boolean reportajeExra;  
+    private boolean reportajeExtra;  
     
     @ManyToOne
     @NotNull
