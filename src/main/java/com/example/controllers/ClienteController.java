@@ -48,7 +48,6 @@ public class ClienteController {
     @GetMapping("/forma1")
     public ModelAndView porForma1(@RequestParam(name = "nombre") String nombre) {
         ModelAndView mav = new ModelAndView();
-
         mav.setViewName("forma1");
         mav.addObject("nombre", nombre);
 
@@ -70,7 +69,6 @@ public class ClienteController {
     public ModelAndView detalles(@PathVariable(name = "id") int id) {
 
         Cliente cliente = servicioCliente.getCliente(id);
-
         ModelAndView mav = new ModelAndView();
 
         mav.setViewName("detalles");
