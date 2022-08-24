@@ -22,6 +22,5 @@ public class Empleado {
     private String nombre;
     private String direccion;
     private String telefono;
-    
-    //¿Debería crearse una tabla en la base de datos?
 }
+    //¿Debería crearse una tabla en la base de datos?

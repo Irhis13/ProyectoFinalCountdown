@@ -25,13 +25,12 @@ public class Viaje {
     private String descripcion;
     private double precio;
     //Booleanos
-    private boolean niñosApto;
+    //private boolean niñosApto; //Alicia y Asun opinan que esto fuera
     private boolean vestuarioExtra;
-    private boolean reportajeExtra;  
+    private boolean reportajeExra;  
     
     @ManyToOne
     @NotNull
     private Categoria categoria;
-
-
 }
+
