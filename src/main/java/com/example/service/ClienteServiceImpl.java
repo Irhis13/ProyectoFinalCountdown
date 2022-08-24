@@ -23,8 +23,8 @@ public class ClienteServiceImpl implements IClienteService {
     @Override
     public Cliente getCliente(long idCliente) {
         //REPASARRR
-        //return daoCliente.findById(idCliente).get();
-        return null;
+        return daoCliente.findById(idCliente).get();
+        // return null;
     }
 
     @Override
