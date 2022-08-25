@@ -24,10 +24,11 @@ public class Viaje {
     private String nombre;
     private String descripcion;
     private double precio;
+
     //Booleanos
-    //private boolean niñosApto; //Alicia y Asun opinan que esto fuera
+
     private boolean vestuarioExtra;
-    private boolean reportajeExra;  
+    private boolean reportajeExtra;  
     
     @ManyToOne
     @NotNull

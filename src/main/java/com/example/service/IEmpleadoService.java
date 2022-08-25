@@ -1,8 +1,15 @@
 package com.example.service;
 
+import java.util.List;
+
+import com.example.entities.Empleado;
+
 public interface IEmpleadoService {
 
-    //Asun: Sigo con la duda, aquí no sé si hace falta algo para 
-    //Traer una lista de empleados, un empleado en concreto, eliminarlo....
+    public List<Empleado> getEmpleados();
+    public Empleado getEmpleado(long idEmpleado);
+    public void guardar(Empleado empleado);
+    public void eliminar(long idEmpleado);
+    public void modificar(Empleado empleado);
     
 }
