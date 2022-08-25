@@ -1,12 +1,12 @@
-package com.example.entities;
+// package com.example.entities;
 
-public class Antonio {
+// public class Antonio {
     
-    private String name;
-    private String primerApellido;
-    private String segundoApellido;
+//     private String name;
+//     private String primerApellido;
+//     private String segundoApellido;
 
-    // token contraseña
-
-    // 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
-}
+//     // token contraseña ¡¡¡NO BORRAR!!!
+//     //ROCIO Y ASUN SABEN DONDE VIVIS.
+//     // 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
+// }
