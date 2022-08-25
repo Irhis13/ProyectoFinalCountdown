@@ -27,6 +27,6 @@ public class Categoria {
     private String nombre;
     private String descripcion;
 
-    // @OneToMany(mappedBy = "categoria")
-    // private List<Viaje> viajesCategoria;
+    @OneToMany(mappedBy = "categoria")
+    private List<Viaje> viajesCategoria;
 }
