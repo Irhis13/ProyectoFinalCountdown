@@ -10,15 +10,16 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Categoria {
 
     @Id
@@ -28,5 +29,5 @@ public class Categoria {
     private String descripcion;
 
     @OneToMany(mappedBy = "categoria")
-    private List<Viaje> viajesCategoria;
+    private List<Cliente> clientes;
 }

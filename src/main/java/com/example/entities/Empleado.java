@@ -7,15 +7,18 @@ import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class Empleado {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idEmpleado;
@@ -23,5 +26,5 @@ public class Empleado {
     private String direccion;
     private String telefono;
     
-    //¿Debería crearse una tabla en la base de datos?
+
 }

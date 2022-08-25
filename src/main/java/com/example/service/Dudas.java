@@ -8,4 +8,13 @@ public class Dudas {
 
     //Tampoco he hecho la implementación de empleado porque no he creado el dao de este
     //lo dejo a la elección del grupo.
+
+    /**AIDA_RESPUESTA: 
+     * 
+     * Acabo de repasar todas las entidades (faltaban algunas anotaciones), el fallo que 
+     * te salía era por que faltaba información en el dao (ya está solucionado).
+     * 
+     * Acabo de establecer los atributos de la interface IEmpleado y he
+     * realizado la implementación del mismo (según hemos hablado hoy).
+      */
 }
