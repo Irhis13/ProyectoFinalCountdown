@@ -9,5 +9,5 @@ public List<Cliente> getClientes();
 public Cliente getCliente(long idCliente);
 public void guardar(Cliente cliente);
 public void eliminar(long idCliente);
-public void modificar(Cliente cliente);
+public void modificar(long idCliente,Cliente cliente);
 }

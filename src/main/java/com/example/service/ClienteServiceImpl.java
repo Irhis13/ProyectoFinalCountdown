@@ -41,9 +41,19 @@ public class ClienteServiceImpl implements IClienteService {
     }
 
     @Override
-    public void modificar(Cliente cliente) {
-        //REPASAR CÓMO LO HACÍAMOS E IMPLEMENTAR
-        
+    public void modificar(long idCliente,Cliente cliente) {
+        //Que seleccione el cliente, no que lo introduzca con un combobox
+        Cliente clienteDB = daoCliente.findById(idCliente).get();
+        clienteDB.setNombre(cliente.getNombre());
+        clienteDB.setApellidos(cliente.getApellidos());
+        clienteDB.setImagenDni(cliente.getImagenDni());
+        clienteDB.setFechaSalida(cliente.getFechaSalida());
+        clienteDB.setFechaRegreso(cliente.getFechaRegreso());
+        clienteDB.setTelefono(cliente.getTelefono());
+        clienteDB.setEmail(cliente.getEmail());
+        clienteDB.setViaje(cliente.getViaje());
+
+        daoCliente.save(cliente);        
     }
     
 }

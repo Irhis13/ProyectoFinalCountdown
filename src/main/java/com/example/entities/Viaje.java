@@ -24,14 +24,14 @@ public class Viaje {
     private String nombre;
     private String descripcion;
     private double precio;
-
+    
     //Booleanos
-
     private boolean vestuarioExtra;
-    private boolean reportajeExtra;  
+    private boolean reportajeExra;  
     
     @ManyToOne
     @NotNull
     private Categoria categoria;
-}
 
+
+}

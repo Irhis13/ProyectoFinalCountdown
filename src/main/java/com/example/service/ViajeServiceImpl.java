@@ -22,8 +22,8 @@ public class ViajeServiceImpl implements IViajeService{
 
     @Override
     public Viaje getViaje(long idViaje) {
-        // return daoViaje.findById(idViaje).get();
-        return null;
+        return daoViaje.findById(idViaje).get();
+        // return null;
     }
 
     @Override
