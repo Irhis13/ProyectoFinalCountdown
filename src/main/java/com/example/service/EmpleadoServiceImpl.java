@@ -9,7 +9,7 @@ import com.example.dao.IEmpleadoDao;
 import com.example.entities.Empleado;
 
 @Service
-public class EmpleadoServiceImpl implements IEmpleadoService{
+public class EmpleadoServiceImpl implements IEmpleadoService {
 
     @Autowired
     private IEmpleadoDao daoEmpleado;
@@ -18,7 +18,6 @@ public class EmpleadoServiceImpl implements IEmpleadoService{
     public List<Empleado> getEmpleados() {
         return daoEmpleado.findAll();
     }
-        
 
     @Override
     public Empleado getEmpleado(long idEmpleado) {
@@ -28,13 +27,13 @@ public class EmpleadoServiceImpl implements IEmpleadoService{
     @Override
     public void guardar(Empleado empleado) {
         daoEmpleado.save(empleado);
-        
+
     }
 
     @Override
     public void eliminar(long idEmpleado) {
         daoEmpleado.deleteById(idEmpleado);
-        
+
     }
 
     @Override
@@ -42,9 +41,9 @@ public class EmpleadoServiceImpl implements IEmpleadoService{
 
         Empleado empleadoDB = daoEmpleado.findById(idEmpleado).get();
 
-empleadoDB.setNombre(empleado.getNombre());
-empleadoDB.setDireccion(empleado.getDireccion());
-empleadoDB.setTelefono(empleado.getTelefono());        
+        empleadoDB.setNombre(empleado.getNombre());
+        empleadoDB.setDireccion(empleado.getDireccion());
+        empleadoDB.setTelefono(empleado.getTelefono());
     }
-    
+
 }
