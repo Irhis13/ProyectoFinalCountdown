@@ -10,6 +10,6 @@ public interface IEmpleadoService {
     public Empleado getEmpleado(long idEmpleado);
     public void guardar(Empleado empleado);
     public void eliminar(long idEmpleado);
-    public void modificar(Empleado empleado);
+    public void modificar(long idEmpleado, Empleado empleado);
     
 }

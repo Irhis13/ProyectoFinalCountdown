@@ -38,9 +38,13 @@ public class EmpleadoServiceImpl implements IEmpleadoService{
     }
 
     @Override
-    public void modificar(Empleado empleado) {
-        // TODO Auto-generated method stub
-        
+    public void modificar(long idEmpleado, Empleado empleado) {
+
+        Empleado empleadoDB = daoEmpleado.findById(idEmpleado).get();
+
+empleadoDB.setNombre(empleado.getNombre());
+empleadoDB.setDireccion(empleado.getDireccion());
+empleadoDB.setTelefono(empleado.getTelefono());        
     }
     
 }
