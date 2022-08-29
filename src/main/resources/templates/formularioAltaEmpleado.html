@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="baseTemplate :: cabecera">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario AltaMod</title>
+</head>
+
+<body style=margin:70px;text-align:center;background-color:#040964a5;
+    background="https://tenor.com/view/bliksem-blikseminslag-lightning-snel-quick-gif-18920351.gif">
+    <FONT FACE="courier" SIZE=6 COLOR="black">
+
+        <div class="container">
+            <div class="row">
+                <div class="row">
+                    <h1 style="background-color:deeppink ; border-radius: 16px">Alta/Modificación de Empleados</h1>
+                    <FONT FACE="comic sans ms" SIZE=3 COLOR="white"></FONT>
+                </div>
+
+
+                <div class="col">
+                <!-- ponemos el thobj para que me añada al formulario un estudiante vacío, esto corresponde 
+        con lo que hemos añadido en estudianteControler en formulario. dentro de los campos usamos 
+        thfld para añadir campos en nombre y apellido en este caso. El asterisco hace referencia a las 
+        variables miembros o campos de un objeto. @ es para que evalúe una url. Post va dentro del 
+        elemento http -->
+                <form th:object="${empleado}" th:action="@{/crearEmpleado}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" th:field="*{id}">
+                    <input type="text" placeholder="Nombre" th:field="*{nombre}" required>
+                    
+
+                </div>
+                <div class="col">
+                    </select>
+                    <input type="file" name="pic" required>
+                    <input type="submit">
+                </div>
+            </div>
+        </div>
+                </form>
+                <img src="https://tenor.com/view/pancakes-breakfast-pancake-short-stack-dogs-gif-12480762.gif" height="200" width="300">
+
+     <script th:replace="baseTemplate :: javascriptsupport"></script>
+</body>
+
+</html>
