@@ -36,10 +36,33 @@ public class MainController {
         return "aboutUs";
     }
 
+    @GetMapping("/FAQS")
+    public String getFAQS(){
+        return "FAQS";
+    }
+
     @GetMapping("/aventura")
     public String getAventura(Model model){
-        model.addAttribute("categoria", servicioCategoria.getCategorias());
+        model.addAttribute("categoria", servicioCategoria.getCategoria(1));
         return "aventura";
+    }
+
+    @GetMapping("/cultural")
+    public String getCultural(Model model){
+        model.addAttribute("categoria", servicioCategoria.getCategoria(2));
+        return "cultural";
+    }
+
+    @GetMapping("/familiar")
+    public String getFamiliar(Model model){
+        model.addAttribute("categoria", servicioCategoria.getCategoria(3));
+        return "familiar";
+    }
+
+    @GetMapping("/pareja")
+    public String getPareja(Model model){
+        model.addAttribute("categoria", servicioCategoria.getCategoria(4));
+        return "pareja";
     }
 
     @GetMapping("/formulario")
