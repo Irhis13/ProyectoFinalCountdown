@@ -32,12 +32,15 @@ public class MainController {
     }
 
     @GetMapping("/aboutUs")
-    public String getAboutUs(Model model){
-        model.addAttribute("viajes", servicioViaje.getViajes());
+    public String getAboutUs(){
         return "aboutUs";
     }
 
-    
+    @GetMapping("/aventura")
+    public String getAventura(Model model){
+        model.addAttribute("categoria", servicioCategoria.getCategorias());
+        return "aventura";
+    }
 
     @GetMapping("/formulario")
     public String mostrarFormulario(ModelMap map){

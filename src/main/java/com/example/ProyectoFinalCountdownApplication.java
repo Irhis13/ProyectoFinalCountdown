@@ -1,6 +1,6 @@
 package com.example;
 
-import java.time.LocalDate;
+// import java.time.LocalDate;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,7 +25,9 @@ public class ProyectoFinalCountdownApplication {
 	public CommandLineRunner demoData(ICategoriaService categoriaSrv, IViajeService viajeSrv){
 		return args ->{
 
-			categoriaSrv.guardar(Categoria.builder().nombre("nombre").descripcion("descripcion").build());
+			categoriaSrv.guardar(Categoria.builder().nombre("Aventura").descripcion("Viajes divertidos repletos de aventuras")
+			.build());
+
 			viajeSrv.guardar(Viaje.builder().nombre("nombre").descripcion("descripcion").precio(0.0)
 			.categoria(categoriaSrv.getCategoria(1)).build());
 		};
