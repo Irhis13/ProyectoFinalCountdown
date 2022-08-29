@@ -17,14 +17,34 @@
 
 <body>
     <h1>Cronological</h1>
-    <div th:fragment="botonMenu">
+    <div th:fragment="botonMenu" style="margin-top:2%; margin-left:44%">
         <button>
             <a th:href="@{/home}">
                 Home
             </a>
         </button>
+
+        <button>
+            <a th:href="@{/carritoCompra}"><img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="carrito compra" 
+                style="height:20px;"></a>
+        </button>
+        <button>
+            <a th:href="@{/login}">
+                <img src="http://cdn.onlinewebfonts.com/svg/img_337531.png" alt="login" style="height:20px ;">
+            </a>
+        </button>
+        
     </div>
-    <br>
+    <div th:fragment="botonComprar">
+        <button>Comprar</button>
+    </div>
+
+    <div th:fragment="footer" style="margin-left:44%;">
+        <img src="https://pixsector.com/cache/f8dbbdb2/avb37443a9d16e06eef66.png" alt="twitter icon"
+            style="height:30px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt="instagram icon" style="height:30px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968989.png" alt="tripadvisor icon" style="height:30px;">
+    </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script th:fragment="javaScriptSupport"

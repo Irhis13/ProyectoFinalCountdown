@@ -25,7 +25,11 @@ public class MainController {
     @Autowired
     private ICategoriaService servicioCategoria;
 
+    @Autowired
+    private IClienteService servicioCliente;
+
     @GetMapping("/home")
+    //PARA QUE SE VEAN LOS HTML
     public String getViajes(Model model){
         model.addAttribute("viajes", servicioViaje.getViajes());
         return "home";
@@ -39,6 +43,19 @@ public class MainController {
     @GetMapping("/FAQS")
     public String getFAQS(){
         return "FAQS";
+    }
+
+    //////REPASAR PARA INTEGRAR CON MÉTODO
+    @GetMapping("/login")
+    public String getLogin(/*Model model*/){
+        // model.addAttribute("cliente", servicioCliente.getCliente(1));
+        return "login";
+    }
+
+    @GetMapping("/carritoCompra")
+    public String getCarrito(Model model){
+        model.addAttribute("viajes", servicioViaje.getViaje(1));
+        return "carritoCompra";
     }
 
     @GetMapping("/aventura")
@@ -65,6 +82,16 @@ public class MainController {
         return "pareja";
     }
 
+    @GetMapping("/pasarelaPago")
+    public String getPasarelaPago(){
+        return "pasarelaPago";
+    }
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+    //METODOS
     @GetMapping("/formulario")
     public String mostrarFormulario(ModelMap map){
         map.addAttribute("viaje", new Viaje()); 

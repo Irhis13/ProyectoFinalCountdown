@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head head th:replace="baseTemplate :: cabecera">
+<head th:replace="baseTemplate :: cabecera">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
+
     <div th:replace=" baseTemplate :: botonMenu"></div>
-    <h1>Categoria cultural</h1>
-    <div th:replace="baseTemplate :: botonComprar"></div>
+
+    <h1>Carrito de la compra</h1>
+    <ul>
+        <li>Viaje 1</li>
+        <li>Viaje 2</li>
+        <li>Viaje 3</li>
+    </ul>
+    <button>Modificar</button>
+    <button>Eliminar</button>
+    <button>
+        <a th:href="@{/pasarelaPago}">Confirmar</a>
+    </button>
     <br>
     <br>
     <br>
     <br>
     <div th:replace="baseTemplate :: footer"></div>
 </body>
-
 </html>

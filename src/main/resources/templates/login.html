@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head head th:replace="baseTemplate :: cabecera">
+<head th:replace="baseTemplate :: cabecera">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <div th:replace=" baseTemplate :: botonMenu"></div>
-    <h1>Categoria cultural</h1>
-    <div th:replace="baseTemplate :: botonComprar"></div>
+    <h1>Página de Login/Perfil Cliente</h1>
+    <!-- Referenciar para que vaya a FormularioAltaCliente -->
+    <button>Crear cliente</button>
+
+    <!--Método Salir del login -->
+    <button>Salir</button>
+
+    <!-- Método que muestre historico de viajes o proximos viajes -->
+    <button>Tus viajes</button>
     <br>
     <br>
     <br>
     <br>
     <div th:replace="baseTemplate :: footer"></div>
 </body>
-
 </html>
