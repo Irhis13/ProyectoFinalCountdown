@@ -38,7 +38,7 @@ public class MainController {
 
     @GetMapping("/aventura")
     public String getAventura(Model model){
-        model.addAttribute("categoria", servicioCategoria.getCategorias());
+        model.addAttribute("categoria", servicioCategoria.getCategoria(1));
         return "aventura";
     }
 
