@@ -27,6 +27,12 @@ public class ProyectoFinalCountdownApplication {
 
 			categoriaSrv.guardar(Categoria.builder().nombre("Aventura").descripcion("Viajes divertidos repletos de aventuras")
 			.build());
+			categoriaSrv.guardar(Categoria.builder().nombre("Cultural").descripcion("Viajes divertidos repletos de aventuras")
+			.build());
+			categoriaSrv.guardar(Categoria.builder().nombre("Familiar").descripcion("Viajes divertidos repletos de aventuras")
+			.build());
+			categoriaSrv.guardar(Categoria.builder().nombre("Pareja").descripcion("Viajes divertidos repletos de aventuras")
+			.build());
 
 			viajeSrv.guardar(Viaje.builder().nombre("nombre").descripcion("descripcion").precio(0.0)
 			.categoria(categoriaSrv.getCategoria(1)).build());
