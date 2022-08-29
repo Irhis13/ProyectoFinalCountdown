@@ -8,5 +8,9 @@
 </head>
 <body>
     
+    <form th:object="${categoria}" th:action="@{/categoriaCultural}" method="post" enctype="text/plain">
+        <input type="hidden" th:field="*{id}">
+        <input type="text" placeholder="Nombre" th:field="*{nombre}" required>
+
 </body>
 </html>
