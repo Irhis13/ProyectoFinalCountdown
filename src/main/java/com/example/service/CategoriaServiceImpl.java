@@ -27,7 +27,7 @@ public class CategoriaServiceImpl implements ICategoriaService{
     }
 
     @Override
-    public Categoria getCategoria(long idCategoria) {
+    public Categoria getCategoria(int idCategoria) {
         //Repasar porqué no funciona
         return daoCategoria.findById(idCategoria).get();
         // return null;

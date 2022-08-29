@@ -9,10 +9,13 @@ import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -20,14 +23,14 @@ public class Viaje {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
     private String nombre;
     private String descripcion;
     private double precio;
     
     //Booleanos
-    private boolean vestuarioExtra;
-    private boolean reportajeExra;  
+    // private boolean vestuarioExtra;
+    // private boolean reportajeExra;  
     
     @ManyToOne
     @NotNull

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.entities.Viaje;
 
 @Repository
-public interface IViajeDao extends JpaRepository<Viaje, Long>{
+public interface IViajeDao extends JpaRepository<Viaje, Integer>{
     
 }

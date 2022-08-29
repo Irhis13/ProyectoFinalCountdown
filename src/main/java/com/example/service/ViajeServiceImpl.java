@@ -21,7 +21,7 @@ public class ViajeServiceImpl implements IViajeService{
     }
 
     @Override
-    public Viaje getViaje(long idViaje) {
+    public Viaje getViaje(int idViaje) {
         return daoViaje.findById(idViaje).get();
         // return null;
     }
@@ -33,7 +33,7 @@ public class ViajeServiceImpl implements IViajeService{
     }
 
     @Override
-    public void eliminar(long idViaje) {
+    public void eliminar(int idViaje) {
         daoViaje.deleteById(idViaje);
         
     }
