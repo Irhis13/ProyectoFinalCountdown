@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.entities.Empleado;
 import com.example.service.IEmpleadoService;
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 @Controller
 @RequestMapping("/")
