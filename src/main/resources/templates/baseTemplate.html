@@ -62,7 +62,6 @@
 </head>
 
 <body>
-    <h1>Cronological</h1>
     <div th:fragment="botonMenu" style="margin-top:2%; margin-left:44%">
         <button>
             <a th:href="@{/home}">
@@ -94,8 +93,15 @@
 
             <br>
         </p>
-
     </footer>
+
+    <div th:fragment="botonPortalEmpleado">
+        <button>
+            <a th:href="@{/portalEmpleado}">
+                Portal Empledao
+            </a>
+        </button>
+    </div>
 
     <!-- <div th:fragment="footer" style="margin-left:44%;">
         <img src="https://pixsector.com/cache/f8dbbdb2/avb37443a9d16e06eef66.png" alt="twitter icon"

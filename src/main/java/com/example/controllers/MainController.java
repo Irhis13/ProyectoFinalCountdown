@@ -145,8 +145,8 @@ public String mostrarFormularioCliente(ModelMap map){
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 
-///////////NO CONSIGO QUE ME GUARDE EL VIAJE, POR REVISAR Y AÑADIR LA IMAGEN
-    @PostMapping("/CrearViaje")
+///////////NO CONSIGO QUE ME GUARDE EL VIAJE/EMPLEADO/CLIENTE EN BBDD
+    @PostMapping("/CrearViaje") //Añadir la parte de la imagen
     public String crearViaje(@ModelAttribute(name="viaje")
     Viaje viaje){
 
