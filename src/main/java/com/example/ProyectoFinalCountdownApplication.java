@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Bean;
 
 import com.example.entities.Categoria;
 import com.example.entities.Cliente;
-// import com.example.entities.Cliente;
 import com.example.entities.Viaje;
 import com.example.service.ICategoriaService;
 import com.example.service.IClienteService;
@@ -25,6 +24,8 @@ public class ProyectoFinalCountdownApplication {
 		SpringApplication.run(ProyectoFinalCountdownApplication.class, args);
 	}
 
+
+	///////////////////FALTA POR AÑADIR EL IEMPLEADOSERVICE
 	@Bean
 	public CommandLineRunner demoData(ICategoriaService categoriaSrv, IViajeService viajeSrv, IClienteService clienteSrv){
 		return args ->{
@@ -67,8 +68,12 @@ public class ProyectoFinalCountdownApplication {
 			.categoria(categoriaSrv.getCategoria(4)).build());
 			viajeSrv.guardar(Viaje.builder().nombre("Viaje 4 - Copia").descripcion("BLABLABLABLA").precio(400.0)
 			.categoria(categoriaSrv.getCategoria(4)).build());
+			
+			
 			//Cliente
 			clienteSrv.guardar(Cliente.builder().nombre("Herminia").apellidos("Garcia Velez").imagenDni("1.jpg").fechaSalida(LocalDate.parse("2020-10-10")).fechaRegreso(LocalDate.parse("2022-10-10")).telefono("999887766").email("aa@aa.com").viaje(viajeSrv.getViaje(1)).build());
+
+
 		};
 	}
 }

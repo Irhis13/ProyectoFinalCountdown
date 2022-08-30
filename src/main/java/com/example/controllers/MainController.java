@@ -1,6 +1,6 @@
 package com.example.controllers;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +25,12 @@ public class MainController {
     private IViajeService servicioViaje;
     @Autowired
     private ICategoriaService servicioCategoria;
-
+    
     @Autowired
     private IClienteService servicioCliente;
+
+    @Autowired
+    private IEmpleadoService servicioEmpleado;
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////CONEXIÓN BACKEND CON HTML////////////////////////////////
@@ -66,20 +69,27 @@ public class MainController {
         return "carritoCompra";
     }
 
+    @GetMapping("/pasarelaPago")
+    public String getPasarelaPago(){
+        return "pasarelaPago";
+    }
+    
+    @GetMapping("/portalEmpleado")
+    public String getPortalEmpleado(){
+        return "portalEmpleado";
+    }
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////
+    ///////GET MAPPING DE LAS PÁGINAS DE CATEGORIAS QUE TRAEN LOS VIAJES DE ESA CATEGORIA//////
+    ///////////////////////////////////////////////////////////////////////////////////////////
     @GetMapping("/aventura")
     public String getAventura(Model model){
 
         List<Viaje> viajeAventura = servicioViaje.getViajesCategoria(1);
-        // for (Viaje viaje : viajeAventura) {
-        //     System.out.println(viaje.getId());
-        // }
         model.addAttribute("viajeAventura", viajeAventura);
         return "aventura";
     }
 
-////////////////////////////////////////////////////////////////////////////////////////////
-///////GET MAPPING DE LAS PÁGINAS DE CATEGORIAS QUE TRAEN LOS VIAJES DE ESA CATEGORIA//////
-///////////////////////////////////////////////////////////////////////////////////////////
     @GetMapping("/cultural")
     public String getCultural(Model model){
         List<Viaje> viajeCultural = servicioViaje.getViajesCategoria(2);
@@ -101,30 +111,66 @@ public class MainController {
         return "pareja";
     }
 
-    @GetMapping("/pasarelaPago")
-    public String getPasarelaPago(){
-        return "pasarelaPago";
-    }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////METODOS//////////////////////////////////////////////
+////////////////////////////////////FORMULARIOS/////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
-    @GetMapping("/formulario")
-    public String mostrarFormulario(ModelMap map){
+@GetMapping("/formularioEmpleado")
+public String mostrarFormularioEmpleado(ModelMap map){
+    map.addAttribute("empleado", new Empleado()); 
+    
+    return "formularioAltaEmpleado";
+}
+
+@GetMapping("/formularioCliente")
+public String mostrarFormularioCliente(ModelMap map){
+    map.addAttribute("cliente", new Cliente()); 
+    map.addAttribute("viajes", servicioViaje.getViajes());
+    map.addAttribute("clientes", servicioCliente.getClientes());
+    
+    return "formularioAltaCliente";
+}
+
+
+    @GetMapping("/formularioViaje")
+    public String mostrarFormularioViaje(ModelMap map){
         map.addAttribute("viaje", new Viaje()); 
-        map.addAttribute("categoria", servicioCategoria.getCategorias());
+        map.addAttribute("categorias", servicioCategoria.getCategorias());
         
         return "formularioAltaViaje";
     }
 
+////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////METODOS//////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////NO CONSIGO QUE ME GUARDE EL VIAJE, POR REVISAR Y AÑADIR LA IMAGEN
     @PostMapping("/CrearViaje")
-    public String crearViaje(@ModelAttribute(name="viaje")Viaje viaje){
+    public String crearViaje(@ModelAttribute(name="viaje")
+    Viaje viaje){
 
         servicioViaje.guardar(viaje);
-
-        return "redirect:/listado";
+        return "redirect:/home";
     }
+
+    @PostMapping("/CrearEmpleado")
+    public String crearEmpleado(@ModelAttribute(name="empleado")
+    Empleado empleado){
+        servicioEmpleado.guardar(empleado);
+
+        return "redirect:/home";
+    }
+
+    @PostMapping("/CrearCliente")
+    public String crearCliente(@ModelAttribute(name="cliente")
+    Cliente cliente){
+
+        servicioCliente.guardar(cliente);
+        return "redirect:/home";
+    }
+
+
 
 
     @PostMapping("/detalles/{id}")
@@ -156,6 +202,6 @@ public class MainController {
 
         return "redirect:/listado";
     }
-
-
 }
+
+
