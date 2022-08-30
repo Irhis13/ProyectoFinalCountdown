@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head th:replace="baseTemplate :: cabecera">
 
-<head th:replace="baseTemplate :: cabecera">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -44,6 +44,29 @@
             <a th:href="@{/pareja}">Categoria Pareja</a>
         </button>
     </div>
+    <br>
+    <a href="">Prueba que muestra los viajes</a>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>descripcion</th>
+                <th>precio</th>
+                <th>categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="viaje: ${viajes}">
+                <td th:text="${viaje.id}"></td>
+                <td th:text="${viaje.nombre}"></td>
+                <td th:text="${viaje.descripcion}"></td>
+                <td th:text="${viaje.precio}"></td>
+                <td th:text="${viaje.categoria.nombre}"></td>
+            </tr>
+        </tbody>
+    </table>
     <br>
     <br>
     <br>

@@ -21,7 +21,7 @@ public class ClienteServiceImpl implements IClienteService {
         
 
     @Override
-    public Cliente getCliente(long idCliente) {
+    public Cliente getCliente(int idCliente) {
         //REPASARRR
         return daoCliente.findById(idCliente).get();
         // return null;
@@ -35,13 +35,13 @@ public class ClienteServiceImpl implements IClienteService {
     }
 
     @Override
-    public void eliminar(long idCliente) {
+    public void eliminar(int idCliente) {
         daoCliente.deleteById(idCliente);
         
     }
 
     @Override
-    public void modificar(long idCliente,Cliente cliente) {
+    public void modificar(int idCliente,Cliente cliente) {
         //Que seleccione el cliente, no que lo introduzca con un combobox
         Cliente clienteDB = daoCliente.findById(idCliente).get();
         clienteDB.setNombre(cliente.getNombre());

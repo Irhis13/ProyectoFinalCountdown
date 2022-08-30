@@ -32,28 +32,27 @@
             z-index: 999;
         }
 
-
         footer p {
             margin: 10px 0;
             font-family: 'Lucida Sans', sans-serif;
         }
 
-        footer .fa-heart {
+        footer #fa-heart {
             color: red;
             text-align: center;
         }
 
-        footer .fa-twitter-square {
+        footer #fa-twitter-square {
             text-align: center;
             color: #1da0f1;
         }
 
-        footer .fa-instagram {
+        footer #fa-instagram {
             text-align: center;
             color: #f0007c;
         }
 
-        footer a {
+        footer #a {
             color: #3c97bf;
             text-decoration: none;
             margin-right: 5px;
@@ -88,7 +87,7 @@
 
     <footer>
         <br>
-        <p th:fragment="footer" style="align-items:center;">
+        <p th:fragment="footer" style="align-items:center; margin-left: 40%;">
             Síguenos en las redes <i class="fa fa-heart"></i>
             <a target="_blank" href=""><i class="fab fa-instagram"></i></a>
             <a target="_blank" href=""><i class="fab fa-twitter-square"></i></a>

@@ -31,7 +31,11 @@ public class MainController {
     @GetMapping("/home")
     //PARA QUE SE VEAN LOS HTML
     public String getViajes(Model model){
-        model.addAttribute("viajes", servicioViaje.getViajes());
+        List<Viaje> viajes = servicioViaje.getViajes();
+        // for (Viaje viaje : viajes) { /*Comprobación que funciona */
+        //     System.out.println(viaje.getCategoria().getNombre());
+        // }
+        model.addAttribute("viajes", viajes);
         return "home";
     }
 
@@ -45,7 +49,6 @@ public class MainController {
         return "FAQS";
     }
 
-    //////REPASAR PARA INTEGRAR CON MÉTODO
     @GetMapping("/login")
     public String getLogin(/*Model model*/){
         // model.addAttribute("cliente", servicioCliente.getCliente(1));
@@ -60,7 +63,9 @@ public class MainController {
 
     @GetMapping("/aventura")
     public String getAventura(Model model){
-        model.addAttribute("categoria", servicioCategoria.getCategoria(1));
+        List<Viaje> viajeAventura = servicioCategoria.getViajesCategoria(1);
+        model.addAttribute("categoria", viajeAventura);
+        // model.addAttribute("categoria", servicioCategoria.getCategoria(1));
         return "aventura";
     }
 

@@ -1,5 +1,6 @@
 package com.example.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,18 @@ public class ViajeServiceImpl implements IViajeService{
     public void eliminar(int idViaje) {
         daoViaje.deleteById(idViaje);
         
+    }
+
+    @Override
+    public List<Viaje> getViajesCategoria(int idCategoria) {
+        List<Viaje> viajes = daoViaje.findAll();
+        List<Viaje> viajesCat = new ArrayList<>();
+        for (Viaje viaje : viajes) {
+            System.out.println(viaje.getId());
+            if(idCategoria== viaje.getId()){
+                viajesCat.add(viaje);
+            }
+        }
+        return viajesCat;
     }
 }

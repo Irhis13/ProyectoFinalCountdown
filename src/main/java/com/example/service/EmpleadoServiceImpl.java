@@ -20,7 +20,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
     }
 
     @Override
-    public Empleado getEmpleado(long idEmpleado) {
+    public Empleado getEmpleado(int idEmpleado) {
         return daoEmpleado.findById(idEmpleado).get();
     }
 
@@ -31,13 +31,13 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
     }
 
     @Override
-    public void eliminar(long idEmpleado) {
+    public void eliminar(int idEmpleado) {
         daoEmpleado.deleteById(idEmpleado);
 
     }
 
     @Override
-    public void modificar(long idEmpleado, Empleado empleado) {
+    public void modificar(int idEmpleado, Empleado empleado) {
 
         Empleado empleadoDB = daoEmpleado.findById(idEmpleado).get();
 

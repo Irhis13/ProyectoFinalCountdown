@@ -10,5 +10,6 @@ public interface IViajeService {
     public Viaje getViaje(int idViaje);
     public void guardar(Viaje viaje);
     public void eliminar(int idViaje);
+    public List<Viaje> getViajesCategoria(int idCategoria);
 }
 

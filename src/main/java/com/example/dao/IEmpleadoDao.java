@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.entities.Empleado;
 
 @Repository
-public interface IEmpleadoDao extends JpaRepository<Empleado, Long>{
+public interface IEmpleadoDao extends JpaRepository<Empleado, Integer>{
     
 }
