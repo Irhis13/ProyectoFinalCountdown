@@ -10,6 +10,26 @@
     <div th:replace=" baseTemplate :: botonMenu"></div>
     <h1>Categoria familiar</h1>
     <div th:replace="baseTemplate :: botonComprar"></div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>descripcion</th>
+                <th>precio</th>
+                <th>categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="viaje: ${viajeFamiliar}">
+                <td th:text="${viaje.id}"></td>
+                <td th:text="${viaje.nombre}"></td>
+                <td th:text="${viaje.descripcion}"></td>
+                <td th:text="${viaje.precio}"></td>
+                <td th:text="${viaje.categoria.nombre}"></td>
+            </tr>
+        </tbody>
+    </table>
     <br>
     <br>
     <br>

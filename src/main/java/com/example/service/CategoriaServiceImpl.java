@@ -1,13 +1,11 @@
 package com.example.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.ICategoriaDao;
-import com.example.dao.IViajeDao;
 import com.example.entities.Categoria;
 import com.example.entities.Viaje;
 
@@ -16,9 +14,6 @@ public class CategoriaServiceImpl implements ICategoriaService{
 
     @Autowired
     private ICategoriaDao daoCategoria;
-
-    @Autowired
-    private IViajeDao daoViaje;
 
     @Override
     public List<Categoria> getCategorias() {

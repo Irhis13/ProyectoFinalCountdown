@@ -44,15 +44,29 @@ public class ProyectoFinalCountdownApplication {
 			.build());
 
 			//Viajes
+			////////Categoria id:1
 			viajeSrv.guardar(Viaje.builder().nombre("Viaje 1").descripcion("BLA").precio(100.0)
 			.categoria(categoriaSrv.getCategoria(1)).build());
+			viajeSrv.guardar(Viaje.builder().nombre("Viaje 1- Copia").descripcion("BLA").precio(100.0)
+			.categoria(categoriaSrv.getCategoria(1)).build());
+
+			////////Categoria id:2
 			viajeSrv.guardar(Viaje.builder().nombre("Viaje 2").descripcion("BLABLA").precio(200.0)
 			.categoria(categoriaSrv.getCategoria(2)).build());
+			viajeSrv.guardar(Viaje.builder().nombre("Viaje 2 - Copia").descripcion("BLABLA").precio(200.0)
+			.categoria(categoriaSrv.getCategoria(2)).build());
+			
+			////////Categoria id:3
 			viajeSrv.guardar(Viaje.builder().nombre("Viaje 3").descripcion("BLABLABLA").precio(300.0)
 			.categoria(categoriaSrv.getCategoria(3)).build());
+			viajeSrv.guardar(Viaje.builder().nombre("Viaje 3 - Copia").descripcion("BLABLABLA").precio(300.0)
+			.categoria(categoriaSrv.getCategoria(3)).build());
+
+			////////Categoria id:4
 			viajeSrv.guardar(Viaje.builder().nombre("Viaje 4").descripcion("BLABLABLABLA").precio(400.0)
 			.categoria(categoriaSrv.getCategoria(4)).build());
-
+			viajeSrv.guardar(Viaje.builder().nombre("Viaje 4 - Copia").descripcion("BLABLABLABLA").precio(400.0)
+			.categoria(categoriaSrv.getCategoria(4)).build());
 			//Cliente
 			clienteSrv.guardar(Cliente.builder().nombre("Herminia").apellidos("Garcia Velez").imagenDni("1.jpg").fechaSalida(LocalDate.parse("2020-10-10")).fechaRegreso(LocalDate.parse("2022-10-10")).telefono("999887766").email("aa@aa.com").viaje(viajeSrv.getViaje(1)).build());
 		};

@@ -11,7 +11,7 @@
     <h1>Categoria aventura</h1>
     <div th:replace="baseTemplate :: botonComprar"></div>
 <br>
-    <a href="">VIAJES QUE ESTÁN EN LA CATEGORIA AVENTURA</a>
+    <a>VIAJES QUE ESTÁN EN LA CATEGORIA AVENTURA</a>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -23,13 +23,13 @@
             </tr>
         </thead>
         <tbody>
-            <!-- <tr th:each="viaje: ${viajes}">
+            <tr th:each="viaje: ${viajeAventura}">
                 <td th:text="${viaje.id}"></td>
                 <td th:text="${viaje.nombre}"></td>
                 <td th:text="${viaje.descripcion}"></td>
                 <td th:text="${viaje.precio}"></td>
                 <td th:text="${viaje.categoria.nombre}"></td>
-            </tr> -->
+            </tr>
         </tbody>
     </table>
     <br>

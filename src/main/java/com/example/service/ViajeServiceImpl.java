@@ -44,8 +44,7 @@ public class ViajeServiceImpl implements IViajeService{
         List<Viaje> viajes = daoViaje.findAll();
         List<Viaje> viajesCat = new ArrayList<>();
         for (Viaje viaje : viajes) {
-            System.out.println(viaje.getId());
-            if(idCategoria== viaje.getId()){
+            if(idCategoria== viaje.getCategoria().getId()){
                 viajesCat.add(viaje);
             }
         }

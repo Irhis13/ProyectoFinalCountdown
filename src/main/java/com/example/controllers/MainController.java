@@ -1,5 +1,6 @@
 package com.example.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,10 @@ public class MainController {
 
     @Autowired
     private IClienteService servicioCliente;
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////CONEXIÓN BACKEND CON HTML////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 
     @GetMapping("/home")
     //PARA QUE SE VEAN LOS HTML
@@ -56,34 +61,43 @@ public class MainController {
     }
 
     @GetMapping("/carritoCompra")
-    public String getCarrito(Model model){
-        model.addAttribute("viajes", servicioViaje.getViaje(1));
+    public String getCarrito(/*Model model*/){
+        // model.addAttribute("viajes", servicioViaje.getViaje(1));
         return "carritoCompra";
     }
 
     @GetMapping("/aventura")
     public String getAventura(Model model){
-        List<Viaje> viajeAventura = servicioCategoria.getViajesCategoria(1);
-        model.addAttribute("categoria", viajeAventura);
-        // model.addAttribute("categoria", servicioCategoria.getCategoria(1));
+
+        List<Viaje> viajeAventura = servicioViaje.getViajesCategoria(1);
+        // for (Viaje viaje : viajeAventura) {
+        //     System.out.println(viaje.getId());
+        // }
+        model.addAttribute("viajeAventura", viajeAventura);
         return "aventura";
     }
 
+////////////////////////////////////////////////////////////////////////////////////////////
+///////GET MAPPING DE LAS PÁGINAS DE CATEGORIAS QUE TRAEN LOS VIAJES DE ESA CATEGORIA//////
+///////////////////////////////////////////////////////////////////////////////////////////
     @GetMapping("/cultural")
     public String getCultural(Model model){
-        model.addAttribute("categoria", servicioCategoria.getCategoria(2));
+        List<Viaje> viajeCultural = servicioViaje.getViajesCategoria(2);
+        model.addAttribute("viajeCultural", viajeCultural);
         return "cultural";
     }
-
+    
     @GetMapping("/familiar")
     public String getFamiliar(Model model){
-        model.addAttribute("categoria", servicioCategoria.getCategoria(3));
+        List<Viaje> viajeFamiliar = servicioViaje.getViajesCategoria(3);
+        model.addAttribute("viajeFamiliar", viajeFamiliar);
         return "familiar";
     }
 
     @GetMapping("/pareja")
     public String getPareja(Model model){
-        model.addAttribute("categoria", servicioCategoria.getCategoria(4));
+        List<Viaje> viajePareja = servicioViaje.getViajesCategoria(4);
+        model.addAttribute("viajePareja",viajePareja);
         return "pareja";
     }
 
@@ -93,10 +107,9 @@ public class MainController {
     }
 
 
-
-
-/////////////////////////////////////////////////////////////////////////////////////
-    //METODOS
+////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////METODOS//////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
     @GetMapping("/formulario")
     public String mostrarFormulario(ModelMap map){
         map.addAttribute("viaje", new Viaje()); 
