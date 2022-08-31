@@ -8,8 +8,10 @@
 </head>
 <body>
     <div th:replace=" baseTemplate :: botonMenu"></div>
-    <h1>Portal empleado</h1>
-
+    <div style="margin-left:5%;">
+        <h1>Portal empleado</h1>
+    <img src="https://c.tenor.com/v6sljhjORDQAAAAC/the-office-mose-dwight.gif" alt="">
+    <br><br><br>
     <button>
         <a th:href="@{/formularioViaje}">Viaje nuevo</a>
     </button>
@@ -19,5 +21,6 @@
     <button>
         <a th:href="@{/formularioCliente}">Cliente nuevo</a>
     </button>
+</div>
 </body>
 </html>

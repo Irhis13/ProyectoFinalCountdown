@@ -16,7 +16,29 @@
     <button>Salir</button>
 
     <!-- Método que muestre historico de viajes o proximos viajes -->
-    <button>Tus viajes</button>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>apellidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${cliente.id}"></td>
+                <td th:text="${cliente.nombre}"></td>
+                <td th:text="${cliente.apellidos}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a>Tus proximos viajes:</a>
+    <ul>
+<li>
+    <a th:text="${cliente.viaje.nombre}"></a>
+</li>
+    </ul>
     <br>
     <br>
     <br>

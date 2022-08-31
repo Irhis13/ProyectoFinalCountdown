@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head th:replace="baseTemplate :: cabecera">
+
+<head th:replace="baseTemplate :: cabecera">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div th:replace=" baseTemplate :: botonMenu"></div>
-    <h1>Formulario para dar de Alta un Cliente</h1>
+    <div style="margin-left:2%;">
+        <h1>Formulario para dar de Alta un Cliente</h1>
+        <div div class="mb-3">
+            <form th:object="${cliente}" th:action="@{/crearCliente}" method="post">
+                <a>Nombre: </a>
+                <input type="text" placeholder="Nombre" th:field="*{nombre}" required>
+                <a>Apellidos: </a>
+                <input type="text" placeholder="Apellidos" th:field="*{apellidos}" required>
+                <br>
+                <a>Teléfono: </a>
+                <input type="text" placeholder="Telefono" th:field="*{telefono}" required>
+                <a>Email: </a>
+                <input type="text" placeholder="Email" th:field="*{email}" required>
+                <input type="file" name="imagen" required>
 
-    <div div class="mb-3">
-        <form th:object="${cliente}" th:action="@{/crearCliente}" method="post">
-            <a>Nombre: </a>
-            <input type="text" placeholder="Nombre" th:field="*{nombre}" required>
-            <a>Apellidos: </a>
-            <input type="text" placeholder="Apellidos" th:field="*{apellidos}" required>
-           <br>
-            <a>Teléfono: </a>
-            <input type="text" placeholder="Telefono" th:field="*{telefono}" required>
-            <a>Email: </a>
-            <input type="text" placeholder="Email" th:field="*{email}" required>
-
-            <br>
-            <button type="submit"class="btn btn-light">Confirmar</button>
+                <br>
+                <button type="submit">Confirmar</button>
 
 
-        </form>
+            </form>
+        </div>
     </div>
 
-    
+
 </body>
+
 </html>

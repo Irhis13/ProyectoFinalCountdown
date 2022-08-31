@@ -1,6 +1,8 @@
 package com.example.controllers;
 
-// import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.entities.*;
@@ -23,6 +27,7 @@ public class MainController {
 
     @Autowired
     private IViajeService servicioViaje;
+
     @Autowired
     private ICategoriaService servicioCategoria;
     
@@ -57,13 +62,22 @@ public class MainController {
         return "FAQS";
     }
 
-    @GetMapping("/login")
-    public String getLogin(/*Model model*/){
-        // model.addAttribute("cliente", servicioCliente.getCliente(1));
+    @GetMapping("/login/{id}") 
+    public ModelAndView getLogin(@PathVariable(name = "id") String id){
+        Cliente cliente = servicioCliente.getCliente(Integer.parseInt(id));
+
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("login");
+        mav.addObject("cliente", cliente);
+        return mav;
+
+    }
+    String getLogin(Model model){
+        model.addAttribute("cliente", servicioCliente.getCliente(1));
         return "login";
     }
 
-    @GetMapping("/carritoCompra")
+    @GetMapping("/carritoCompra") //Aquí implementar paramrequest!!!
     public String getCarrito(/*Model model*/){
         // model.addAttribute("viajes", servicioViaje.getViaje(1));
         return "carritoCompra";
@@ -131,7 +145,6 @@ public String mostrarFormularioCliente(ModelMap map){
     return "formularioAltaCliente";
 }
 
-
     @GetMapping("/formularioViaje")
     public String mostrarFormularioViaje(ModelMap map){
         map.addAttribute("viaje", new Viaje()); 
@@ -140,21 +153,20 @@ public String mostrarFormularioCliente(ModelMap map){
         return "formularioAltaViaje";
     }
 
-////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////METODOS//////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 
 ///////////NO CONSIGO QUE ME GUARDE EL VIAJE/EMPLEADO/CLIENTE EN BBDD
-    @PostMapping("/CrearViaje") //Añadir la parte de la imagen
+    @PostMapping("/crearViaje") 
     public String crearViaje(@ModelAttribute(name="viaje")
     Viaje viaje){
-
         servicioViaje.guardar(viaje);
         return "redirect:/home";
     }
 
-    @PostMapping("/CrearEmpleado")
+    @PostMapping("/crearEmpleado")
     public String crearEmpleado(@ModelAttribute(name="empleado")
     Empleado empleado){
         servicioEmpleado.guardar(empleado);
@@ -162,16 +174,25 @@ public String mostrarFormularioCliente(ModelMap map){
         return "redirect:/home";
     }
 
-    @PostMapping("/CrearCliente")
+    @PostMapping("/crearCliente")
     public String crearCliente(@ModelAttribute(name="cliente")
-    Cliente cliente){
+    Cliente cliente, @RequestParam(name ="imagen", required = false)MultipartFile imagenDni){
 
-        servicioCliente.guardar(cliente);
+        if(imagenDni != null){
+            String rutaAbsoluta ="C://Users//mpaterna//Documents//recursosEmpleado/";
+            Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+imagenDni.getOriginalFilename());
+            
+            try {
+                byte[] bytesImagenDni = imagenDni.getBytes();
+                Files.write(rutaCompleta, bytesImagenDni);
+                cliente.setImagenDni(imagenDni.getOriginalFilename());
+                servicioCliente.guardar(cliente);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return "redirect:/home";
     }
-
-
-
 
     @PostMapping("/detalles/{id}")
     public ModelAndView detalles(@PathVariable(name = "id") String id){
