@@ -103,6 +103,27 @@
 <!-- Creamos las clases para  mostrar el contenido de las
 Faqs cuando el usuario haga click sobre una pregunta -->
 <body>
+    
+    <header>
+        <div class="nav-btn">
+        </div>
+        <nav class="nav">
+            <!-- LOGO -->
+            <div class="logo">MUO</div>
+            <!-- NAVIGATION MENU -->
+            <ul class="nav-links">
+                <!-- NAVIGATION MENUS -->
+                <div class="menu">
+                    <li><a th:href="@{/home}">HOME</a></li>
+                    <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                    <li><a th:href="@{/FAQS}">FAQS</a></li>
+                    <li><a th:href="@{/loginPrueba}">LOGIN</a></li>
+                </div>
+            </ul>
+        </nav>
+        </div>
+    </header><br><br><br><br><br><br><br>
+
     <div th:replace=" baseTemplate :: botonMenu"></div>
     <h3 style="color:darkcyan ;text-align:center; font-family: Verdana;">PREGUNTAS FRECUENTES</h3> 
     <br>
