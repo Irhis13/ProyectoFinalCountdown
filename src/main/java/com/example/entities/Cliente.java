@@ -25,16 +25,23 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotNull
     private String nombre;
+    @NotNull
     private String apellidos;
+    @NotNull
     private String imagenDni;
 
+    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaSalida;
 
+    @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaRegreso;
+    @NotNull
     private String telefono;
+    @NotNull
     private String email;
 
     @ManyToOne
