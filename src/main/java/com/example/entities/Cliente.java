@@ -1,12 +1,16 @@
 package com.example.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -44,8 +48,8 @@ public class Cliente {
     @NotNull
     private String email;
 
-    @ManyToOne
+    @OneToMany
     @NotNull
-    private Viaje viaje;
+    private List<Viaje> viaje;
 
 }

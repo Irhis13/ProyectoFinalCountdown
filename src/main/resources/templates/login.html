@@ -34,11 +34,21 @@
     </table>
 
     <a>Tus proximos viajes:</a>
-    <ul>
-<li>
-    <a th:text="${cliente.viaje.nombre}"></a>
-</li>
-    </ul>
+    <table>
+        <thead>
+            <tr>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="viaje: ${cliente.viaje}">
+                <td th:text="${viaje.id}"></td>
+                <td th:text="${viaje.nombre}"></td>
+                <td th:text="${viaje.descripcion}"></td>
+                <td th:text="${viaje.precio}"></td>
+            </tr>
+        </tbody>
+    </table>
     <br>
     <br>
     <br>

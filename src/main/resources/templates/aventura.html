@@ -1,16 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head th:replace="baseTemplate :: cabecera">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
+
+    /* Punto algo para las clases y la almohadilla para el id */
+    body {
+        background-color: black;
+        font-family: 'Saira Semi Condensed', sans-serif;
+        color: chartreuse;
+    }
+
+    table {
+        background-color: rgba(255, 255, 255, 0.411);
+    }
+
+    button {
+        background: #34d947;
+        background-image: -webkit-linear-gradient(top, #34d947, #269e38);
+        background-image: -moz-linear-gradient(top, #34d947, #269e38);
+        background-image: -ms-linear-gradient(top, #34d947, #269e38);
+        background-image: -o-linear-gradient(top, #34d947, #269e38);
+        background-image: linear-gradient(to bottom, #34d947, #269e38);
+        -webkit-border-radius: 28;
+        -moz-border-radius: 28;
+        border-radius: 28px;
+        font-family: Arial;
+        color: fff;
+        font-size: 20px;
+        text-decoration: none;
+    }
+</style>
+
 <body>
     <div th:replace="baseTemplate :: botonMenu"></div>
     <h1>Categoria aventura</h1>
     <div th:replace="baseTemplate :: botonComprar"></div>
-<br>
+    <br>
     <a>VIAJES QUE ESTÁN EN LA CATEGORIA AVENTURA</a>
     <table class="table table-striped">
         <thead>
@@ -38,4 +70,5 @@
     <br>
     <div th:replace="baseTemplate :: footer"></div>
 </body>
+
 </html>

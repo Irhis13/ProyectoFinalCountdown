@@ -36,5 +36,8 @@ public class Viaje {
     @NotNull
     private Categoria categoria;
 
+    @ManyToOne
+    private Cliente cliente;
+
 
 }

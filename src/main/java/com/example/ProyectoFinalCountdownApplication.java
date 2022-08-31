@@ -1,6 +1,9 @@
 package com.example;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+// import java.util.Arrays;
+import java.util.List;
 
 // import java.time.LocalDate;
 
@@ -16,6 +19,7 @@ import com.example.service.ICategoriaService;
 import com.example.service.IClienteService;
 // import com.example.service.IClienteService;
 import com.example.service.IViajeService;
+
 
 @SpringBootApplication
 public class ProyectoFinalCountdownApplication {
@@ -48,15 +52,24 @@ public class ProyectoFinalCountdownApplication {
 			////////Categoria id:1
 			viajeSrv.guardar(Viaje.builder().nombre("Viaje 1").descripcion("BLA").precio(100.0)
 			.categoria(categoriaSrv.getCategoria(1)).build());
+
+			Viaje viajeCliente1 = viajeSrv.getViaje(1);
+			
 			viajeSrv.guardar(Viaje.builder().nombre("Viaje 1- Copia").descripcion("BLA").precio(100.0)
 			.categoria(categoriaSrv.getCategoria(1)).build());
+
+			Viaje viajeCliente2 = viajeSrv.getViaje(2);
 
 			////////Categoria id:2
 			viajeSrv.guardar(Viaje.builder().nombre("Viaje 2").descripcion("BLABLA").precio(200.0)
 			.categoria(categoriaSrv.getCategoria(2)).build());
+
+			Viaje viajeCliente3 = viajeSrv.getViaje(3);
+
 			viajeSrv.guardar(Viaje.builder().nombre("Viaje 2 - Copia").descripcion("BLABLA").precio(200.0)
 			.categoria(categoriaSrv.getCategoria(2)).build());
 			
+			Viaje viajeCliente4 = viajeSrv.getViaje(4);
 			////////Categoria id:3
 			viajeSrv.guardar(Viaje.builder().nombre("Viaje 3").descripcion("BLABLABLA").precio(300.0)
 			.categoria(categoriaSrv.getCategoria(3)).build());
@@ -69,12 +82,29 @@ public class ProyectoFinalCountdownApplication {
 			viajeSrv.guardar(Viaje.builder().nombre("Viaje 4 - Copia").descripcion("BLABLABLABLA").precio(400.0)
 			.categoria(categoriaSrv.getCategoria(4)).build());
 			
+			////////////LISTA VIAJES CLIENTE
+			List<Viaje> viajes1 = new ArrayList<>();
+			viajes1.add(viajeCliente1);
+			viajes1.add(viajeCliente2);
+		
+
+			List<Viaje> viajes2 = new ArrayList<>();
+			viajes2.add(viajeCliente3);
+			viajes2.add(viajeCliente4);
+
 			
 			//Cliente
-			clienteSrv.guardar(Cliente.builder().nombre("Herminia").apellidos("Garcia Velez").imagenDni("1.jpg").fechaSalida(LocalDate.parse("2020-10-10")).fechaRegreso(LocalDate.parse("2022-10-10")).telefono("999887766").email("aa@aa.com").viaje(viajeSrv.getViaje(1)).build());
-			clienteSrv.guardar(Cliente.builder().nombre("Eufrasia").apellidos("Cochamba Luengo").imagenDni("2.jpg").fechaSalida(LocalDate.parse("2020-01-10")).fechaRegreso(LocalDate.parse("2022-01-10")).telefono("999887766").email("ee@ee.com").viaje(viajeSrv.getViaje(2)).build());
+			clienteSrv.guardar(Cliente.builder().nombre("Herminia").apellidos("Garcia Velez")
+			.imagenDni("1.jpg").fechaSalida(LocalDate.parse("2020-10-10"))
+			.fechaRegreso(LocalDate.parse("2022-10-10")).telefono("999887766")
+			.email("aa@aa.com").viaje(viajes1).build());			
+			
+			clienteSrv.guardar(Cliente.builder().nombre("Eufrasia").apellidos("Cochamba Luengo")
+			.imagenDni("2.jpg").fechaSalida(LocalDate.parse("2020-01-10"))
+			.fechaRegreso(LocalDate.parse("2022-01-10")).telefono("999887766").email("ee@ee.com")
+			.viaje(viajes2).build());
 
-
+ 
 		};
 	}
 }

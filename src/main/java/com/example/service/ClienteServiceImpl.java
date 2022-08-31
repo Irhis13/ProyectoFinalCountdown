@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.IClienteDao;
+import com.example.dao.IViajeDao;
 import com.example.entities.Cliente;
 import com.example.entities.Viaje;
 
@@ -16,11 +17,15 @@ public class ClienteServiceImpl implements IClienteService {
     @Autowired
     private IClienteDao daoCliente;
 
+    @Autowired
+    private IViajeDao daoViaje;
+
     @Override
     public List<Cliente> getClientes() {
         return daoCliente.findAll();
     }
-        
+     
+    List<Viaje> listaViajes = new ArrayList<>();
 
     @Override
     public Cliente getCliente(int idCliente) {
