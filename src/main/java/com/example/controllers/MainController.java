@@ -62,6 +62,11 @@ public class MainController {
         return "FAQS";
     }
 
+    @GetMapping("/loginPrueba")
+    public String getLoginPrueba(){
+        return "loginPrueba";
+    }
+
     @GetMapping("/login/{id}") 
     public ModelAndView getLogin(@PathVariable(name = "id") String id){
         Cliente cliente = servicioCliente.getCliente(Integer.parseInt(id));
