@@ -57,14 +57,25 @@ public class MainController {
         return "aboutUs";
     }
 
+    @GetMapping("/signIn")
+    public String getsignIn(){
+        return "loginPrueba";
+    }
+
     @GetMapping("/FAQS")
     public String getFAQS(){
         return "FAQS";
     }
 
+<<<<<<< HEAD
     @GetMapping("/Paco")
     public String getCarritoC(){
         return "carrito2";
+=======
+    @GetMapping("/Carrito")
+    public String getCarritoComp(){
+        return "carrito";
+>>>>>>> 7a995a6be3a902866d92f42dcf4bb84f73ec36ee
     }
 
     @GetMapping("/login/{id}") 
@@ -75,8 +86,8 @@ public class MainController {
         mav.setViewName("login");
         mav.addObject("cliente", cliente);
         return mav;
-
     }
+
     String getLogin(Model model){
         model.addAttribute("cliente", servicioCliente.getCliente(1));
         return "login";

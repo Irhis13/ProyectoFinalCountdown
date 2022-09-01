@@ -1,20 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head th:replace="baseTemplate :: cabecera">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+    body {
+        background-image: url("https://www.10wallpaper.com/wallpaper/1366x768/1708/Dark_Minimal-2017_Abstract_Wallpaper_1366x768.jpg");
+
+    }
+
+    h1 {
+        font-family: 'IM Fell DW Pica SC', serif;
+    }
+
+    table {
+        font-family: 'Raleway', sans-serif;
+        background-color: rgba(255, 255, 255, 0.279);
+    }
+
+    #titulo{
+        background-color: rgba(255, 255, 255, 0.493);
+        width: 500px;
+        margin-left: 32%;
+        text-align: center;
+        border-radius: 30px;
+    }
+    #titulo2{
+        background-color: rgba(255, 255, 255, 0.493);
+        text-align: center;
+        border-radius: 30px;
+    }
+
+    #btnCrear, #btnSalir {
+        background: #3498db;
+        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+        background-image: -o-linear-gradient(top, #3498db, #2980b9);
+        background-image: linear-gradient(to bottom, #3498db, #2980b9);
+        -webkit-border-radius: 28;
+        -moz-border-radius: 28;
+        border-radius: 28px;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 12px;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+    }
+    #btnCrear, #btnSalir:hover {
+        background: #3cb0fd;
+        background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+        text-decoration: none;
+    }
+    
+</style>
+
 <body>
     <div th:replace=" baseTemplate :: botonMenu"></div>
-    <h1>Página de Login/Perfil Cliente</h1>
+    <div id="titulo">
+        <h1>Página de Login/Perfil Cliente</h1>
+    </div>
     <!-- Referenciar para que vaya a FormularioAltaCliente -->
-    <button>Crear cliente</button>
+    <button id="btnCrear">Crear cliente</button>
 
     <!--Método Salir del login -->
-    <button>Salir</button>
-
+    <button id="btnSalir">Salir</button>
+<br><br>
     <!-- Método que muestre historico de viajes o proximos viajes -->
     <table class="table table-striped">
         <thead>
@@ -33,7 +95,7 @@
         </tbody>
     </table>
 
-    <a>Tus proximos viajes:</a>
+    <a id="titulo2">Tus proximos viajes:</a>
     <table>
         <thead>
             <tr>
@@ -55,4 +117,5 @@
     <br>
     <div th:replace="baseTemplate :: footer"></div>
 </body>
+
 </html>

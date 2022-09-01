@@ -1,39 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head th:replace="baseTemplate :: cabecera">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- <link th:href="@{/css/estilos2.css}" rel="stylesheet" /> -->
+
 </head>
+<style>
+  * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: Foundation_One;
+	src: url(Foundation_One.ttf);
+}
+
+body {
+	font-family: Foundation_One;
+	background-image: url('https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/286300/c33a58cd147d270171996c766b102de411603d89.jpg');
+	flex-wrap: wrap;
+}
+
+.container {
+	padding: 40px 5%;
+	border: 4px black;
+}
+
+.heading-text {
+	margin-bottom: 2rem;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.heading-text span {
+	font-weight: 100;
+	color: #fff;
+	font-size: 70px;
+}
+
+h2 {
+	color: #fff;
+	font-size: 60px;
+
+}
+
+
+li {
+	list-style: none;
+
+}
+
+/* Responsive image gallery rules begin*/
+
+.image-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+}
+
+.image-gallery li {
+	flex-basis: 400px;
+	width: 350px;
+	position: relative;
+	cursor: pointer;
+}
+
+.image-gallery::after {
+	content: "";
+	flex-basis: 400px;
+}
+
+.image-gallery li img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+	border-radius: 5px;
+
+}
+
+.overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(57, 57, 57, 0.502);
+	top: 0;
+	left: 0;
+	transform: scale(0);
+	transition: all 0.2s 0.1s ease-in-out;
+	color: #fff;
+	border-radius: 5px;
+	/* center overlay text */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* hover */
+.image-gallery li:hover .overlay {
+	transform: scale(1);
+}
+
+
+/* ------------------------------CODIGO MENU------------------------------ */
+
+header {
+
+	width: 100%;
+	font-family: Foundation_One;
+	position: fixed;
+	z-index: 100;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	background-color: #55534e;
+	opacity: 0.8;
+	color: #f0f7fa;
+}
+
+.nav-links a {
+	color: #fff;
+}
+
+/* LOGO */
+.logo {
+	font-size: 32px;
+}
+
+/* NAVBAR MENU */
+.menu {
+	display: flex;
+	gap: 1em;
+	font-size: 18px;
+}
+
+.menu li:hover {
+	background-color: #4c9e9e;
+	border-radius: 5px;
+	transition: 0.3s ease;
+}
+
+.menu li {
+	padding: 5px 14px;
+}
+
+
+@media (max-width:600px) {
+	.nav>.nav-btn {
+		display: inline-block;
+		position: absolute;
+		right: 0px;
+		top: 0px;
+	}
+
+	.nav>.nav-btn>label {
+		display: inline-block;
+		width: 50px;
+		height: 50px;
+		padding: 13px;
+	}
+
+	.nav>.nav-btn>label:hover,
+	.nav #nav-check:checked~.nav-btn>label {
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+
+	.nav>.nav-links {
+		position: absolute;
+		display: block;
+		width: 100%;
+		background-color: #333;
+		height: 0px;
+		transition: all 0.3s ease-in;
+		overflow-y: hidden;
+		top: 50px;
+		left: 0px;
+	}
+
+	.nav>.nav-links>a {
+		display: block;
+		width: 100%;
+	}
+
+	.nav>#nav-check:not(:checked)~.nav-links {
+		height: 0px;
+	}
+
+	.nav>#nav-check:checked~.nav-links {
+		height: calc(100vh - 50px);
+		overflow-y: auto;
+	}
+}
+</style>
 <body>
-    <div th:replace=" baseTemplate :: botonMenu"></div>
-    <h1>Categoria Pareja</h1>
-    <div th:replace="baseTemplate :: botonComprar"></div>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>nombre</th>
-                <th>descripcion</th>
-                <th>precio</th>
-                <th>categoria</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="viaje: ${viajePareja}">
-                <td th:text="${viaje.id}"></td>
-                <td th:text="${viaje.nombre}"></td>
-                <td th:text="${viaje.descripcion}"></td>
-                <td th:text="${viaje.precio}"></td>
-                <td th:text="${viaje.categoria.nombre}"></td>
-            </tr>
-        </tbody>
-    </table>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div th:replace="baseTemplate :: footer"></div>
+
+  <header>
+    <div class="nav-btn">
+    </div>
+    <nav class="nav">
+      <!-- LOGO -->
+      <div class="logo">MUO</div>
+      <!-- NAVIGATION MENU -->
+      <ul class="nav-links">
+        <!-- NAVIGATION MENUS -->
+        <div class="menu">
+          <li><a th:href="@{/home}">Home</a></li>
+          <li><a th:href="@{/aboutUs}">About Us</a></li>
+          <li><a href="/">Login</a></li>
+        </div>
+      </ul>
+    </nav>
+    </div>
+  </header><br><br><br><br><br><br><br>
+
+  <!-- -----------------------------------CODIGO TARJETAS------------------------------------ -->
+
+  <div class="container">
+    <h2 class="heading-text">CATEGORIA <span>PAREJA</span></h2><br><br><br><br><br><br><br><br>
+
+    <ul class="image-gallery">
+      <li>
+        <a href="paquete1.html"> <img
+            src="https://4.bp.blogspot.com/-IIue4Jarmdk/Uu4zJh-JmcI/AAAAAAAADkY/DemtmHjLWQE/s1600/montmartre.jpg"
+            alt="" />
+          <div class="overlay"><span>PARÍS BOHEMIO</span></div>
+        </a>
+      </li>
+      <li>
+        <a href=""> <img
+            src="https://dwz6kul9y5yls.cloudfront.net/wp-content/uploads/2022/05/275893258_1025672788354521_5595499023877386229_n.jpg"
+            alt="" />
+          <div class="overlay"><span>ROMA AÑOS 60</span></div>
+        </a>
+      </li>
+      <li>
+        <a href=""> <img
+            src="https://www.qantas.com/content/travelinsider/en/explore/europe/greece/you-can-have-the-real-mamma-mia-movie-experience/_jcr_content/parsysTop/hero.img.full.medium.jpg/1532401861396.jpg"
+            alt="" />
+          <div class="overlay"><span>MAMMA MIA!</span></div>
+        </a>
+      </li>
+      <li>
+        <a href=""> <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Moulin_rouge.jpg" alt="" />
+          <div class="overlay"><span>Moulin Rouge!</span></div>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div th:replace=" baseTemplate :: botonMenu"></div>
+  <h1>Categoria Pareja</h1>
+  <div th:replace="baseTemplate :: botonComprar"></div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>nombre</th>
+        <th>descripcion</th>
+        <th>precio</th>
+        <th>categoria</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="viaje: ${viajePareja}">
+        <td th:text="${viaje.id}"></td>
+        <td th:text="${viaje.nombre}"></td>
+        <td th:text="${viaje.descripcion}"></td>
+        <td th:text="${viaje.precio}"></td>
+        <td th:text="${viaje.categoria.nombre}"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div th:replace="baseTemplate :: footer"></div> -->
 </body>
+
 </html>
