@@ -67,6 +67,11 @@ public class MainController {
         return "FAQS";
     }
 
+    @GetMapping("/Carrito")
+    public String getCarritoComp(){
+        return "carrito";
+    }
+
     @GetMapping("/login/{id}") 
     public ModelAndView getLogin(@PathVariable(name = "id") String id){
         Cliente cliente = servicioCliente.getCliente(Integer.parseInt(id));
