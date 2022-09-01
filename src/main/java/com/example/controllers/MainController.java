@@ -61,6 +61,7 @@ public class MainController {
     public String getsignIn(){
         return "loginPrueba";
     }
+
     @GetMapping("/FAQS")
     public String getFAQS(){
         return "FAQS";
