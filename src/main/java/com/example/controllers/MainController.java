@@ -58,8 +58,8 @@ public class MainController {
     }
 
     @GetMapping("/signIn")
-    public String getsign(){
-        return "signIn";
+    public String getsignIn(){
+        return "loginPrueba";
     }
     @GetMapping("/FAQS")
     public String getFAQS(){
