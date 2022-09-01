@@ -67,15 +67,13 @@ public class MainController {
         return "FAQS";
     }
 
-<<<<<<< HEAD
     @GetMapping("/Paco")
     public String getCarritoC(){
         return "carrito2";
-=======
+    }
     @GetMapping("/Carrito")
     public String getCarritoComp(){
         return "carrito";
->>>>>>> 7a995a6be3a902866d92f42dcf4bb84f73ec36ee
     }
 
     @GetMapping("/login/{id}") 
