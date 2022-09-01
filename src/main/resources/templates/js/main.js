@@ -24,10 +24,10 @@ if (document.readyState == "loading") {
 
 function ready() {
   // Eliminar elementos de la cesta
-  var reomveCartButtons = document.getElementsByClassName("cart-remove");
-  console.log(reomveCartButtons);
-  for (var i = 0; i < reomveCartButtons.length; i++) {
-    var button = reomveCartButtons[i];
+  var removeCartButtons = document.getElementsByClassName("cart-remove");
+  console.log(removeCartButtons);
+  for (var i = 0; i < removeCartButtons.length; i++) {
+    var button = removeCartButtons[i];
     button.addEventListener("click", removeCartItem);
   }
   // Cambiar cantidades
