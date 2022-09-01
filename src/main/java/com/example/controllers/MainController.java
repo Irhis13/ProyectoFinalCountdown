@@ -57,6 +57,10 @@ public class MainController {
         return "aboutUs";
     }
 
+    @GetMapping("/signIn")
+    public String getsign(){
+        return "signIn";
+    }
     @GetMapping("/FAQS")
     public String getFAQS(){
         return "FAQS";
@@ -70,8 +74,8 @@ public class MainController {
         mav.setViewName("login");
         mav.addObject("cliente", cliente);
         return mav;
-
     }
+
     String getLogin(Model model){
         model.addAttribute("cliente", servicioCliente.getCliente(1));
         return "login";
