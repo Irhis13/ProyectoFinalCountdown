@@ -67,10 +67,19 @@
         <h1>Página de Login/Perfil Cliente</h1>
     </div>
     <!-- Referenciar para que vaya a FormularioAltaCliente -->
-    <button id="btnCrear">Crear cliente</button>
+    <button id="btnCrear">
+           <a th:href="@{/formularioCliente }">
+            Crear cliente
+        </a>
+    </button>    
 
     <!--Método Salir del login -->
-    <button id="btnSalir">Salir</button>
+    <button id="btnSalir">
+        <a th:href="@{/home}">
+            Salir
+        </a>
+    </button>
+
 <br><br>
     <!-- Método que muestre historico de viajes o proximos viajes -->
     <table class="table table-striped">
