@@ -72,6 +72,17 @@ public class MainController {
         return "carrito";
     }
 
+    @GetMapping("/interfazPaquetes")
+    public String getInterfazPaquetes(){
+        return "interfazPaquetes";
+    }
+
+    @GetMapping("/prueba1")
+    public String getPrueba1(){
+        return "prueba1";
+    }
+
+
     @GetMapping("/login/{id}") 
     public ModelAndView getLogin(@PathVariable(name = "id") String id){
         Cliente cliente = servicioCliente.getCliente(Integer.parseInt(id));
