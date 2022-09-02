@@ -7,14 +7,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #divImagenes {
+        position: relative;
+        width: 50%;
+        left: 35%;
+    }
+
+    #img1 {
+        display: block;
+        width: 65%;
+        height: auto;
+        border-radius: 25px;
+    }
+
+    #sombreado {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 65%;
+        opacity: 0;
+        border-radius: 25px;
+        transition: .5s ease;
+        background-image: url("https://c.tenor.com/xP9lIIYilzoAAAAC/numerics-glitchcraft.gif");
+        /* background-color: #89a4ad; */
+    }
+
+    #divImagenes:hover #sombreado {
+        opacity: 1;
+    }
+
+    .text {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.354);
+        border-radius: 15px;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+</style>
 
 <body>
     <div th:replace=" baseTemplate :: botonMenu"></div>
     <h1>ABOUT US</h1>
     <br>
-    <div style="margin-left:25%;">
+    <!-- <div style="margin-left:25%;">
         <img src="https://dice-i-scdn-co.imgix.net/image/ab6761610000e5ebcf4a1dced6258416eb219e36" alt="">
+    </div> -->
+
+    <div id="divImagenes">
+        <img id="img1"
+            src="https://previews.123rf.com/images/vbaleha/vbaleha1403/vbaleha140300244/26742904-old-woman-with-pistol-on-a-white-background.jpg"
+            alt="">
+        <div id="sombreado">
+            <div class="text">Soy Concha, bablablalsas</div>
+        </div>
     </div>
+    
+    
+
     <br>
     <br>
     <br>
