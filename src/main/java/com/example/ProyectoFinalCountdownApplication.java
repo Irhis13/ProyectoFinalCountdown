@@ -52,28 +52,24 @@ public class ProyectoFinalCountdownApplication {
 			////////Categoria id:1 - AVENTURA
 			viajeSrv.guardar(Viaje.builder().nombre("Hazaña Inca").descripcion("Viaja al año 1460 y visita el mayor imperio de la Amércia precolombina. Contempla Machu Pichu en todo su esplendor y realiza el viaje de iniciación de los guerreros Incas, acompañado por uno de nuestros guías especializados .")
 			.precio(2500.0).categoria(categoriaSrv.getCategoria(1)).build());
-
 			viajeSrv.guardar(Viaje.builder().nombre("Travesía Vikinga").descripcion("Embárcate en el drakkar más famoso del rey vikingo Olaf Tryggvason en el año 998. Brinda en honor a Odin, el Vallhala te esperá.")
 			.precio(3250.0).categoria(categoriaSrv.getCategoria(1)).build());
-						
 			viajeSrv.guardar(Viaje.builder().nombre("Upside-Down").descripcion("Sólo para amantes de las emociones fuertes….. ¿Quieres conocer el mundo del Demogorgon y Vecna? Adiestra a tu propio demoperro y maravillate con el poder del Azotamentes.")
 			.precio(3250.0).categoria(categoriaSrv.getCategoria(1)).build());
-			
 			viajeSrv.guardar(Viaje.builder().nombre("Naboo").descripcion("Conoce las verdes llanuras de Naboo , sus colinas, frondosos bosques y bellas cascadas de agua cristalina y lagos o pantanos de densa profundidad donde los gungans habitan.")
 			.precio(2386.0).categoria(categoriaSrv.getCategoria(1)).build());
-			// ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-			// //////////////////////////////////////////Categoria id:2 - CULTURAL
+
+			///////////////////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////Categoria id:2 - CULTURAL
 			viajeSrv.guardar(Viaje.builder().nombre("Tierra Media").descripcion("Visita la Comarca año 2670 de la Tercera Edad, alójate en un acogedor agujero Hobbit, disfruta de los fuegos artificiales, goza de la gastronomía local y prueba la famosa hierba de la comarca.")
 			.precio(3250.0).categoria(categoriaSrv.getCategoria(2)).build());
-			
 			viajeSrv.guardar(Viaje.builder().nombre("Crucero Maravillas Mundo Antiguo").descripcion("Puedes visitar los grandes hitos de la cultura clásica que en un crucero, verás: el Faro de Alejandría, el Coloso de Rodas, el Templo de Artemisa, la Estatua de Zeus, el Mausoleo de Halicarnaso, y los Jardines Colgantes de Babilonia.")
 			.precio(3250.0).categoria(categoriaSrv.getCategoria(2)).build());
-			
 			viajeSrv.guardar(Viaje.builder().nombre("Orígenes del Jazz").descripcion("Si lo tuyo es la música... Años 20, Nueva Orleans, Lousiana…. El jazz comienza a despuntar como género propio, los músicos se reúnen en clubs clandestinos para improvisar. Únete a ellos y conoce de primera mano el orígen de estas melodías.")
 			.precio(3250.0).categoria(categoriaSrv.getCategoria(2)).build());
-
 			viajeSrv.guardar(Viaje.builder().nombre("Atlantis").descripcion("Descubre esta mítica cultura perdida descrita por Platón  como una isla situada más allá de las columnas de Hércules, más grande que Libia y Asia Menor juntas. Sumérgete en su cultura y maravillate de su avanzada tecnología.")
 			.precio(3250.0).categoria(categoriaSrv.getCategoria(2)).build());
+
 			// ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 			// ////////Categoria id:3 - FAMILIAR
 			viajeSrv.guardar(Viaje.builder().nombre("Jurassic Park").descripcion("Viaja a  Isla Nublar y contempla el parque de ocio más famoso del mundo. Visita los laboratorios y aprende con Mr. ADN acerca del proceso de creación de nuestros dinosaurios. ")

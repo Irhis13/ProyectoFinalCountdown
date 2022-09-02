@@ -169,15 +169,163 @@
         font-size: 20px;
         text-decoration: none;
     }
+
+    /*///////////////////////////////////////////////////CARDS////////////////////////////////////////////////////////////////////*/
+
+    #titulo {
+        margin-left: 35%;
+    }
+
+    #disposicion {
+        margin-left: 37%;
+    }
+
+    #categoriasTable {
+        width: 70%
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #43345d;
+        min-height: 800px;
+    } */
+
+    .container {
+        position: relative;
+        width: 1100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .container .card {
+        position: relative;
+        max-width: 300px;
+        height: 215px;
+        background-color: #fff;
+        margin: 30px 10px;
+        padding: 20px 15px;
+
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        transition: 0.3s ease-in-out;
+        border-radius: 15px;
+    }
+
+    .container .card:hover {
+        height: 370px;
+    }
+
+    .container .card .image {
+        position: relative;
+        width: 260px;
+        height: 200px;
+        top: -40%;
+        left: 8px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .container .card .image img {
+        max-width: 100%;
+        border-radius: 15px;
+    }
+
+    .container .card .content {
+        position: relative;
+        top: -140px;
+        padding: 10px 15px;
+        color: #111;
+        text-align: center;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+    }
+
+    .container .card:hover .content {
+        margin-top: 30px;
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0.2s;
+
+    }
 </style>
 
 <body>
-    <div th:replace="baseTemplate :: botonMenu"></div>
     <h1>Categoria aventura</h1>
-    <div th:replace="baseTemplate :: botonComprar"></div>
     <br>
+    <br>
+    <section class=container>
+        <div class=card>
+            <div class=image>
+                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/Aventura%20-%20IncasOkPeq.png?raw=true">
+            </div>
+            <div class=content>
+                <h3>Hazaña Inca</h3>
+                <p>Viaja al año 1460 y visita el mayor imperio de la Amércia precolombina. Contempla Machu Pichu en todo
+                    su esplendor y realiza el viaje de iniciación de los guerreros Incas, acompañado por uno de nuestros
+                    guías especializados .</p>
+                <br>
+                <p>3250 €</p>
+            </div>
+        </div>
+
+        <div class=card>
+            <div class=image>
+                <img
+                    src="https://github.com/AsunPaterna/img_chrono/blob/main/Aventura%20-%20VikingosOKPeq.png?raw=true">
+            </div>
+            <div class=content>
+                <h3>Travesía Vikinga</h3>
+                <p>Embárcate en el drakkar más famoso del rey vikingo Olaf Tryggvason en el año 998. Brinda en honor a Odin, el Vallhala te esperá.</p>
+                <br>
+                <p>3250 €</p>
+            </div>
+        </div>
+    </section>
+
+
+    <br><br><br><br>
+    <section class=container>
+        <div class=card>
+            <div class=image>
+                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/Aventura%20-%20UpsideDownOK.png?raw=true">
+            </div>
+            <div class=content>
+                <h3>Upside-Down</h3>
+                <p>Sólo para amantes de las emociones fuertes….. ¿Quieres conocer el mundo del Demogorgon y Vecna? Adiestra a tu propio demoperro y maravillate con el poder del Azotamentes.</p>
+                <br>
+                <p>3250 €</p>
+            </div>
+        </div>
+
+        <div class=card>
+            <div class=image>
+                <img
+                    src="https://github.com/AsunPaterna/img_chrono/blob/main/Aventura%20-%20NabooOk.png?raw=true">
+            </div>
+            <div class=content>
+                <h3>Naboo</h3>
+                <p>Conoce las verdes llanuras de Naboo , sus colinas, frondosos bosques y bellas cascadas de agua cristalina y lagos o pantanos de densa profundidad donde los gungans habitan.</p>
+                <br>
+                <p>3250 €</p>
+            </div>
+        </div>
+
+    </section>
     <a>VIAJES QUE ESTÁN EN LA CATEGORIA AVENTURA</a>
-    <table class="table table-striped">
+    <!-- <table class="table table-striped">
         <thead>
             <tr>
                 <th>id</th>
@@ -196,7 +344,7 @@
                 <td th:text="${viaje.categoria.nombre}"></td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
     <br>
     <br>
     <br>
