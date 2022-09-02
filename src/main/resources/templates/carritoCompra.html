@@ -1,14 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="baseTemplate :: cabecera">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<header>
+    <title>Chronologic</title>
+    <div class="nav-btn">
+    </div>
+    <nav class="nav">
+        <!-- LOGO -->
+        <div class="logo">Chronologic</div>
+        <!-- NAVIGATION MENU -->
+        <ul class="nav-links">
+            <!-- NAVIGATION MENUS -->
+            <div class="menu">
+                <li><a th:href="@{/home}">HOME</a></li>
+                <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                <li><a th:href="@{/FAQS}">FAQS</a></li>
+                <li><a th:href="@{/signIn}">LOGIN</a></li>
+            </div>
+        </ul>
+    </nav>
+    </div>
+</header><br><br><br><br><br><br><br>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+    header {
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #ffffff4e;
+        opacity: 0.8;
+        color: #f0f7fa;
+    }
+
+    .nav-links a {
+        color: #fff;
+    }
+
+    /* LOGO */
+    .logo {
+        font-size: 48px;
+        font-family: 'IM Fell DW Pica', serif;
+        color: #fff;
+    }
+
+    /* NAVBAR MENU */
+    .menu {
+        display: flex;
+        gap: 1em;
+        font-size: 18px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .menu li:hover {
+        background-image: url("https://c.tenor.com/dxA2j-gsp4oAAAAC/glitch-static.gif");
+        opacity: 0.4;
+        border-radius: 5px;
+        transition: 0.1s ease;
+    }
+
+    .menu li {
+        padding: 5px 14px;
+    }
+
+
+    @media (max-width:600px) {
+        .nav>.nav-btn {
+            display: inline-block;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+
+        .nav>.nav-btn>label {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            padding: 13px;
+        }
+
+        .nav>.nav-btn>label:hover,
+        .nav #nav-check:checked~.nav-btn>label {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .nav>.nav-links {
+            position: absolute;
+            display: block;
+            width: 100%;
+            background-color: rgb(42, 42, 42);
+            height: 0px;
+            transition: all 0.3s ease-in;
+            overflow-y: hidden;
+            top: 50px;
+            left: 0px;
+        }
+
+        .nav>.nav-links>a {
+            display: block;
+            width: 100%;
+        }
+
+        .nav>#nav-check:not(:checked)~.nav-links {
+            height: 0px;
+        }
+
+        .nav>#nav-check:checked~.nav-links {
+            height: calc(100vh - 50px);
+            overflow-y: auto;
+        }
+    }
+
+    body {
+        /* background-image: url(https://github.com/AsunPaterna/img_ch-rono/blob/main/Dark_3d_backgroundpeq.jpg?raw=true); */
+        background-image: url(https://github.com/AsunPaterna/img_chrono/blob/main/FutureVioleta.png?raw=true);
+        background-repeat: repeat;
+        background-origin: content-box;
+        background-position-x: center;
+        background-position-y: bottom;
+        background-attachment: fixed;
+        background-size: 100%;
+        font-family: 'Montserrat', sans-serif;
+        color: #f0f7fa;
+
+    }
+    #disposicion{
+        margin-left:37%;
+    }
+    #categoriasTable{
+        width:70%
+    }
+</style>
+
 <body>
 
-    <div th:replace=" baseTemplate :: botonMenu"></div>
 
     <h1>Carrito de la compra</h1>
     <ul>
@@ -27,4 +168,5 @@
     <br>
     <div th:replace="baseTemplate :: footer"></div>
 </body>
+
 </html>
