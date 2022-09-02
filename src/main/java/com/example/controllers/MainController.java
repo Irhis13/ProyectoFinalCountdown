@@ -67,10 +67,6 @@ public class MainController {
         return "FAQS";
     }
 
-    @GetMapping("/Paco")
-    public String getCarritoC(){
-        return "carrito2";
-    }
     @GetMapping("/Carrito")
     public String getCarritoComp(){
         return "carrito";
