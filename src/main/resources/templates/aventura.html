@@ -1,27 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Categoría: Aventura</title>
-    
-        <div class="product-details">
-    
-            <!-- Link a iconos redes FontAwesome-->
-            <script src="https://kit.fontawesome.com/e0d651bf64.js" crossorigin="anonymous"></script>
-            <!-- Box Icons -->
-            <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+<head th:replace=" baseTemplate :: cabecera">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoría: Aventura</title>
+
+    <div class="product-details">
+
+        <!-- Link a iconos redes FontAwesome-->
+        <script src="https://kit.fontawesome.com/e0d651bf64.js" crossorigin="anonymous"></script>
+        <!-- Box Icons -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
-
 <style>
+    /* Google Fonts */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
     @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+    * {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        scroll-padding-top: 2px;
+        scroll-behavior: smooth;
+        box-sizing: content-box;
+        list-style: none;
+        text-decoration: none;
+    }
+
+    img {
+        width: 50%;
+    }
+
+    body {
+        background-color: black;
+        /* background-image: ; */
+        /* color: var(--text-color1); */
+        background-size: 100%;
+
+    }
+
+    .container {
+        max-width: 1068px;
+        margin: auto;
+        width: 50%;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        color: var(--text-color);
+        font-weight: 400;
+    }
+
+    #cart-icon {
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #fae505
+    }
+
+    /* Cesta */
+    .cart {
+        position: fixed;
+        top: 100px;
+        right: -100%;
+        width: 360px;
+        min-height: 100vh;
+        padding: 0px;
+        background: var(--bg-color);
+        background: rgb(95, 85, 62);
+        opacity: 0.9;
+        box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
+        transition: 0.3s;
+    }
+
+    .cart.active {
+        right: 0;
+    }
+
+    .cart-title {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 2rem;
+    }
+
+    .cart-box {
+        display: grid;
+        grid-template-columns: 32% 50% 18%;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .cart-img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        padding: 10px;
+    }
+
+    .detail-box {
+        display: grid;
+        row-gap: 0.5rem;
+    }
+
+    .cart-product-title {
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+
+    .cart-price {
+        font-weight: 500;
+    }
+
+    .cart-quantity {
+        border: 1px solid var(--text-color);
+        outline-color: var(--main-color);
+        width: 2.4rem;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .cart-remove {
+        font-size: 24px;
+        color: var(--main-color);
+        cursor: pointer;
+    }
+
+    .total {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1.5rem;
+        border-top: 1px solid var(--text-color);
+    }
+
+    .total-title {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .total-price {
+        margin-left: 0.5rem;
+    }
+
+    .btn-buy {
+        display: flex;
+        margin: 1.5rem auto 0 auto;
+        padding: 12px 20px;
+        border: none;
+        background: var(--text-color3);
+        color: var(--text-color2);
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .btn-buy:hover {
+        background: var(--text-color1);
+    }
+
+    #close-cart {
+        position: absolute;
+        top: 1rem;
+        right: 0.8rem;
+        font-size: 2rem;
+        color: var(--text-color);
+        cursor: pointer;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .shop {
+        margin-top: 2rem;
+    }
+
+    /* Contenido */
+    .shop-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+        gap: 1.5rem;
+    }
+
+    .product-box {
+        position: relative;
+    }
+
+    .product-box:hover {
+        padding: 10px;
+        border: 1px solid var(--text-color);
+        transition: 0.4s;
+    }
+
+    .product-img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 0.5rem;
+    }
+
+    .product-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+    }
+
+    .price {
+        font-weight: 500;
+    }
+
+    .add-cart {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: var(--text-color);
+        color: var(--text-color1);
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .add-cart:hover {
+        background: hsl(249, 32%, 17%);
+    }
+
+    /* Breakpoints / Making Responsive */
+    @media (max-width: 1080px) {
+        .nav {
+            padding: 15px;
+        }
+
+        #shop-content {
+            padding: 3rem 0 2rem;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 90%;
+        }
+
+        .shop {
+            margin-top: 2rem !important;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .nav {
+            padding: 11px;
+        }
+
+        .logo {
+            font-size: 1rem;
+        }
+
+        .cart {
+            width: 320px;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .shop {
+            margin-top: 1rem !important;
+        }
+
+        .cart {
+            width: 280px;
+        }
+    }
+
+
+    /* ----------------------------MENU STYLE--------------------- */
+
+    /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
     header {
+
         width: 100%;
         position: fixed;
         z-index: 100;
@@ -41,7 +308,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 20px;
-        background-color: #ffffff4e;
+        background-color: #55534e;
         opacity: 0.8;
         color: #f0f7fa;
     }
@@ -52,9 +319,7 @@
 
     /* LOGO */
     .logo {
-        font-size: 48px;
-        font-family: 'IM Fell DW Pica', serif;
-        color: #fff;
+        font-size: 32px;
     }
 
     /* NAVBAR MENU */
@@ -62,14 +327,12 @@
         display: flex;
         gap: 1em;
         font-size: 18px;
-        font-family: 'Montserrat', sans-serif;
     }
 
     .menu li:hover {
-        background-image: url("https://c.tenor.com/dxA2j-gsp4oAAAAC/glitch-static.gif");
-        opacity: 0.4;
+        background-color: #4c9e9e;
         border-radius: 5px;
-        transition: 0.1s ease;
+        transition: 0.3s ease;
     }
 
     .menu li {
@@ -101,7 +364,7 @@
             position: absolute;
             display: block;
             width: 100%;
-            background-color: rgb(42, 42, 42);
+            background-color: #333;
             height: 0px;
             transition: all 0.3s ease-in;
             overflow-y: hidden;
@@ -122,122 +385,63 @@
             height: calc(100vh - 50px);
             overflow-y: auto;
         }
-    }
-
-    body {
-        /* background-image: url(https://github.com/AsunPaterna/img_ch-rono/blob/main/Dark_3d_backgroundpeq.jpg?raw=true); */
-        background-image: url(https://github.com/AsunPaterna/img_chrono/blob/main/FutureVioleta.png?raw=true);
-        background-repeat: repeat;
-        background-origin: content-box;
-        background-position-x: center;
-        background-position-y: bottom;
-        background-attachment: fixed;
-        background-size: 100%;
-        font-family: 'Montserrat', sans-serif;
-        color: #f0f7fa;
 
     }
 
-    #disposicion {
-        margin-left: 37%;
-    }
-
-    #categoriasTable {
-        width: 70%
-    }
-
-    table {
-        background-color: rgba(255, 255, 255, 0.411);
-    }
-
-    /*///////////////////////////////////////////////////CARDS////////////////////////////////////////////////////////////////////*/
-
-    #titulo {
-        margin-left: 35%;
-    }
-
-    #disposicion {
-        margin-left: 37%;
-    }
-
-    #categoriasTable {
-        width: 70%
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .container {
-        margin-left: 15%;
-        position:relative;
-        width: 820px;
-        display: flex;
-        align-items: center;
-        justify-content:space-between;
-        padding: 30px;
-    }
-
-    .container .card {
-        position: relative;
-        max-width: 300px;
-        height: 215px;
-        background-color: #fff;
-        margin: 30px 10px;
-        padding: 20px 15px;
-
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-        transition: 0.3s ease-in-out;
-        border-radius: 15px;
-    }
-
-    .container .card:hover {
-        height: 370px;
-    }
-
-    .container .card .image {
-        position: relative;
-        width: 260px;
-        height: 200px;
-        top: -40%;
-        left: 8px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-
-    .container .card .image img {
-        max-width: 100%;
-        border-radius: 15px;
-    }
-
-    .container .card .content {
-        position: relative;
-        top: -140px;
-        padding: 10px 15px;
-        color: #111;
-        text-align: center;
-
-        visibility: hidden;
+    #sombreado {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
         opacity: 0;
-        transition: 0.3s ease-in-out;
+        border-radius: 25px;
+        transition: .5s ease;
+        background-color: #ffffff84;
     }
 
-    .container .card:hover .content {
-        margin-top: 30px;
-        visibility: visible;
+    #divImagenes:hover #sombreado {
         opacity: 1;
-        transition-delay: 0.2s;
+    }
 
+    .text {
+        color: rgb(0, 0, 0);
+        background-color: rgba(255, 255, 255, 0.354);
+        border-radius: 15px;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    #img1,
+    #img2,
+    #img3,
+    #img4 {
+        border-radius: 25px;
+    }
+
+    #tit1 {
+        justify-items: center;
+        margin-left: 30%;
+    }
+
+    #txt1 {
+        margin: 15px;
     }
 </style>
 
 <body>
+
+    <!-- Cabecera -->
     <header>
-        <title>Chronologic</title>
+
         <div class="nav-btn">
         </div>
         <nav class="nav">
@@ -251,102 +455,202 @@
                     <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
                     <li><a th:href="@{/FAQS}">FAQS</a></li>
                     <li><a th:href="@{/signIn}">LOGIN</a></li>
+                    <li><i class='bx bx-shopping-bag' id="cart-icon">
+                            <p style="font-size: 15px ;"> Ver el carrito</p>
+                        </i></li>
                 </div>
             </ul>
         </nav>
-        </div>
-    </header><br><br><br><br><br><br><br>
-    
-    <h1>Categoria aventura</h1>
-    <br>
-    <br>
-    <section class=container>
-        <div class=card>
-            <div class=image>
-                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/Aventura%20-%20IncasOkPeq.png?raw=true">
-            </div>
-            <div class=content>
-                <h3>Hazaña Inca</h3>
-                <br>
-                <p>Viaja al año 1460 y visita el mayor imperio de la Amércia precolombina. Contempla Machu Pichu en todo
-                    su esplendor y realiza el viaje de iniciación de los guerreros Incas, acompañado por uno de nuestros
-                    guías especializados .</p>
-                <p>3250 €</p>
-            </div>
-        </div>
+        </div><br><br><br><br><br><br>
+    </header>
 
-        <div class=card>
-            <div class=image>
-                <img
-                    src="https://github.com/AsunPaterna/img_chrono/blob/main/Aventura%20-%20VikingosOKPeq.png?raw=true">
+    <section id="sec2">
+        <!-- Cesta -->
+        <div class="cart">
+            <h2 class="cart-title">Tu cesta</h2>
+            <!-- Contenido -->
+            <div class="cart-content">
+
             </div>
-            <div class=content>
-                <h3>Travesía Vikinga</h3>
-                <br>
-                <p>Embárcate en el drakkar más famoso del rey vikingo Olaf Tryggvason en el año 998. Brinda en honor a Odín, lucha junto a las Valkirias, diviértete con Loki. Con nosotros el Vallhala te espera.</p>
-                <br>
-                <p>3250 €</p>
+            <!-- Total -->
+            <div class="total">
+                <div class="total-title">Total</div>
+                <div class="total-price">€0</div>
+            </div>
+            <!-- Botón de comprar -->
+            <button type="button" class="btn-buy">Comprar</button>
+            <!-- Icono Cerrar cesta -->
+            <i class='bx bx-x' id="close-cart"></i>
+
+        </div>
+        </div>
+    </section>
+    <!-- Tienda -->
+    <section class="shop container">
+        <div class="shop-content">
+            <h2 class="section-title">Aventura</h2>
+            <br>
+            <br>
+            <!-- Content -->
+            <div class="shop-content" th:each="viaje : ${viajeAventura}">
+                <!-- Box 1 -->
+                <div id="divImagenes">
+                    <div class="product-box">
+                        <img id="img1" th:src="${viaje.enlaceImagen}" alt="" class="product-img">
+                        <div id="sombreado">
+                            <div id="tit1" class="product-title" th:text="${viaje.nombre}"></div>
+                            <p id="txt1" th:text="${viaje.descripcion}"></p>
+                            <span class="price" th:text="${viaje.precio}"></span>
+                        </div>
+                        <i class='bx bx-shopping-bag add-cart'></i>
+                    </div>
+                    <br><br>
+                </div>
             </div>
         </div>
     </section>
 
+    <br><br><br>
 
-    <br><br><br><br>
-    <section class=container>
-        <div class=card>
-            <div class=image>
-                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/Aventura%20-%20UpsideDownOK.png?raw=true">
-            </div>
-            <div class=content>
-                <h3>Upside-Down</h3>
-                <br>
-                <p>Sólo para amantes de las emociones fuertes….. ¿Quieres conocer el mundo del Demogorgon y Vecna? Adiestra a tu propio demoperro y maravillate con el poder del Azotamentes.</p>
-                <br>
-                <p>3250 €</p>
-            </div>
-        </div>
 
-        <div class=card>
-            <div class=image>
-                <img
-                    src="https://github.com/AsunPaterna/img_chrono/blob/main/Aventura%20-%20NabooOk.png?raw=true">
-            </div>
-            <div class=content>
-                <h3>Naboo</h3>
-                <br>
-                <p>Conoce las verdes llanuras de Naboo , sus colinas, frondosos bosques y bellas cascadas de agua cristalina y lagos o pantanos de densa profundidad donde los gungans habitan.</p>
-                <br>
-                <p>3250 €</p>
-            </div>
-        </div>
 
-    </section>
-    <a>VIAJES QUE ESTÁN EN LA CATEGORIA AVENTURA</a>
-    <!-- <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>nombre</th>
-                <th>descripcion</th>
-                <th>precio</th>
-                <th>categoria</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="viaje: ${viajeAventura}">
-                <td th:text="${viaje.id}"></td>
-                <td th:text="${viaje.nombre}"></td>
-                <td th:text="${viaje.descripcion}"></td>
-                <td th:text="${viaje.precio}"></td>
-                <td th:text="${viaje.categoria.nombre}"></td>
-            </tr>
-        </tbody>
-    </table> -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <div th:replace="baseTemplate :: footer"></div>
+    <script>
+        //  Cesta
+        let cartIcon = document.querySelector("#cart-icon");
+        let cart = document.querySelector(".cart");
+        let closeCart = document.querySelector("#close-cart");
+
+        // Desplegar Cesta
+        cartIcon.onclick = () => {
+            cart.classList.add("active");
+        };
+
+        // Cerrar Cesta
+        closeCart.onclick = () => {
+            cart.classList.remove("active");
+        };
+
+        // Cargar DOM
+        if (document.readyState == "loading") {
+            document.addEventListener("DOMContentLoaded", ready);
+        } else {
+            ready();
+        }
+
+        // Funciones dentro de la cesta
+
+        function ready() {
+            // Eliminar elementos de la cesta
+            var removeCartButtons = document.getElementsByClassName("cart-remove");
+            console.log(removeCartButtons);
+            for (var i = 0; i < removeCartButtons.length; i++) {
+                var button = removeCartButtons[i];
+                button.addEventListener("click", removeCartItem);
+            }
+            // Cambiar cantidades
+            var quantityInputs = document.getElementsByClassName("cart-quantity");
+            for (var i = 0; i < quantityInputs.length; i++) {
+                var input = quantityInputs[i];
+                input.addEventListener("change", quantityChanged);
+            }
+            // Añadir a la cesta
+            var addCart = document.getElementsByClassName("add-cart");
+            for (var i = 0; i < addCart.length; i++) {
+                var button = addCart[i];
+                button.addEventListener("click", addCartClicked);
+            }
+            // Funcionamiento de botón comprar
+            document
+                .getElementsByClassName("btn-buy")[0]
+                .addEventListener("click", buyButtonClicked);
+        }
+        // Botón Comprar
+        function buyButtonClicked() {
+            // alert("Your Order is placed");
+            var cartContent = document.getElementsByClassName("cart-content")[0];
+            while (cartContent.hasChildNodes()) {
+                cartContent.removeChild(cartContent.firstChild);
+            }
+            updatetotal();
+        }
+
+        // Eliminar objetos de la cesta
+        function removeCartItem(event) {
+            var buttonClicked = event.target;
+            buttonClicked.parentElement.remove();
+            updatetotal();
+        }
+        // Modificar cantidades
+        function quantityChanged(event) {
+            var input = event.target;
+            if (isNaN(input.value) || input.value <= 0) {
+                input.value = 1;
+            }
+            updatetotal();
+        }
+        // Añadir a la cesta
+        function addCartClicked(event) {
+            var button = event.target;
+            var shopProducts = button.parentElement;
+            var title = shopProducts.getElementsByClassName("product-title")[0].innerText;
+            var price = shopProducts.getElementsByClassName("price")[0].innerText;
+            var productImg = shopProducts.getElementsByClassName("product-img")[0].src;
+            addProductToCart(title, price, productImg);
+            updatetotal();
+        }
+        function addProductToCart(title, price, productImg) {
+            var cartShopBox = document.createElement("div");
+            cartShopBox.classList.add("cart-box");
+            var cartItems = document.getElementsByClassName("cart-content")[0];
+            var cartItemsNames = cartItems.getElementsByClassName("cart-product-title");
+            for (var i = 0; i < cartItemsNames.length; i++) {
+                if (cartItemsNames[i].innerText == title) {
+                    // alert("You have already add this item to cart");
+                    return;
+                }
+            }
+            var cartBoxContent = `
+                        <img src="${productImg}" alt="" class="cart-img">
+                        <div class="detail-box">
+                            <div class="cart-product-title">${title}</div>
+                            <div class="cart-price">${price}</div>
+                            <input type="number" value="1" class="cart-quantity">
+                        </div>
+                        <!-- Remove Cart -->
+                        <i class='bx bxs-trash-alt cart-remove' ></i>`;
+            cartShopBox.innerHTML = cartBoxContent;
+            cartItems.append(cartShopBox);
+            cartShopBox
+                .getElementsByClassName("cart-remove")[0]
+                .addEventListener("click", removeCartItem);
+            cartShopBox
+                .getElementsByClassName("cart-quantity")[0]
+                .addEventListener("change", quantityChanged);
+        }
+
+        // Actualizar el total
+        function updatetotal() {
+            var cartContent = document.getElementsByClassName("cart-content")[0];
+            var cartBoxes = cartContent.getElementsByClassName("cart-box");
+            var total = 0;
+            for (var i = 0; i < cartBoxes.length; i++) {
+                var cartBox = cartBoxes[i];
+                var priceElement = cartBox.getElementsByClassName("cart-price")[0];
+                var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
+                var price = parseFloat(priceElement.innerText.replace("$", ""));
+                var quantity = quantityElement.value;
+                total = total + price * quantity;
+            }
+            // // If price Contain some Cents Value
+            // total = Math.round(total * 100) / 100;
+
+            document.getElementsByClassName("total-price")[0].innerText = "$" + total;
+        }
+
+
+
+
+    </script>
 
 </body>
 

@@ -31,6 +31,7 @@ public class Categoria {
     private String nombre;
     @NotNull
     private String descripcion;
+    private String enlaceImagen;
 
     @OneToMany(mappedBy = "categoria")
     private List<Viaje> viajesCategoria;

@@ -488,23 +488,26 @@
     <!-- Tienda -->
     <section class="shop container">
         <div class="shop-content">
-          <h2>Categorias de nuestros viajes</h2>
-          <br><br>
-        <div class=card th:each="categoria :${categorias}">
-            <div class=image>
-                <img
-                    src="https://github.com/AsunPaterna/img_chrono/blob/main/Cultural%20-%20MaravillasOKPeq.jpg?raw=true">
+            <h2 class="section-title">Aventuras</h2>
+            <br>
+            <br>
+            <!-- Content -->
+            <div th:each="viaje : ${viajeAventura}">
+                <!-- Box 1 -->
+                <div id="divImagenes">
+                    <div class="product-box">
+                        <img id="img1" th:src="${viaje.enlaceImagen}" alt="" class="product-img">
+                        <div id="sombreado">
+                            <div id="tit1" class="product-title" th:text="${viaje.nombre}"></div>
+                            <p id="txt1" th:text="${viaje.descripcion}"></p>
+                            <span class="price" th:text="${viaje.precio}"></span>
+                        </div>
+                        <i class='bx bx-shopping-bag add-cart'></i>
+                    </div>
+                    <br><br>
+                </div>
             </div>
-            <div class=content>
-                <h3>Crucero Maravillas Mundo Antiguo</h3>
-                <br>
-                <p>Disfruta de los grandes hitos de la cultura clásica en crucero: el Faro de
-                    Alejandría, el Coloso de Rodas, el Templo de Artemisa, la Estatua de Zeus, el Mausoleo de
-                    Halicarnaso, y los Jardines Colgantes de Babilonia.</p>
-                    <br>
-                    <p>3250 €</p>
-            </div>
-        </div>
+
 
 
 

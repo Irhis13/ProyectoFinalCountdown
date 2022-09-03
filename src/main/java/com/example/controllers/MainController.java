@@ -52,6 +52,13 @@ public class MainController {
         return "home";
     }
 
+    @GetMapping("/destinos")
+    public String getDestinosCategoria(Model model){
+        List<Categoria> categorias = servicioCategoria.getCategorias();
+        model.addAttribute("categorias", categorias);
+        return "Destinos";
+    }
+
     @GetMapping("/aboutUs")
     public String getAboutUs(){
         return "aboutUs";
@@ -61,6 +68,7 @@ public class MainController {
     public String getsignIn(){
         return "loginPrueba";
     }
+
 
     @GetMapping("/FAQS")
     public String getFAQS(){
@@ -116,28 +124,28 @@ public class MainController {
 
         List<Viaje> viajeAventura = servicioViaje.getViajesCategoria(1);
         model.addAttribute("viajeAventura", viajeAventura);
-        return "aventura";
+        return "aventuraD";
     }
 
     @GetMapping("/cultural")
     public String getCultural(Model model){
         List<Viaje> viajeCultural = servicioViaje.getViajesCategoria(2);
         model.addAttribute("viajeCultural", viajeCultural);
-        return "cultural";
+        return "culturalD";
     }
     
     @GetMapping("/familiar")
     public String getFamiliar(Model model){
         List<Viaje> viajeFamiliar = servicioViaje.getViajesCategoria(3);
         model.addAttribute("viajeFamiliar", viajeFamiliar);
-        return "familiar";
+        return "familiarD";
     }
 
     @GetMapping("/pareja")
     public String getPareja(Model model){
         List<Viaje> viajePareja = servicioViaje.getViajesCategoria(4);
         model.addAttribute("viajePareja",viajePareja);
-        return "pareja";
+        return "parejaD";
     }
 
 
