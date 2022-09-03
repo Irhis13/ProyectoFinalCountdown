@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<header>
-    <title>Chronologic</title>
-    <div class="nav-btn">
-    </div>
-    <nav class="nav">
-        <!-- LOGO -->
-        <div class="logo">Chronologic</div>
-        <!-- NAVIGATION MENU -->
-        <ul class="nav-links">
-            <!-- NAVIGATION MENUS -->
-            <div class="menu">
-                <li><a th:href="@{/home}">HOME</a></li>
-                <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
-                <li><a th:href="@{/FAQS}">FAQS</a></li>
-                <li><a th:href="@{/signIn}">LOGIN</a></li>
-            </div>
-        </ul>
-    </nav>
-    </div>
-</header><br><br><br><br><br><br><br>
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Categoría: Aventura</title>
+    
+        <div class="product-details">
+    
+            <!-- Link a iconos redes FontAwesome-->
+            <script src="https://kit.fontawesome.com/e0d651bf64.js" crossorigin="anonymous"></script>
+            <!-- Box Icons -->
+            <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
     header {
         width: 100%;
@@ -240,6 +236,27 @@
 </style>
 
 <body>
+    <header>
+        <title>Chronologic</title>
+        <div class="nav-btn">
+        </div>
+        <nav class="nav">
+            <!-- LOGO -->
+            <div class="logo">Chronologic</div>
+            <!-- NAVIGATION MENU -->
+            <ul class="nav-links">
+                <!-- NAVIGATION MENUS -->
+                <div class="menu">
+                    <li><a th:href="@{/home}">HOME</a></li>
+                    <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                    <li><a th:href="@{/FAQS}">FAQS</a></li>
+                    <li><a th:href="@{/signIn}">LOGIN</a></li>
+                </div>
+            </ul>
+        </nav>
+        </div>
+    </header><br><br><br><br><br><br><br>
+    
     <h1>Categoria aventura</h1>
     <br>
     <br>
@@ -254,7 +271,6 @@
                 <p>Viaja al año 1460 y visita el mayor imperio de la Amércia precolombina. Contempla Machu Pichu en todo
                     su esplendor y realiza el viaje de iniciación de los guerreros Incas, acompañado por uno de nuestros
                     guías especializados .</p>
-                <br>
                 <p>3250 €</p>
             </div>
         </div>
@@ -331,6 +347,7 @@
     <br>
     <br>
     <div th:replace="baseTemplate :: footer"></div>
+
 </body>
 
 </html>
