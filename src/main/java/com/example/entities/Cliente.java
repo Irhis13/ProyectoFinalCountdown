@@ -1,5 +1,6 @@
 package com.example.entities;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -25,7 +26,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Cliente {
+public class Cliente implements Serializable{
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -51,5 +54,6 @@ public class Cliente {
     @OneToMany
     @NotNull
     private List<Viaje> viaje;
+
 
 }

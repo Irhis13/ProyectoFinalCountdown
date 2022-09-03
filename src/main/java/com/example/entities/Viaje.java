@@ -2,6 +2,9 @@ package com.example.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+
+import java.io.Serializable;
+
 import javax.persistence.*;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -19,7 +22,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Viaje {
+public class Viaje implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
