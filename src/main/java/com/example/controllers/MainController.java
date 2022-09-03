@@ -57,6 +57,11 @@ public class MainController {
         return "aboutUs";
     }
 
+    @GetMapping("/aventuraCards")
+    public String getAventuraCards(){
+        return "aventuraCards";
+    }
+
     @GetMapping("/FAQS")
     public String getFAQS(){
         return "FAQS";
