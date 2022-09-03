@@ -37,7 +37,7 @@
 
     body {
         background-color: black;
-        background-image:url("https://cdn5.vectorstock.com/i/thumb-large/48/04/effect-leather-with-surreal-scales-seamless-vector-28184804.jpg") ;
+        background-image:url("https://github.com/AsunPaterna/img_chrono/blob/main/1094.jpg?raw=true") ;
         /* color: var(--text-color1); */
         background-size: 100%;
 
@@ -56,11 +56,18 @@
         padding: 20px;
     }
 
-    .logo {
+    .logoSaludo {
+        white-space: nowrap;
+        overflow: hidden;
+        width: 10em;
+        animation: anim 6s infinite;
         font-size: 2rem;
         font-family: 'Fugaz One', cursive;
         color: var(--text-color);
         font-weight: 400;
+    }
+    @keyframes anim {
+        from {width: 0;}
     }
 
     #cart-icon {
@@ -307,8 +314,8 @@
         align-items: center;
         justify-content: space-between;
         padding: 20px;
-        background-color: #55534e;
-        opacity: 0.8;
+        background:linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
+        /* opacity: 0.8; */
         color: #f0f7fa;
     }
 
@@ -537,13 +544,14 @@
         </div>
         <nav class="nav">
             <!-- LOGO -->
-            <div class="logo">Chronologic</div>
+            <div class="logoSaludo">Chronologic</div>
             <!-- NAVIGATION MENU -->
             <ul class="nav-links">
                 <!-- NAVIGATION MENUS -->
                 <div class="menu">
                     <li><a th:href="@{/home}">HOME</a></li>
                     <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                    <li><a th:href="@{/destinos}">DESTINOS</a></li>
                     <li><a th:href="@{/FAQS}">FAQS</a></li>
                     <li><a th:href="@{/signIn}">LOGIN</a></li>
                 </div>

@@ -39,7 +39,7 @@
 
     body {
         background-color: black;
-        /* background-image: ; */
+        background-image:url("https://github.com/AsunPaterna/img_chrono/blob/main/1094.jpg?raw=true") ;
         /* color: var(--text-color1); */
         background-size: 100%;
 
@@ -64,132 +64,7 @@
         font-weight: 400;
     }
 
-    #cart-icon {
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #fae505
-    }
 
-    /* Cesta */
-    .cart {
-        position: fixed;
-        top: 100px;
-        right: -100%;
-        width: 360px;
-        min-height: 100vh;
-        padding: 0px;
-        background: var(--bg-color);
-        background: rgb(95, 85, 62);
-        opacity: 0.9;
-        box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
-        transition: 0.3s;
-    }
-
-    .cart.active {
-        right: 0;
-    }
-
-    .cart-title {
-        text-align: center;
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-top: 2rem;
-    }
-
-    .cart-box {
-        display: grid;
-        grid-template-columns: 32% 50% 18%;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .cart-img {
-        width: 100px;
-        height: 100px;
-        object-fit: contain;
-        padding: 10px;
-    }
-
-    .detail-box {
-        display: grid;
-        row-gap: 0.5rem;
-    }
-
-    .cart-product-title {
-        font-size: 1rem;
-        text-transform: uppercase;
-    }
-
-    .cart-price {
-        font-weight: 500;
-    }
-
-    .cart-quantity {
-        border: 1px solid var(--text-color);
-        outline-color: var(--main-color);
-        width: 2.4rem;
-        text-align: center;
-        font-size: 1rem;
-    }
-
-    .cart-remove {
-        font-size: 24px;
-        color: var(--main-color);
-        cursor: pointer;
-    }
-
-    .total {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 1.5rem;
-        border-top: 1px solid var(--text-color);
-    }
-
-    .total-title {
-        font-size: 1rem;
-        font-weight: 600;
-    }
-
-    .total-price {
-        margin-left: 0.5rem;
-    }
-
-    .btn-buy {
-        display: flex;
-        margin: 1.5rem auto 0 auto;
-        padding: 12px 20px;
-        border: none;
-        background: var(--text-color3);
-        color: var(--text-color2);
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-    }
-
-    .btn-buy:hover {
-        background: var(--text-color1);
-    }
-
-    #close-cart {
-        position: absolute;
-        top: 1rem;
-        right: 0.8rem;
-        font-size: 2rem;
-        color: var(--text-color);
-        cursor: pointer;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 1.5rem;
-    }
-
-    .shop {
-        margin-top: 2rem;
-    }
 
     /* Contenido */
     .shop-content {
@@ -263,11 +138,9 @@
         .nav {
             padding: 11px;
         }
-
         .logo {
             font-size: 1rem;
         }
-
         .cart {
             width: 320px;
         }
@@ -277,7 +150,6 @@
         .shop {
             margin-top: 1rem !important;
         }
-
         .cart {
             width: 280px;
         }
@@ -407,7 +279,7 @@
     }
 
     .text {
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
         background-color: rgba(255, 255, 255, 0.354);
         border-radius: 15px;
         font-size: 20px;
@@ -420,21 +292,73 @@
         text-align: center;
     }
 
-    #img1,
-    #img2,
-    #img3,
-    #img4 {
-        border-radius: 25px;
+    #titulo, #texto{
+      color: #fff;
+    }
+    .container {
+        margin-left: 15%;
+        position:relative;
+        width: 820px;
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        padding: 30px;
     }
 
-    #tit1 {
-        justify-items: center;
-        margin-left: 30%;
+    .container .card {
+        position: relative;
+        max-width: 300px;
+        height: 200px;
+        background-color: #fff;
+        margin: 30px 10px;
+        padding: 20px 15px;
+
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        transition: 0.3s ease-in-out;
+        border-radius: 15px;
     }
 
-    #txt1 {
-        margin: 15px;
+    .container .card:hover {
+        height: 390px;
     }
+
+    .container .card .image {
+        position: relative;
+        width: 260px;
+        height: 200px;
+        top: -40%;
+        left: 8px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .container .card .image img {
+        max-width: 100%;
+        border-radius: 15px;
+    }
+
+    .container .card .content {
+        position: relative;
+        top: -140px;
+        padding: 10px 15px;
+        color: #111;
+        text-align: center;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+    }
+
+    .container .card:hover .content {
+        margin-top: 30px;
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0.2s;
+
+    }
+
 </style>
 
 <body>
@@ -453,205 +377,108 @@
                 <div class="menu">
                     <li><a th:href="@{/home}">HOME</a></li>
                     <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                    <li><a th:href="@{/destinos}">DESTINOS</a></li>
                     <li><a th:href="@{/FAQS}">FAQS</a></li>
                     <li><a th:href="@{/signIn}">LOGIN</a></li>
-                    <li><i class='bx bx-shopping-bag' id="cart-icon">
-                            <p style="font-size: 15px ;"> Ver el carrito</p>
-                        </i></li>
                 </div>
             </ul>
         </nav>
         </div><br><br><br><br><br><br>
     </header>
 
-    <section id="sec2">
-        <!-- Cesta -->
-        <div class="cart">
-            <h2 class="cart-title">Tu cesta</h2>
-            <!-- Contenido -->
-            <div class="cart-content">
-
+    <section class=container>
+        <div class=card>
+            <div class=image>
+                <img
+                    src="https://media.discordapp.net/attachments/568464501335130112/1012679118334201866/20220826-125206-PXLR2_palomas_2022-08-26_12-50-33.sav_21-4x-rcs.png">
             </div>
-            <!-- Total -->
-            <div class="total">
-                <div class="total-title">Total</div>
-                <div class="total-price">€0</div>
+            <div class=content>
+                <h3>Aventura</h3>
+                <br>
+                <p>Aventuras para los que sueñan a lo grande, adentrate en la selva, navega con los mejores y disfruta de los dinosaurios.</p>
+                    <br>
+                    <button>
+                        <a th:href="@{/aventura}">¡Llévame!</a>
+                    </button>
             </div>
-            <!-- Botón de comprar -->
-            <button type="button" class="btn-buy">Comprar</button>
-            <!-- Icono Cerrar cesta -->
-            <i class='bx bx-x' id="close-cart"></i>
+        </div>
 
+        <div class=card>
+            <div class=image>
+                <img
+                    src="https://media.discordapp.net/attachments/568464501335130112/1012679118334201866/20220826-125206-PXLR2_palomas_2022-08-26_12-50-33.sav_21-4x-rcs.png">
+            </div>
+            <div class=content>
+                <h3>Cultura</h3>
+                <br>
+                <p>Para quién sueña con conocer la cultura de primera mano, desde tomar el té con Jane Austen hasta pasear por Pompeya, todo es posible.</p>
+                    <br>
+                    <button>
+                        <a th:href="@{/cultura}">¡Llévame!</a>
+                    </button>
+            </div>
         </div>
+
+    </section>
+
+    <br><br><br><br>
+    <section class=container>
+        <div class=card>
+            <div class=image>
+                <img src="https://media.discordapp.net/attachments/568464501335130112/1012679118334201866/20220826-125206-PXLR2_palomas_2022-08-26_12-50-33.sav_21-4x-rcs.png">
+            </div>
+            <div class=content>
+                <h3>Familiar</h3>
+                <br>
+                <p>Para disfrutar tanto tú como tu familia, recorrer el laberinto del Minotauro se hace mejor en compañía, procura no dejar a nadie atrás.</p>
+                    <br>
+                    <button>
+                        <a th:href="@{/familiar}">¡Llévame!</a>
+                    </button>
+            </div>
         </div>
+
+        <div class=card>
+            <div class=image>
+                <img
+                    src="https://media.discordapp.net/attachments/568464501335130112/1012679118334201866/20220826-125206-PXLR2_palomas_2022-08-26_12-50-33.sav_21-4x-rcs.png">
+            </div>
+            <div class=content>
+                <h3>Pareja</h3>
+                <br>
+                <p>Estar enamorado es atemporal, aunque puedes disfrutar de ese romance besandote en cada siglo y en cada monumento en construcción. ¡Qué nada te lo impida!</p>
+                    <br>
+                    <button>
+                        <a th:href="@{/pareja}">¡Llévame!</a>
+                    </button>
+            </div>
+        </div>
+
     </section>
     <!-- Tienda -->
-    <section class="shop container">
+    <!-- <section class="shop container">
         <div class="shop-content">
           <h2>Categorias de nuestros viajes</h2>
           <br><br>
         <div class=card th:each="categoria :${categorias}">
             <div class=image>
                 <img
-                    src="https://github.com/AsunPaterna/img_chrono/blob/main/Cultural%20-%20MaravillasOKPeq.jpg?raw=true">
+                    th:src="${categoria.enlaceImagen}">
             </div>
-            <div class=content>
-                <h3>Crucero Maravillas Mundo Antiguo</h3>
+            <div class=content id="titulo">
+                <h3 th:text="${categoria.nombre}"></h3>
                 <br>
-                <p>Disfruta de los grandes hitos de la cultura clásica en crucero: el Faro de
-                    Alejandría, el Coloso de Rodas, el Templo de Artemisa, la Estatua de Zeus, el Mausoleo de
-                    Halicarnaso, y los Jardines Colgantes de Babilonia.</p>
-                    <br>
-                    <p>3250 €</p>
+                <p th:text="${categoria.descripcion}" id="texto"></p>
             </div>
         </div>
-
-
-
-
         </div>
-    </section>
+    </section> -->
 
     <br><br><br>
 
 
 
     <script>
-        //  Cesta
-        let cartIcon = document.querySelector("#cart-icon");
-        let cart = document.querySelector(".cart");
-        let closeCart = document.querySelector("#close-cart");
-
-        // Desplegar Cesta
-        cartIcon.onclick = () => {
-            cart.classList.add("active");
-        };
-
-        // Cerrar Cesta
-        closeCart.onclick = () => {
-            cart.classList.remove("active");
-        };
-
-        // Cargar DOM
-        if (document.readyState == "loading") {
-            document.addEventListener("DOMContentLoaded", ready);
-        } else {
-            ready();
-        }
-
-        // Funciones dentro de la cesta
-
-        function ready() {
-            // Eliminar elementos de la cesta
-            var removeCartButtons = document.getElementsByClassName("cart-remove");
-            console.log(removeCartButtons);
-            for (var i = 0; i < removeCartButtons.length; i++) {
-                var button = removeCartButtons[i];
-                button.addEventListener("click", removeCartItem);
-            }
-            // Cambiar cantidades
-            var quantityInputs = document.getElementsByClassName("cart-quantity");
-            for (var i = 0; i < quantityInputs.length; i++) {
-                var input = quantityInputs[i];
-                input.addEventListener("change", quantityChanged);
-            }
-            // Añadir a la cesta
-            var addCart = document.getElementsByClassName("add-cart");
-            for (var i = 0; i < addCart.length; i++) {
-                var button = addCart[i];
-                button.addEventListener("click", addCartClicked);
-            }
-            // Funcionamiento de botón comprar
-            document
-                .getElementsByClassName("btn-buy")[0]
-                .addEventListener("click", buyButtonClicked);
-        }
-        // Botón Comprar
-        function buyButtonClicked() {
-            // alert("Your Order is placed");
-            var cartContent = document.getElementsByClassName("cart-content")[0];
-            while (cartContent.hasChildNodes()) {
-                cartContent.removeChild(cartContent.firstChild);
-            }
-            updatetotal();
-        }
-
-        // Eliminar objetos de la cesta
-        function removeCartItem(event) {
-            var buttonClicked = event.target;
-            buttonClicked.parentElement.remove();
-            updatetotal();
-        }
-        // Modificar cantidades
-        function quantityChanged(event) {
-            var input = event.target;
-            if (isNaN(input.value) || input.value <= 0) {
-                input.value = 1;
-            }
-            updatetotal();
-        }
-        // Añadir a la cesta
-        function addCartClicked(event) {
-            var button = event.target;
-            var shopProducts = button.parentElement;
-            var title = shopProducts.getElementsByClassName("product-title")[0].innerText;
-            var price = shopProducts.getElementsByClassName("price")[0].innerText;
-            var productImg = shopProducts.getElementsByClassName("product-img")[0].src;
-            addProductToCart(title, price, productImg);
-            updatetotal();
-        }
-        function addProductToCart(title, price, productImg) {
-            var cartShopBox = document.createElement("div");
-            cartShopBox.classList.add("cart-box");
-            var cartItems = document.getElementsByClassName("cart-content")[0];
-            var cartItemsNames = cartItems.getElementsByClassName("cart-product-title");
-            for (var i = 0; i < cartItemsNames.length; i++) {
-                if (cartItemsNames[i].innerText == title) {
-                    // alert("You have already add this item to cart");
-                    return;
-                }
-            }
-            var cartBoxContent = `
-                        <img src="${productImg}" alt="" class="cart-img">
-                        <div class="detail-box">
-                            <div class="cart-product-title">${title}</div>
-                            <div class="cart-price">${price}</div>
-                            <input type="number" value="1" class="cart-quantity">
-                        </div>
-                        <!-- Remove Cart -->
-                        <i class='bx bxs-trash-alt cart-remove' ></i>`;
-            cartShopBox.innerHTML = cartBoxContent;
-            cartItems.append(cartShopBox);
-            cartShopBox
-                .getElementsByClassName("cart-remove")[0]
-                .addEventListener("click", removeCartItem);
-            cartShopBox
-                .getElementsByClassName("cart-quantity")[0]
-                .addEventListener("change", quantityChanged);
-        }
-
-        // Actualizar el total
-        function updatetotal() {
-            var cartContent = document.getElementsByClassName("cart-content")[0];
-            var cartBoxes = cartContent.getElementsByClassName("cart-box");
-            var total = 0;
-            for (var i = 0; i < cartBoxes.length; i++) {
-                var cartBox = cartBoxes[i];
-                var priceElement = cartBox.getElementsByClassName("cart-price")[0];
-                var quantityElement = cartBox.getElementsByClassName("cart-quantity")[0];
-                var price = parseFloat(priceElement.innerText.replace("$", ""));
-                var quantity = quantityElement.value;
-                total = total + price * quantity;
-            }
-            // // If price Contain some Cents Value
-            // total = Math.round(total * 100) / 100;
-
-            document.getElementsByClassName("total-price")[0].innerText = "$" + total;
-        }
-
-
-
-
     </script>
 
 </body>
