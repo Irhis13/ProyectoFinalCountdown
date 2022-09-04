@@ -5,38 +5,91 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+
+                                      <!-- CSS --BOOTSTRAP-- -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <title>Formulario Alta Viajes</title>
+
 </head>
 
-<body>
-    <h1>Formulario para dar de Alta un Viaje</h1>
-    <h1>SÓLO EMPLEADOS</h1>
-    <br>
-    <br>
-    <br>
-    <div div class="mb-3">
-        <form th:object="${viaje}" th:action="@{/crearViaje}" method="post">
-            <a>Nombre: </a>
-            <input type="text" placeholder="Nombre viaje" th:field="*{nombre}" required>
-            <a>Descripción: </a>
-            <input type="text" placeholder="Descripcion viaje" th:field="*{descripcion}" required>
-            <a>Precio: </a>
-            <input type="text" placeholder="Precio" th:field="*{precio}" required>
+<body style="background-color:rgba(141, 236, 212, 0.877)">
 
-            <br><br>
-            <a>Selecciona categoria:</a>
-            <select id="categoria" th:field="*{categoria}" required class="form-select form-select-sm"
-                aria-label=".form-select-sm example" style="width:150px;">
-                <option value="" selected>Seleccione departamento</option>
-                <option th:each=" categoria: ${categorias}" th:value="${categoria.id}"
-                th:text="${categoria.nombre}"></option>
-            </select>
-            <br>
-            <button type="submit"class="btn btn-light">Confirmar</button>
+    <body>
 
-        </form>
-    </div>
-    <div th:replace="baseTemplate :: botonPortalEmpleado"></div>
-</body>
+        <br>
+        <h1 class="text-center" style="position:relative; color:rgb(9, 9, 9) ; font-family:Verdana;">
+          Formulario para dar de Alta un Viaje</h1>
 
-</html>
+        <br>
+        
+
+        <h1 class="text-center" style="color: rgb(10, 0, 12);">ACCESO SÓLO EMPLEADOS</h1>
+        <br>
+       
+        <div class="mb-3">
+            <!-- <div class="container-fluid px-1 py-5 mx-auto">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center"> -->
+
+
+                        <div class="container mt-3">
+                            <form th:object="${viaje}" th:action="@{/crearViaje}" method="post">
+                                <div class="mb-3 mt-3">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" class="form-control" placeholder="Nombre viaje"
+                                        th:field="*{nombre}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="descripcion">Descripción:</label>
+                                    <input type="text" class="form-control" placeholder="Descripcion viaje"
+                                        th:field="*{descripcion}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="precio">Precio:</label>
+                                    <input type="text" class="form-control" placeholder="Precio viaje"
+                                        th:field="*{Precio}" required>
+                                </div>
+
+                                <a>Selecciona categoria:</a>
+                                <select id="categoria" th:field="*{categoria}" required
+                                    class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                    style="width:100%;">
+                                    <div class="col-md-12 text-center"></div>
+                                    <div style="align-self:center ;"></div>
+                                    
+                                    <option value="" selected>Seleccione departamento</option>
+                                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                                    <option th:each=" categoria: ${categorias}" th:value="${categoria.id}"
+                                        th:text="${categoria.nombre}"></option>
+                                </select>
+                            
+                        </div>
+
+                    </div>
+                </div>
+
+                <br>
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <br>
+     
+
+<div id="botonEmpleado"></div>
+        <div th:replace="baseTemplate :: botonPortalEmpleado"></div>
+
+
+
+
+
+    </body>
+
+    </html>

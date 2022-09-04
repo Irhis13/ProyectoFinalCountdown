@@ -63,7 +63,7 @@
 
 <body>
     <div th:fragment="botonMenu" style="margin-top:2%; width: 200px; background: linear-gradient(45deg, transparent, transparent 5px, rgba(143, 77, 63, 0.25) 5px,
-    rgba(143, 77, 63, 0.25) 10px);"  >
+    rgba(143, 77, 63, 0.25) 10px);">
         <button>
             <a th:href="@{/home}">
                 Home
@@ -96,13 +96,20 @@
         </p>
     </footer>
 
-    <div th:fragment="botonPortalEmpleado">
-        <button>
+  
+    <div th:fragment="botonPortalEmpleado" >
+        <div class="col text-center">
+         
+            
+        <button style="background-color: rgb(255, 255, 255); padding: auto;">
             <a th:href="@{/portalEmpleado}">
-                Portal Empledao
+                Portal Empleado
             </a>
+        </div>
         </button>
     </div>
+
+
 
     <!-- <div th:fragment="footer" style="margin-left:44%;">
         <img src="https://pixsector.com/cache/f8dbbdb2/avb37443a9d16e06eef66.png" alt="twitter icon"
