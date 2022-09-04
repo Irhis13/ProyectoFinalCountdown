@@ -18,6 +18,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private BCryptPasswordEncoder passEncoder;
 
+    @Autowired
+    private LoginSuccessMessage successMessage;
+
   
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -28,7 +31,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/formularioCliente/").hasAnyRole("USER")
         .anyRequest().authenticated()
         .and()
-        .formLogin().permitAll().loginPage("/login")
+        .formLogin()
+            .successHandler(successMessage)
+            .loginPage("/login")
+        .permitAll()
         .and()
         .logout().permitAll(); 
 
