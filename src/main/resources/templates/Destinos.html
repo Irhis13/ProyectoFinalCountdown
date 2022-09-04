@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categoría: Aventura</title>
+    <title>Chronologic</title>
 
     <div class="product-details">
 
@@ -15,12 +15,12 @@
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <style>
-    /* Google Fonts */
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+ /* Google Fonts */
+ @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
     @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Montserrat&display=swap');
 
     * {
         font-family: 'Montserrat', sans-serif;
@@ -33,10 +33,13 @@
         text-decoration: none;
     }
 
+    img {
+        width: 50%;
+    }
 
     body {
         background-color: black;
-        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/1094.jpg?raw=true");
+        /* background-image: ; */
         /* color: var(--text-color1); */
         background-size: 100%;
 
@@ -63,52 +66,58 @@
 
 
 
-    /* Contenido */
+    /* Breakpoints / Making Responsive */
+    @media (max-width: 1080px) {
+        .nav {
+            padding: 15px;
+        }
 
-
-    /*--COLUMNAS RESPONSIVE-CARDS--*/
-    * {
-        box-sizing: border-box;
-    }
-
-    /* Float four columns side by side */
-    .column {
-        float: left;
-        width: 25%;
-        padding: 0 10px;
-    }
-
-    /* Remove extra left and right margins, due to padding */
-    .row {
-        margin: 0 -5px;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    /* Responsive columns */
-    @media screen and (max-width: 600px) {
-        .column {
-            width: 100%;
-            display: block;
-            margin-bottom: 20px;
+        .container {
+            margin: 0 auto;
+            width: 90%;
         }
     }
 
-    /* Style the counter cards */
-    .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        padding: 16px;
-        text-align: center;
-        background-color: #f1f1f1;
-        /* border-radius: 20px, 50px,60px,100px; */
+    @media (max-width: 400px) {
+        .nav {
+            padding: 11px;
+        }
+
+        .logo {
+            font-size: 1rem;
+        }
+
     }
 
+    @media (max-width: 360px) {
+        .shop {
+            margin-top: 1rem !important;
+        }
+
+    }
+
+    .logoSaludo {
+        user-select: none;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 10em;
+        animation: anim 6s infinite;
+        font-size: 2rem;
+        font-family: 'Fugaz One', cursive;
+        color: var(--text-color);
+        font-weight: 400;
+    }
+
+    @keyframes anim {
+        from {
+            width: 0;
+        }
+    }
+
+
+
     /* ----------------------------MENU STYLE--------------------- */
+
     /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
     header {
 
@@ -131,8 +140,8 @@
         align-items: center;
         justify-content: space-between;
         padding: 20px;
-        background-color: #55534e;
-        opacity: 0.8;
+        background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
+        /* opacity: 0.8; */
         color: #f0f7fa;
     }
 
@@ -211,112 +220,45 @@
 
     }
 
-    #sombreado {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        opacity: 0;
-        border-radius: 25px;
-        transition: .5s ease;
-        background-color: #ffffff84;
+
+    
+    .logoSaludo {
+        user-select: none;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 10em;
+        animation: anim 6s infinite;
+        font-size: 2rem;
+        font-family: 'Fugaz One', cursive;
+        color: var(--text-color);
+        font-weight: 400;
     }
 
-    #divImagenes:hover #sombreado {
-        opacity: 1;
+    @keyframes anim {
+        from {
+            width: 0;
+        }
     }
 
-    .text {
-        color: rgb(255, 255, 255);
-        background-color: rgba(255, 255, 255, 0.354);
-        border-radius: 15px;
-        font-size: 20px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
 
-    #titulo,
-    #texto {
-        color: #fff;
-    }
 
-    .container {
-        margin-left: 15%;
-        position: relative;
-        width: 820px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 30px;
-    }
-
-    .container .card {
-        position: relative;
-        max-width: 300px;
-        height: 200px;
-        background-color: #fff;
-        margin: 30px 10px;
-        padding: 20px 15px;
-
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-        transition: 0.3s ease-in-out;
-        border-radius: 15px;
-    }
-
-    .container .card:hover {
-        height: 390px;
-    }
-
-    .container .card .image {
-        position: relative;
-        width: 260px;
-        height: 200px;
-        top: -40%;
-        left: 8px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-    }
-
-    .container .card .image img {
-        max-width: 100%;
-        border-radius: 15px;
-    }
-
-    .container .card .content {
-        position: relative;
-        top: -140px;
-        padding: 10px 15px;
-        color: #111;
-        text-align: center;
-
-        visibility: hidden;
-        opacity: 0;
-        transition: 0.3s ease-in-out;
-    }
-
-    .container .card:hover .content {
-        margin-top: 30px;
-        visibility: visible;
-        opacity: 1;
-        transition-delay: 0.2s;
-    }
-
+#parteCards{
+    /* margin-left: 32%; */
+    /* margin-right: 30%; */
+    /* align-content: center; */
+}
+   
     img {
         height: 150px;
     }
+
+    .card {
+        border-radius: 20px;
+        box-shadow: #333;
+    }
 </style>
 
-<body>
+<body style="align-items:center;">
 
     <!-- Cabecera -->
     <header>
@@ -325,7 +267,7 @@
         </div>
         <nav class="nav">
             <!-- LOGO -->
-            <div class="logo">Chronologic</div>
+            <div class="logoSaludo">Chronologic</div>
             <!-- NAVIGATION MENU -->
             <ul class="nav-links">
                 <!-- NAVIGATION MENUS -->
@@ -341,66 +283,64 @@
         </div><br><br><br><br><br><br>
     </header>
 
+    <h2>Categorias de nuestros viajes</h2><br><br>
 
-    <h2>Categorias</h2>
-<section id="cards">
-    <div class="row">
-        <div class="column">
-            <div class="card">
-                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/AventuraCuadradoPeq.jpg?raw=true">
-                <h3>Aventura</h3><br>
-                <p>Aventuras para los que sueñan a lo grande, adentrate en la selva, navega con los mejores y disfruta
-                    de los dinosaurios.</p><br>
-                <button>
-                    <a th:href="@{/aventura}">Explorar</a>
-                </button>
+    <div id="parteCards">
+        <div id="cards">
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/AventuraCuadradoPeq.jpg?raw=true">
+                        <h3>Aventura</h3><br>
+                        <p>Aventuras para los que sueñan a lo grande, adentrate en la selva, navega con los mejores y
+                            disfruta de los dinosaurios.</p><br>
+                        <button>
+                            <a th:href="@{/aventura}">Explorar</a>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card">
+                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/CulturalCuadradoPeq.jpg?raw=true">
+                        <h3>Cultura</h3><br>
+                        <p>Para quién sueña con conocer la cultura de primera mano, desde tomar el té con Jane Austen
+                            hasta pasear por Pompeya, todo es posible.</p><br>
+                        <button>
+                            <a th:href="@{/cultural}">Explorar</a>
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
+            <br>
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/FamiliaCuadradoPeq2.jpg?raw=true">
+                        <h3>Familiar</h3><br>
+                        <p>Para disfrutar tanto tú como tu familia, recorrer el laberinto del Minotauro se hace mejor en
+                            compañía, procura no dejar a nadie atrás.</p><br>
+                        <button>
+                            <a th:href="@{/familiar}">Explorar</a>
+                        </button>
+                    </div>
+                </div>
 
-        <div class="column">
-            <div class="card">
-                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/CulturalCuadradoPeq.jpg?raw=true">
-                <h3>Cultura</h3>
-                <p>Para quién sueña con conocer la cultura de primera mano, desde tomar el té con Jane Austen hasta
-                    pasear por Pompeya, todo es posible.</p><br>
-                <button>
-                    <a th:href="@{/cultural}">Explorar</a>
-                </button>
+                <div class="column">
+                    <div class="card">
+                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/ParejasCuadradoPeq2.jpg?raw=true">
+                        <h3>Pareja</h3><br>
+                        <p>Estar enamorado es atemporal, aunque puedes disfrutar de ese romance besandote en cada siglo
+                            y en cada monumento en construcción.</p><br>
+                        <button>
+                            <a th:href="@{/pareja}">Explorar</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
-    <br>
-    <div class="row">
-        <div class="column">
-            <div class="card">
-                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/FamiliaCuadradoPeq2.jpg?raw=true">
-                <h3>Familiar</h3>
-                <br>
-                <p>Para disfrutar tanto tú como tu familia, recorrer el laberinto del Minotauro se hace mejor en
-                    compañía, procura no dejar a nadie atrás.</p>
-                <br>
-                <button>
-                    <a th:href="@{/familiar}">Explorar</a>
-                </button>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="card">
-                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/ParejasCuadradoPeq2.jpg?raw=true">
-                <h3>Pareja</h3> <br>
-                <p>Estar enamorado es atemporal, aunque puedes disfrutar de ese romance besandote en cada siglo y en
-                    cada monumento en construcción.</p>
-                <br>
-                <button>
-                    <a th:href="@{/pareja}">Explorar</a>
-                </button>
-            </div>
-        </div>
-    </div>
-
-</section>
-
     <!-- Conexion bbdd -->
     <!-- <section class="shop container">
         <div class="shop-content">
