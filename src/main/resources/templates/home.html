@@ -294,36 +294,33 @@
     }
 
     /*PARRAFO WEB Y LOGOS*/
-    #parrafoWeb {
-
-        justify-content: center;
-        position: relative;
+    #ParrafoWeb {
         text-align: center;
-        max-width: 900px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-        gap: 1.5rem;
         
-        text-align: center; 
-         max-width: 900px;
-        display: grid; 
-         grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-         /* gap: 1.5rem; */
-         margin-left: 50px;
     }
 
     #tituloTexto {
-        max-width: 900px;
-        background-color: #ffffff7d;
+        /* max-width: 900px; */
+        background-color:#ffffffc7;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         border-radius: 150px 100px 150px 100px;
         text-align: center;
+        margin-left: 13%;
+        margin-right: 13%;
     }
 
     #parrafoTexto {
-        max-width: 900px;
-        text-align:center;
-        background-color: #ffffff7d;
+        /* max-width: 900px; */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+        background-color:#ffffffc7;
         border-radius: 20px 100px 150px;
+        margin-left: 15%;
+        margin-right: 15%;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 1.5%;
+        padding-bottom: 1.5%;
     }
 </style>
 
@@ -366,43 +363,49 @@
             <div class="numbertext">1 / 6</div>
             <img src="https://www.anaisindia.com/wp-content/uploads/2019/01/fotografia-panoramica-fotografo.jpg"
                 style="width:100%">
-            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/aboutUs}">¡Sobre los viajes en el
-                    tiempo!</a></div>
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/aboutUs}"><b>¡Sobre los
+                    viajes en el
+                    tiempo!</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">2 / 6</div>
             <img src="https://www.anibaltrejo.com/wp-content/uploads/2019/10/Anibal-Trejo-Visuals-Fotografi%CC%81a-Panora%CC%81mica.jpg"
                 style="width:100%">
-            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/aventura}">Aventura</a></div>
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
+                    th:href="@{/aventura}"> <b>Aventura</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">3 / 6</div>
             <img src="https://www.anaisindia.com/wp-content/uploads/2019/01/fotografia-panoramica-fotografo.jpg"
                 style="width:100%">
-            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/familiar}">Familiar</a></div>
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
+                    th:href="@{/familiar}"><b>Familiar</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">4 / 6</div>
             <img src="https://www.anaisindia.com/wp-content/uploads/2019/01/fotografia-panoramica-fotografo.jpg"
                 style="width:100%">
-            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/cultural}">Cultural</a></div>
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
+                    th:href="@{/cultural}"><b>Cultural</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">5 / 6</div>
             <img src="https://www.anaisindia.com/wp-content/uploads/2019/01/fotografia-panoramica-fotografo.jpg"
                 style="width:100%">
-            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/pareja}">Pareja</a></div>
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/pareja}"><b>Pareja</b></a>
+            </div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">6 / 6</div>
             <img src="https://www.anaisindia.com/wp-content/uploads/2019/01/fotografia-panoramica-fotografo.jpg"
                 style="width:100%">
-            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/signIn}">¡Ofertas exclusivas socios!</a></div>
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/signIn}"><b>¡Ofertas
+                    exclusivas socios!</b></a></div>
         </div>
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
@@ -423,8 +426,8 @@
     <div id="ParrafoWeb">
         <h2 id="tituloTexto">Viajes Chronologic</h2>
         <br>
-        <p id="parrafoTexto">¿Quién no ha soñado alguna vez con conocer a Cleopatra? ¿Ver en primera fila los
-            espectáculos del Coliseo? ¿O visitar Desembarco del Rey?
+        <p id="parrafoTexto">¿Quién no ha soñado alguna vez con conocer a Cleopatra? <br>   
+            ¿Ver en primera fila los espectáculos del Coliseo? <br>¿O visitar Desembarco del Rey? <br>
             El ser humano ha fantaseado con viajar en el tiempo desde siempre…. En Chronologic nos encargamos de hacerlo
             realidad. Somos la primera agencia de viajes especializada en viajes inter-temporales e inter-dimensionales
             del mundo. Con nosotros no solo podrás viajar a diversos momentos de la historia, sino también dentro de tus
@@ -432,7 +435,7 @@
             Además, con nuestras nuevas cabinas de alta gama Modelo 815 de Oceanic, viajarás con todas las comodidades,
             de forma segura y siempre acompañado por uno de nuestros chrono-guías.
         </p>
-
+    </div>
     <footer th:replace=" baseTemplate :: footer"></footer>
 
 

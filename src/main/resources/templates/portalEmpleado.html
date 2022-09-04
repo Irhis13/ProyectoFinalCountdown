@@ -94,6 +94,7 @@
 
     #parteSuperior {
         align-items: center;
+        text-align: center;
     }
 
     h1 {
@@ -102,10 +103,13 @@
 
     img {
         border-radius: 25px;
+        width: 35%;
     }
 
     /*BOTONES*/
-
+#botones{
+    width: 100%;
+}
     .button {
         background-color: #4CAF50;
         /* Green */
@@ -182,18 +186,20 @@
         <h1>Portal empleado</h1>
         <img src="https://c.tenor.com/tjaTUYBVsUIAAAAd/hi-ho-ay-snow-white.gif" alt="">
         <br><br><br>
-        <button id="btn1">
-            <a th:href="@{/formularioViaje}">Viaje nuevo</a>
-        </button>
-        <button id="btn2">
-            <a th:href="@{/formularioEmpleado}">Empleado nuevo</a>
-        </button>
-        <button id="btn3">
-            <a th:href="@{/formularioCliente}">Cliente nuevo</a>
-        </button>
-        <button id="btn4">
-            <a th:href="@{/chronologic}">Vista cliente</a>
-        </button>
+        <div id="botones">
+            <button id="btn1">
+                <a th:href="@{/formularioViaje}">Viaje nuevo</a>
+            </button>
+            <button id="btn2">
+                <a th:href="@{/formularioEmpleado}">Empleado nuevo</a>
+            </button>
+            <button id="btn3">
+                <a th:href="@{/formularioCliente}">Cliente nuevo</a>
+            </button>
+            <button id="btn4">
+                <a th:href="@{/chronologic}">Vista cliente</a>
+            </button>
+        </div>
     </div>
     <br>
 
