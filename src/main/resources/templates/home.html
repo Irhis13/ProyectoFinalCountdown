@@ -513,6 +513,7 @@
 
     /*PARRAFO WEB Y LOGOS*/
     #parrafoWeb {
+<<<<<<< HEAD
         justify-content: center;
         position: relative;
         text-align: center;
@@ -520,6 +521,15 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, auto));
         gap: 1.5rem;
+=======
+        align: center;
+        text-align: center; 
+         max-width: 900px;
+        display: grid; 
+         grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+         /* gap: 1.5rem; */
+         margin-left: 50px;
+>>>>>>> bd470ed5a212a0fb9cd2b35bc5e5f82aee0c30d8
     }
 
     #tituloTexto {
@@ -531,7 +541,7 @@
 
     #parrafoTexto {
         max-width: 900px;
-        text-align: justify;
+        text-align:center;
         background-color: #ffffff7d;
         border-radius: 20px 100px 150px;
     }
@@ -569,6 +579,20 @@
     </div>
     <br>
 
+
+    <div id="ParrafoWeb" style="overflow-x:auto; align-items: center;">
+        <h2 id="tituloTexto">TEXTO INTRODUCTORIO DE VIAJES EN EL TIEMPO</h2>
+        <br>
+        <p id="parrafoTexto">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+            Aenean massa.
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+            ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
+            fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis
+            vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
+            elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
+            vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
+        </p>
+    </div>
     <!-- CARRUSEL -->
     <div class="slideshow-container" id="carruselContenedor">
 
@@ -630,6 +654,7 @@
     </div>
     <br><br>
 
+<<<<<<< HEAD
 
     <div id="ParrafoWeb">
         <h2 id="tituloTexto">Viajes Chronologic</h2>
@@ -643,7 +668,22 @@
             Además, con nuestras nuevas cabinas de alta gama Modelo 815 de Oceanic, viajarás con todas las comodidades,
             de forma segura y siempre acompañado por uno de nuestros chrono-guías.
         </p>
+=======
+    <div style="overflow-x:auto; align-items: center;">
+        <table>
+            <tr>
+                <th>First Name</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+
+            </tr>
+
+        </table>
+>>>>>>> bd470ed5a212a0fb9cd2b35bc5e5f82aee0c30d8
     </div>
+
+
     <footer th:replace=" baseTemplate :: footer"></footer>
 
 
