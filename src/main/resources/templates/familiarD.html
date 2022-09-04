@@ -308,7 +308,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 20px;
-        background-color: #55534e;
+        background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
         opacity: 0.8;
         color: #f0f7fa;
     }
@@ -433,7 +433,15 @@
     }
 
     #txt1 {
-        margin: 15px;
+        padding: 17px;
+        text-align: justify;
+    }
+
+    #precioCard{
+        padding-left: 120px;
+    }
+    a{
+        color:#6ed2d2;
     }
 </style>
 
@@ -501,7 +509,8 @@
                         <div id="sombreado">
                             <div id="tit1" class="product-title" th:text="${viaje.nombre}"></div>
                             <p id="txt1" th:text="${viaje.descripcion}"></p>
-                            <span class="price" th:text="${viaje.precio}"></span>
+                            <span class="price" id="precioCard" th:text="${viaje.precio}">
+                            </span><a> €</a>
                         </div>
                         <i class='bx bx-shopping-bag add-cart'></i>
                     </div>
@@ -513,7 +522,16 @@
 
     <br><br><br>
 
+    <br><br>
+    <h3 style="color:white; padding-left: 35px;" >Sigue explorando...</h3>
+    <div class="breadcrumb" style="padding-left:80px;">
+        <br>
+    </a><a th:href="@{/aventura}">Aventura</a><a> - </a><a th:href="@{/cultural}">Cultural</a><a> - <a th:href="@{/pareja}">Pareja</a></li>
+    </div>
 
+    <br><br><br>
+    <footer th:replace=" baseTemplate :: footer"></footer>
+    <br><br><br>
 
     <script>
         //  Cesta

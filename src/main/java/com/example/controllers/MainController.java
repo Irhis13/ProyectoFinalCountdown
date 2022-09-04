@@ -156,7 +156,7 @@ public class MainController {
 @GetMapping("/formularioEmpleado")
 public String mostrarFormularioEmpleado(ModelMap map){
     map.addAttribute("empleado", new Empleado()); 
-    map.addAttribute("listaEmpleados", servicioEmpleado.getEmpleados());
+    // map.addAttribute("listaEmpleados", servicioEmpleado.getEmpleados());
     
     return "formularioAltaEmpleado";
 }
@@ -201,7 +201,8 @@ public String mostrarFormularioCliente(ModelMap map){
 
     @PostMapping("/crearCliente")
     public String crearCliente(@ModelAttribute(name="cliente")
-    Cliente cliente, @RequestParam(name ="imagen", required = false)MultipartFile imagenDni){
+    Cliente cliente, @RequestParam(name ="imagen", required = false)
+    MultipartFile imagenDni){
 
         if(imagenDni != null){
             String rutaAbsoluta ="C://Users//mpaterna//Documents//recursosEmpleado/";

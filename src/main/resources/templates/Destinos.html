@@ -15,8 +15,8 @@
         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <style>
- /* Google Fonts */
- @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+    /* Google Fonts */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
     @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
@@ -44,7 +44,8 @@
         background-size: 100%;
 
     }
-/* 
+
+    /* 
     .container {
         max-width: 1068px;
         margin: auto;
@@ -221,7 +222,7 @@
     }
 
 
-    
+
     .logoSaludo {
         user-select: none;
         white-space: nowrap;
@@ -242,19 +243,87 @@
 
 
 
-#parteCards{
-    /* margin-left: 32%; */
-    /* margin-right: 30%; */
-    /* align-content: center; */
-}
-   
     img {
         height: 150px;
     }
 
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Float four columns side by side */
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+    }
+
+    /* Remove extra left and right margins, due to padding */
+    .row {
+        margin: 0 -5px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Responsive columns */
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+
+    /* Style the counter cards */
     .card {
-        border-radius: 20px;
-        box-shadow: #333;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+        border-radius: 25px;
+    }
+
+    h3 {
+        /* background-color: #4c9e9e63;
+        border-radius: 150px; */
+    }
+
+    #titulo {
+        color: white;
+        margin-left: 35%;
+        margin-right: 35%;
+    }
+ #info{
+    color: white;
+    margin-left: 12%;
+    margin-right: 12%;
+ }
+
+    /*--------------BOTONES*/
+    #btn1 {
+        background-color: white;
+        border-radius: 5px;
+        color: black;
+        border: 2px solid #4c9e9e;
+        padding: 15px 30px;
+
+    }
+
+    #btn1:hover {
+        background-color: #4c9e9e;
+        border-radius: 5px;
+        font-size: 14px;
+        color: white;
+        padding: 15px 30px;
     }
 </style>
 
@@ -280,10 +349,14 @@
                 </div>
             </ul>
         </nav>
-        </div><br><br><br><br><br><br>
+        </div><br><br><br>
     </header>
-
-    <h2>Categorias de nuestros viajes</h2><br><br>
+    <br><br><br>
+    <h2 id="titulo">Categorias de nuestros viajes</h2><br>
+    <div id="info">
+        <p>Hemos organizado por categorias los tipos de viaje que podemos hacer. ¡Atrévete a descubrir todos nuestros destinos!
+        </p><br><br>     
+    </div>
 
     <div id="parteCards">
         <div id="cards">
@@ -293,53 +366,53 @@
                         <img src="https://github.com/AsunPaterna/img_chrono/blob/main/AventuraCuadradoPeq.jpg?raw=true">
                         <h3>Aventura</h3><br>
                         <p>Aventuras para los que sueñan a lo grande, adentrate en la selva, navega con los mejores y
-                            disfruta de los dinosaurios.</p><br>
-                        <button>
-                            <a th:href="@{/aventura}">Explorar</a>
+                            disfruta de los dinosaurios.</p><br><br>
+                        <button id="btn1">
+                            <a th:href="@{/aventura}"><b>Explorar</b></a>
                         </button>
                     </div>
                 </div>
-
+                <br><br>
                 <div class="column">
                     <div class="card">
                         <img src="https://github.com/AsunPaterna/img_chrono/blob/main/CulturalCuadradoPeq.jpg?raw=true">
                         <h3>Cultura</h3><br>
                         <p>Para quién sueña con conocer la cultura de primera mano, desde tomar el té con Jane Austen
                             hasta pasear por Pompeya, todo es posible.</p><br>
-                        <button>
-                            <a th:href="@{/cultural}">Explorar</a>
+                        <button id="btn1">
+                            <a th:href="@{/cultural}"><b>Explorar</b></a>
                         </button>
                     </div>
                 </div>
-            </div>
-            <br>
-            <div class="row">
+                <!-- </div> -->
+                <br><br>
+                <!-- <div class="row"> -->
                 <div class="column">
                     <div class="card">
                         <img src="https://github.com/AsunPaterna/img_chrono/blob/main/FamiliaCuadradoPeq2.jpg?raw=true">
                         <h3>Familiar</h3><br>
                         <p>Para disfrutar tanto tú como tu familia, recorrer el laberinto del Minotauro se hace mejor en
                             compañía, procura no dejar a nadie atrás.</p><br>
-                        <button>
-                            <a th:href="@{/familiar}">Explorar</a>
+                        <button id="btn1">
+                            <a th:href="@{/familiar}"><b>Explorar</b></a>
                         </button>
                     </div>
                 </div>
-
+                <br><br>
                 <div class="column">
                     <div class="card">
                         <img src="https://github.com/AsunPaterna/img_chrono/blob/main/ParejasCuadradoPeq2.jpg?raw=true">
                         <h3>Pareja</h3><br>
                         <p>Estar enamorado es atemporal, aunque puedes disfrutar de ese romance besandote en cada siglo
                             y en cada monumento en construcción.</p><br>
-                        <button>
-                            <a th:href="@{/pareja}">Explorar</a>
+                        <button id="btn1">
+                            <a th:href="@{/pareja}"><b>Explorar</b></a>
                         </button>
                     </div>
                 </div>
             </div>
-            </div>
         </div>
+    </div>
     </div>
     <!-- Conexion bbdd -->
     <!-- <section class="shop container">
@@ -361,11 +434,8 @@
     </section> -->
 
     <br><br><br>
-
-
-
-    <script>
-    </script>
+    <footer th:replace=" baseTemplate :: footer"></footer>
+    <br><br><br>
 
 </body>
 

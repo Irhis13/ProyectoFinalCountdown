@@ -238,19 +238,6 @@
         }
     }
 
-    body {
-       
-        background-image: url(https://github.com/AsunPaterna/img_chrono/blob/main/FutureVioleta.png?raw=true);
-        background-repeat: repeat;
-        background-origin: content-box;
-        background-position-x: center;
-        background-position-y: bottom;
-        background-attachment: fixed;
-        background-size: 100%;
-        font-family: 'Montserrat', sans-serif;
-        color: #262d30;
-
-    }
 
     #disposicion {
         margin-left: 37%;
@@ -284,7 +271,7 @@
 
     .active,
     .accordion:hover {
-        background-color: rgb(42, 184, 231);
+        background-color: #55b5b5;
     }
 
     .panel {
@@ -292,48 +279,18 @@
         position: relative;
         width: 80%;
         padding: 0 18px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         display: none;
         border-radius: 10px;
         background-color: white;
         overflow: hidden;
     }
-
-    /* Parámetros para definir el estilo del pie de página */
-
-    footer {
-        color: #fff;
-        font-size: 14px;
-        bottom: 0;
-        position: fixed;
-        left: 0;
-        right: 0;
-        text-align: center;
-        z-index: 999;
-    }
-
-
-    footer p {
-        margin: 10px 0;
-        font-family: 'Lucida Sans', sans-serif;
-    }
-
-    footer .fa-heart {
-        color: red;
-    }
-
-    footer .fa-twitter-square {
-        color: #1da0f1;
-    }
-
-    footer .fa-instagram {
-        color: #f0007c;
-    }
-
-    footer a {
-        color: #3c97bf;
-        text-decoration: none;
-        margin-right: 5px;
-    }
+#titulo{
+    color: white;
+        margin-left: 42%;
+        margin-right: 42%;
+}
 </style>
 
 
@@ -363,43 +320,34 @@ Faqs cuando el usuario haga click sobre una pregunta -->
         
     </header>
 </div><br><br><br><br><br><br><br>
-    <h3>PREGUNTAS FRECUENTES</h3>
-    <br>
+    <h3 id="titulo">Preguntas frecuentes</h3>
+    <br><br>
 
 
-    <button class="accordion"><i class="fa-solid fa-atom fa-xl"></i> ¿Es seguro viajar en el espacio-tiempo?</button>
-    <div class="panel"><br>
-        <p style="font-family:Tahoma;">Por supuesto, disponemos de las últimas tecnologías para que no sufras ningún
+    <button class="accordion"><i class="fa-solid fa-atom fa-xl"></i><b> ¿Es seguro viajar en el espacio-tiempo?</b></button>
+    <div class="panel">
+        <p>Por supuesto, disponemos de las últimas tecnologías para que no sufras ningún
             daño durante tu viaje. Además, nuestras cabinas de última generación Modelo 815 Oceanic cuentan con
-            todas las comodidades. Sólo necesitas tener al día tu chrono-pasaporte ¡No lo dudes y actualizalo!</p>
-    </div>
+            todas las comodidades. Sólo necesitas tener al día tu chrono-pasaporte ¡No lo dudes y actualizalo!<br></p>
+    </div><br>
 
-    <button class="accordion"><i class="fa-solid fa-users fa-lg"></i> ¿Estaré solo durante el viaje?</button>
-    <div class="panel"><br>
-        <p style="font-family:Tahoma ;">Todos nuestros paquetes están pensados para viajes en grupo o en pareja.
-            Si prefieres viajar en solitario, contanta con nosotros <a style=font-family:Tahoma href="#"
+    <button class="accordion"><i class="fa-solid fa-users fa-lg"></i> <b>¿Estaré solo durante el viaje?</b></button>
+    <div class="panel">
+        <p>Todos nuestros paquetes están pensados para viajes en grupo o en pareja.
+            Si prefieres viajar en solitario, contanta con nosotros <br> <a href="#"
                 class="stretched-link">aquí</a></p>
-    </div>
+    </div><br>
 
-    <button class="accordion"><i class="fa-solid fa-magnifying-glass-dollar fa-lg"></i> ¿Qué incluye el precio?</button>
-    <div class="panel"><br>
-        <p style="font-family:Tahoma ;">Nuestros viajes incluyen transporte, alojamiento y pensión completa. Además,
+    <button class="accordion"><i class="fa-solid fa-magnifying-glass-dollar fa-lg"></i> <b>¿Qué incluye el precio?</b></button>
+    <div class="panel">
+        <p>Nuestros viajes incluyen transporte, alojamiento y pensión completa. Además,
             por un módico precio podrás contratar algunos extras como vestuario y reportaje
-            fotográfico.</p>
+            fotográfico. <br></p>
     </div>
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<footer th:replace=" baseTemplate :: footer"></footer>
+<br><br><br>
 
-    <footer>
-        <br>
-        <p style="align-items:center ;">
-            Síguenos en las redes <i class="fa fa-heart"></i>
-            <a target="_blank" href=""><i class="fab fa-instagram"></i></a>
-            <a target="_blank" href=""><i class="fab fa-twitter-square"></i></a>
-
-            <br>
-        </p>
-
-    </footer>
 
 
     <!-- Script insertado en el propio html en lugar de crear un archivo .js -->
