@@ -39,13 +39,14 @@ public class ProyectoFinalCountdownApplication {
 			//Categoria id:4 -> Pareja
 
 			//Categorias
-			categoriaSrv.guardar(Categoria.builder().nombre("Aventura").descripcion("Aventuras para los que sueñan a lo grande, adentrate en la selva, navega con los mejores y disfruta de los dinosaurios.").enlaceImagen("https://previews.123rf.com/images/amitspro/amitspro1706/amitspro170600016/80099376-mandala-de-flor-abstracta-patr%C3%B3n-decorativo-fondo-azul-imagen-cuadrada-imagen-de-ilusi%C3%B3n-patr%C3%B3n-fond.jpg")
+			categoriaSrv.guardar(Categoria.builder().nombre("Aventura").descripcion("Aventuras para los que sueñan a lo grande, adentrate en la selva, navega con los mejores y disfruta de los dinosaurios.")
+			.enlaceImagen("https://github.com/AsunPaterna/img_chrono/blob/main/AventuraCuadradoPeq.jpg?raw=true")
 			.build());
-			categoriaSrv.guardar(Categoria.builder().nombre("Cultural").descripcion("Para quién sueña con conocer la cultura de primera mano, desde tomar el té con Jane Austen hasta pasear por Pompeya, todo es posible.").enlaceImagen("https://previews.123rf.com/images/amitspro/amitspro1706/amitspro170600016/80099376-mandala-de-flor-abstracta-patr%C3%B3n-decorativo-fondo-azul-imagen-cuadrada-imagen-de-ilusi%C3%B3n-patr%C3%B3n-fond.jpg")
+			categoriaSrv.guardar(Categoria.builder().nombre("Cultural").descripcion("Para quién sueña con conocer la cultura de primera mano, desde tomar el té con Jane Austen hasta pasear por Pompeya, todo es posible.").enlaceImagen("https://github.com/AsunPaterna/img_chrono/blob/main/CulturalCuadradoPeq.jpg?raw=true")
 			.build());
-			categoriaSrv.guardar(Categoria.builder().nombre("Familiar").descripcion("Para disfrutar tanto tú como tu familia, recorrer el laberinto del Minotauro se hace mejor en compañía, procura no dejar a nadie atrás.").enlaceImagen("https://previews.123rf.com/images/amitspro/amitspro1706/amitspro170600016/80099376-mandala-de-flor-abstracta-patr%C3%B3n-decorativo-fondo-azul-imagen-cuadrada-imagen-de-ilusi%C3%B3n-patr%C3%B3n-fond.jpg")
+			categoriaSrv.guardar(Categoria.builder().nombre("Familiar").descripcion("Para disfrutar tanto tú como tu familia, recorrer el laberinto del Minotauro se hace mejor en compañía, procura no dejar a nadie atrás.").enlaceImagen("https://github.com/AsunPaterna/img_chrono/blob/main/FamiliaCuadradoPeq2.jpg?raw=true")
 			.build());
-			categoriaSrv.guardar(Categoria.builder().nombre("Pareja").descripcion("Estar enamorado es atemporal, aunque puedes disfrutar de ese romance besandote en cada siglo y en cada monumento en construcción. ¡Qué nada te lo impida!").enlaceImagen("https://previews.123rf.com/images/amitspro/amitspro1706/amitspro170600016/80099376-mandala-de-flor-abstracta-patr%C3%B3n-decorativo-fondo-azul-imagen-cuadrada-imagen-de-ilusi%C3%B3n-patr%C3%B3n-fond.jpg")
+			categoriaSrv.guardar(Categoria.builder().nombre("Pareja").descripcion("Estar enamorado es atemporal, aunque puedes disfrutar de ese romance besandote en cada siglo y en cada monumento en construcción. ¡Qué nada te lo impida!").enlaceImagen("https://github.com/AsunPaterna/img_chrono/blob/main/ParejasCuadradoPeq2.jpg?raw=true")
 			.build());
 
 			//Viajes

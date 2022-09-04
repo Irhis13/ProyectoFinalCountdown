@@ -75,15 +75,7 @@ public class MainController {
         return "FAQS";
     }
 
-    @GetMapping("/Carrito")
-    public String getCarritoComp(){
-        return "carrito";
-    }
 
-    @GetMapping("/carritoLateral")
-    public String getCarritoCom(){
-        return "carritoLateral";
-    }
 
     @GetMapping("/login/{id}") 
     public ModelAndView getLogin(@PathVariable(name = "id") String id){
@@ -95,10 +87,11 @@ public class MainController {
         return mav;
     }
 
-    String getLogin(Model model){
-        model.addAttribute("cliente", servicioCliente.getCliente(1));
-        return "login";
-    }
+    // @GetMapping("/longi")
+    // String getLogin(Model model){
+    //     model.addAttribute("cliente", servicioCliente.getCliente(1));
+    //     return "login";
+    // }
 
     @GetMapping("/carritoCompra") //Aquí implementar paramrequest!!!
     public String getCarrito(/*Model model*/){
@@ -110,9 +103,17 @@ public class MainController {
     public String getPasarelaPago(){
         return "pasarelaPago";
     }
-    
+
+
     @GetMapping("/portalEmpleado")
-    public String getPortalEmpleado(){
+    public String getPortalEmpleado1(Model model, Model model1){
+
+        List<Viaje> viajes = servicioViaje.getViajes();
+        model.addAttribute("viajesDisponibles", viajes);
+
+        List<Cliente> clientes = servicioCliente.getClientes();
+        model1.addAttribute("clientesRegistrados", clientes);
+
         return "portalEmpleado";
     }
     

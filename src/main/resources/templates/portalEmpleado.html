@@ -1,26 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portal Empleados Chronologic</title>
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
+
+    /* COLUMNAS PARA DIVIDIR EL CONTENIDO */
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #0093E9;
+        background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+        /* display: flex; */
+        gap: 1em;
+        font-size: 12px;
+        font-family: 'Montserrat', sans-serif;
+
+    }
+
+    /* Dos columnas iguales */
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: fit-content;
+
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+
+    /*TABLAS RESPONSIVE*/
+    @media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+
+        /* Force table to not be like tables anymore */
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
+        }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        tr {
+            margin: 0 0 1rem 0;
+        }
+
+        tr:nth-child(odd) {
+            background: #ccc;
+        }
+
+        td {
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 0;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+    }
+
+    #parteSuperior {
+        align-items: center;
+    }
+
+    h1 {
+        user-select: none;
+    }
+
+    img {
+        border-radius: 25px;
+    }
+
+    /*BOTONES*/
+
+    .button {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 32px 48px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    #btn1 {
+        background-color: white;
+        color: black;
+        border: 2px solid #4CAF50;
+        padding: 20px 40px;
+
+    }
+
+    #btn1:hover {
+        background-color: #4CAF50;
+        font-size: 14px;
+        color: white;
+        padding: 20px 40px;
+    }
+
+    #btn2 {
+        background-color: white;
+        color: black;
+        border: 2px solid #008CBA;
+        padding: 20px 40px;
+    }
+
+    #btn2:hover {
+        background-color: #008CBA;
+        color: white;
+        padding: 20px 40px;
+    }
+
+    #btn3 {
+        background-color: white;
+        padding: 20px 40px;
+        color: black;
+        border: 2px solid #f44336;
+    }
+
+    #btn3:hover {
+        background-color: #f44336;
+        color: white;
+        padding: 20px 40px;
+    }
+
+    #btn4 {
+        background-color: white;
+        padding: 20px 40px;
+        color: black;
+        border: 2px solid #f4d300;
+    }
+
+    #btn4:hover {
+        background-color: #f4d300;
+        color: white;
+        padding: 20px 40px;
+    }
+</style>
+
 <body>
-    <div th:replace=" baseTemplate :: botonMenu"></div>
-    <div style="margin-left:5%;">
+
+    <div id="parteSuperior" class="container">
         <h1>Portal empleado</h1>
-    <img src="https://c.tenor.com/v6sljhjORDQAAAAC/the-office-mose-dwight.gif" alt="">
-    <br><br><br>
-    <button>
-        <a th:href="@{/formularioViaje}">Viaje nuevo</a>
-    </button>
-    <button>
-        <a th:href="@{/formularioEmpleado}">Empleado nuevo</a>
-    </button>
-    <button>
-        <a th:href="@{/formularioCliente}">Cliente nuevo</a>
-    </button>
-</div>
+        <img src="https://c.tenor.com/tjaTUYBVsUIAAAAd/hi-ho-ay-snow-white.gif" alt="">
+        <br><br><br>
+        <button id="btn1">
+            <a th:href="@{/formularioViaje}">Viaje nuevo</a>
+        </button>
+        <button id="btn2">
+            <a th:href="@{/formularioEmpleado}">Empleado nuevo</a>
+        </button>
+        <button id="btn3">
+            <a th:href="@{/formularioCliente}">Cliente nuevo</a>
+        </button>
+        <button id="btn4">
+            <a th:href="@{/home}">Vista cliente</a>
+        </button>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="column" style="background-color:rgba(230, 227, 227, 0.625);">
+
+            <h2>Viajes disponibles</h2>
+
+            <div style="overflow-x:auto;">
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                            <th>Categoria</th>
+                        </tr>
+                        <tr th:each="viaje: ${viajesDisponibles}">
+                            <td th:text="${viaje.id}"></td>
+                            <td th:text="${viaje.nombre}"></td>
+                            <td th:text="${viaje.descripcion}"></td>
+                            <td th:text="${viaje.precio}"></td>
+                            <td th:text="${viaje.categoria.nombre}"></td>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="column" style="background-color:rgba(230, 227, 227, 0.625);">
+            <table role="table">
+                <h2>Clientes registrados</h2>
+
+                <div style="overflow-x:auto;">
+                    <div class="table-responsive">
+                        <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Telefono</th>
+                                <th>Email</th>
+                                <th>Fecha Salida</th>
+                                <th>Fecha Regreso</th>
+                            </tr>
+                            <tr th:each="cliente: ${clientesRegistrados}">
+                                <td th:text="${cliente.id}"></td>
+                                <td th:text="${cliente.nombre}"></td>
+                                <td th:text="${cliente.apellidos}"></td>
+                                <td th:text="${cliente.telefono}"></td>
+                                <td th:text="${cliente.email}"></td>
+                                <td th:text="${cliente.fechaRegreso}"></td>
+                                <td th:th:text="${cliente.fechaSalida}"></td>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+
 </body>
+
 </html>

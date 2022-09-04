@@ -33,13 +33,10 @@
         text-decoration: none;
     }
 
-    img {
-        width: 50%;
-    }
 
     body {
         background-color: black;
-        background-image:url("https://github.com/AsunPaterna/img_chrono/blob/main/1094.jpg?raw=true") ;
+        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/1094.jpg?raw=true");
         /* color: var(--text-color1); */
         background-size: 100%;
 
@@ -67,97 +64,51 @@
 
 
     /* Contenido */
-    .shop-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-        gap: 1.5rem;
+
+
+    /*--COLUMNAS RESPONSIVE-CARDS--*/
+    * {
+        box-sizing: border-box;
     }
 
-    .product-box {
-        position: relative;
+    /* Float four columns side by side */
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
     }
 
-    .product-box:hover {
-        padding: 10px;
-        border: 1px solid var(--text-color);
-        transition: 0.4s;
+    /* Remove extra left and right margins, due to padding */
+    .row {
+        margin: 0 -5px;
     }
 
-    .product-img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 0.5rem;
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
     }
 
-    .product-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin-bottom: 0.5rem;
-    }
-
-    .price {
-        font-weight: 500;
-    }
-
-    .add-cart {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: var(--text-color);
-        color: var(--text-color1);
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    .add-cart:hover {
-        background: hsl(249, 32%, 17%);
-    }
-
-    /* Breakpoints / Making Responsive */
-    @media (max-width: 1080px) {
-        .nav {
-            padding: 15px;
-        }
-
-        #shop-content {
-            padding: 3rem 0 2rem;
-        }
-
-        .container {
-            margin: 0 auto;
-            width: 90%;
-        }
-
-        .shop {
-            margin-top: 2rem !important;
+    /* Responsive columns */
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
         }
     }
 
-    @media (max-width: 400px) {
-        .nav {
-            padding: 11px;
-        }
-        .logo {
-            font-size: 1rem;
-        }
-        .cart {
-            width: 320px;
-        }
+    /* Style the counter cards */
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+        /* border-radius: 20px, 50px,60px,100px; */
     }
-
-    @media (max-width: 360px) {
-        .shop {
-            margin-top: 1rem !important;
-        }
-        .cart {
-            width: 280px;
-        }
-    }
-
 
     /* ----------------------------MENU STYLE--------------------- */
-
     /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
     header {
 
@@ -292,16 +243,18 @@
         text-align: center;
     }
 
-    #titulo, #texto{
-      color: #fff;
+    #titulo,
+    #texto {
+        color: #fff;
     }
+
     .container {
         margin-left: 15%;
-        position:relative;
+        position: relative;
         width: 820px;
         display: flex;
         align-items: center;
-        justify-content:space-between;
+        justify-content: space-between;
         padding: 30px;
     }
 
@@ -356,9 +309,11 @@
         visibility: visible;
         opacity: 1;
         transition-delay: 0.2s;
-
     }
 
+    img {
+        height: 150px;
+    }
 </style>
 
 <body>
@@ -386,76 +341,67 @@
         </div><br><br><br><br><br><br>
     </header>
 
-    <section class=container>
-        <div class=card>
-            <div class=image>
-                <img
-                    src="https://media.discordapp.net/attachments/568464501335130112/1012679118334201866/20220826-125206-PXLR2_palomas_2022-08-26_12-50-33.sav_21-4x-rcs.png">
-            </div>
-            <div class=content>
-                <h3>Aventura</h3>
-                <br>
-                <p>Aventuras para los que sueñan a lo grande, adentrate en la selva, navega con los mejores y disfruta de los dinosaurios.</p>
-                    <br>
-                    <button>
-                        <a th:href="@{/aventura}">¡Llévame!</a>
-                    </button>
+
+    <h2>Categorias</h2>
+<section id="cards">
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/AventuraCuadradoPeq.jpg?raw=true">
+                <h3>Aventura</h3><br>
+                <p>Aventuras para los que sueñan a lo grande, adentrate en la selva, navega con los mejores y disfruta
+                    de los dinosaurios.</p><br>
+                <button>
+                    <a th:href="@{/aventura}">Explorar</a>
+                </button>
             </div>
         </div>
 
-        <div class=card>
-            <div class=image>
-                <img
-                    src="https://media.discordapp.net/attachments/568464501335130112/1012679118334201866/20220826-125206-PXLR2_palomas_2022-08-26_12-50-33.sav_21-4x-rcs.png">
-            </div>
-            <div class=content>
+        <div class="column">
+            <div class="card">
+                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/CulturalCuadradoPeq.jpg?raw=true">
                 <h3>Cultura</h3>
-                <br>
-                <p>Para quién sueña con conocer la cultura de primera mano, desde tomar el té con Jane Austen hasta pasear por Pompeya, todo es posible.</p>
-                    <br>
-                    <button>
-                        <a th:href="@{/cultura}">¡Llévame!</a>
-                    </button>
+                <p>Para quién sueña con conocer la cultura de primera mano, desde tomar el té con Jane Austen hasta
+                    pasear por Pompeya, todo es posible.</p><br>
+                <button>
+                    <a th:href="@{/cultural}">Explorar</a>
+                </button>
             </div>
         </div>
-
-    </section>
-
-    <br><br><br><br>
-    <section class=container>
-        <div class=card>
-            <div class=image>
-                <img src="https://media.discordapp.net/attachments/568464501335130112/1012679118334201866/20220826-125206-PXLR2_palomas_2022-08-26_12-50-33.sav_21-4x-rcs.png">
-            </div>
-            <div class=content>
+    </div>
+    <br>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/FamiliaCuadradoPeq2.jpg?raw=true">
                 <h3>Familiar</h3>
                 <br>
-                <p>Para disfrutar tanto tú como tu familia, recorrer el laberinto del Minotauro se hace mejor en compañía, procura no dejar a nadie atrás.</p>
-                    <br>
-                    <button>
-                        <a th:href="@{/familiar}">¡Llévame!</a>
-                    </button>
-            </div>
-        </div>
-
-        <div class=card>
-            <div class=image>
-                <img
-                    src="https://media.discordapp.net/attachments/568464501335130112/1012679118334201866/20220826-125206-PXLR2_palomas_2022-08-26_12-50-33.sav_21-4x-rcs.png">
-            </div>
-            <div class=content>
-                <h3>Pareja</h3>
+                <p>Para disfrutar tanto tú como tu familia, recorrer el laberinto del Minotauro se hace mejor en
+                    compañía, procura no dejar a nadie atrás.</p>
                 <br>
-                <p>Estar enamorado es atemporal, aunque puedes disfrutar de ese romance besandote en cada siglo y en cada monumento en construcción. ¡Qué nada te lo impida!</p>
-                    <br>
-                    <button>
-                        <a th:href="@{/pareja}">¡Llévame!</a>
-                    </button>
+                <button>
+                    <a th:href="@{/familiar}">Explorar</a>
+                </button>
             </div>
         </div>
 
-    </section>
-    <!-- Tienda -->
+        <div class="column">
+            <div class="card">
+                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/ParejasCuadradoPeq2.jpg?raw=true">
+                <h3>Pareja</h3> <br>
+                <p>Estar enamorado es atemporal, aunque puedes disfrutar de ese romance besandote en cada siglo y en
+                    cada monumento en construcción.</p>
+                <br>
+                <button>
+                    <a th:href="@{/pareja}">Explorar</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+    <!-- Conexion bbdd -->
     <!-- <section class="shop container">
         <div class="shop-content">
           <h2>Categorias de nuestros viajes</h2>
