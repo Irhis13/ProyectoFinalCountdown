@@ -25,27 +25,30 @@ import com.example.service.IViajeService;
 
 
 @SpringBootApplication
-public class ProyectoFinalCountdownApplication implements CommandLineRunner {
+public class ProyectoFinalCountdownApplication{ //implements CommandLineRunner 
 
-	@Autowired
-	private BCryptPasswordEncoder passEnconder;
 
-	@Override
-	public void run(String... args) throws Exception {
-		
-		// Creamos user y admin para que tengan sus contraseñas
 
-		String pass1="user";
-		String pass2="admin";
-
-		// Encripta las contraseñas de admin y usuario
-		System.out.println(passEnconder.encode(pass1));
-		System.out.println(passEnconder.encode(pass2));
-	}
-
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		SpringApplication.run(ProyectoFinalCountdownApplication.class, args);
 	}
+
+
+///////////////////////// COMENTAMOS XQ YA NO NECESITAMOS LA GENERACIÓN DE LA ENCRIPTACIÓN //////////	
+	// @Autowired
+	// private BCryptPasswordEncoder passEnconder;
+
+	// @Override
+	// public void run(String... args) throws Exception {
+		
+	// 	// Creamos user y admin para que tengan sus contraseñas
+	// 	String pass1="user";
+	// 	String pass2="admin";
+
+	// 	// Encripta las contraseñas de admin y usuario
+	// 	System.out.println(passEnconder.encode(pass1));
+	// 	System.out.println(passEnconder.encode(pass2));
+	// }
 
 
 	///////////////////FALTA POR AÑADIR EL IEMPLEADOSERVICE
