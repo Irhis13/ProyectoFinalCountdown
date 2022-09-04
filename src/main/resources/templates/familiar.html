@@ -156,7 +156,7 @@
     
     </style>
 <body>
-    <h1>Categoria familiar</h1>
+    <h1>Categoria Familiar</h1>
     <div th:replace="baseTemplate :: botonComprar"></div>
     <table class="table table-striped">
         <thead>
@@ -183,5 +183,189 @@
     <br>
     <br>
     <div th:replace="baseTemplate :: footer"></div>
+
+
+    /*///////////////////////////////////////////////////CARDS////////////////////////////////////////////////////////////////////*/
+
+    #titulo {
+        margin-left: 35%;
+    }
+
+    #disposicion {
+        margin-left: 37%;
+    }
+
+    #categoriasTable {
+        width: 70%
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #43345d;
+        min-height: 800px;
+    } */
+
+    .container {
+        position: relative;
+        width: 1100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .container .card {
+        position: relative;
+        max-width: 300px;
+        height: 215px;
+        background-color: #fff;
+        margin: 30px 10px;
+        padding: 20px 15px;
+
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        transition: 0.3s ease-in-out;
+        border-radius: 15px;
+    }
+
+    .container .card:hover {
+        height: 370px;
+    }
+
+    .container .card .image {
+        position: relative;
+        width: 260px;
+        height: 200px;
+        top: -40%;
+        left: 8px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .container .card .image img {
+        max-width: 100%;
+        border-radius: 15px;
+    }
+
+    .container .card .content {
+        position: relative;
+        top: -140px;
+        padding: 10px 15px;
+        color: #111;
+        text-align: center;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+    }
+
+    .container .card:hover .content {
+        margin-top: 30px;
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0.2s;
+
+    }
+</style>
+
+<body>
+    <h1>Categoria Familias</h1>
+    <br>
+    <br>
+    <section class=container>
+        <div class=card>
+            <div class=image>
+                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/Familiar%20-%20JurassicOKPeq.jpg">
+            </div>
+            <div class=content>
+                <h3>Jurassic Park</h3>
+                <p>Viaja a Isla Nublar y contempla el parque de ocio más famoso del mundo. Visita los laboratorios y aprende con Mr. ADN acerca del proceso de creación de nuestros dinosaurios. .</p>
+                <br>
+                <p>2386 €</p>
+            </div>
+        </div>
+
+        <div class=card>
+            <div class=image>
+                <img
+                    src="https://github.com/AsunPaterna/img_chrono/blob/main/Familiar%20-%20HogsmeadeOKPeq.jpg?raw=true">
+            </div>
+            <div class=content>
+                <h3>Hogsmeade</h3>
+                <p>Especial Navidad en Hogsmeade. Disfruta de la cerveza de mantequilla, los helados de Florean Fortescue y de la tienda de artículos para bromas Zonko.</p>
+                <br>
+                <p>2125 €</p>
+            </div>
+        </div>
+    </section>
+
+
+    <br><br><br><br>
+    <section class=container>
+        <div class=card>
+            <div class=image>
+                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/Familiar%20-%20NarniaOKPeq.jpg?raw=true">
+            </div>
+            <div class=content>
+                <h3>Narnia</h3>
+                <p>Embárcate en el Lucero del Alba del Principe Caspian, prueba unas exquisitas delicias turcas en el palacio de la Reina de Hielo y disfruta de la compañía del Señor Tumnus o Aslan.</p>
+                <br>
+                <p>2125 €</p>
+            </div>
+        </div>
+
+        <div class=card>
+            <div class=image>
+                <img
+                    src="https://github.com/AsunPaterna/img_chrono/blob/main/RutaSedaVerde.jpg?raw=true">
+            </div>
+            <div class=content>
+                <h3>Ruta de la Seda</h3>
+                <p>Contempla Samarkanda, la ciudad de los mil colores. Disfruta de las idas y venidas de mercaderes que les despachaban a romanos y persas las sedas de Oriente. Visita en familia los oasis repletos de animales exóticos que dieron fama a la layenda..</p>
+                <br>
+                <p>3250 €</p>
+            </div>
+        </div>
+
+    </section>
+    <a>VIAJES QUE ESTÁN EN LA CATEGORIA FAMILIAS</a>
+    <!-- <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>descripcion</th>
+                <th>precio</th>
+                <th>categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="viaje: ${viajeAventura}">
+                <td th:text="${viaje.id}"></td>
+                <td th:text="${viaje.nombre}"></td>
+                <td th:text="${viaje.descripcion}"></td>
+                <td th:text="${viaje.precio}"></td>
+                <td th:text="${viaje.categoria.nombre}"></td>
+            </tr>
+        </tbody>
+    </table> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <div th:replace="baseTemplate :: footer"></div>
+</body>
+
+</html>
+
 </body>
 </html>
