@@ -72,9 +72,9 @@ public class MainController {
         return "carrito";
     }
 
-    @GetMapping("/interfazPaquetes")
-    public String getInterfazPaquetes(){
-        return "interfazPaquetes";
+    @GetMapping("/fondoResponsive")
+    public String getfondoResponsive(){
+        return "fondoResponsive";
     }
 
     @GetMapping("/prueba1")
