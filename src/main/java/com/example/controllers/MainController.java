@@ -41,7 +41,7 @@ public class MainController {
 //////////////////////////////////CONEXIÓN BACKEND CON HTML////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 
-    @GetMapping("/home")
+    @GetMapping("/chronologic")
     //PARA QUE SE VEAN LOS HTML
     public String getViajes(Model model){
         List<Viaje> viajes = servicioViaje.getViajes();
@@ -156,6 +156,7 @@ public class MainController {
 @GetMapping("/formularioEmpleado")
 public String mostrarFormularioEmpleado(ModelMap map){
     map.addAttribute("empleado", new Empleado()); 
+    map.addAttribute("listaEmpleados", servicioEmpleado.getEmpleados());
     
     return "formularioAltaEmpleado";
 }
@@ -187,7 +188,7 @@ public String mostrarFormularioCliente(ModelMap map){
     public String crearViaje(@ModelAttribute(name="viaje")
     Viaje viaje){
         servicioViaje.guardar(viaje);
-        return "redirect:/home";
+        return "redirect:/portalEmpleado";
     }
 
     @PostMapping("/crearEmpleado")
@@ -195,7 +196,7 @@ public String mostrarFormularioCliente(ModelMap map){
     Empleado empleado){
         servicioEmpleado.guardar(empleado);
 
-        return "redirect:/home";
+        return "redirect:/portalEmpleado";
     }
 
     @PostMapping("/crearCliente")
@@ -215,7 +216,7 @@ public String mostrarFormularioCliente(ModelMap map){
                 e.printStackTrace();
             }
         }
-        return "redirect:/home";
+        return "redirect:/portalEmpleado";
     }
 
     @PostMapping("/detalles/{id}")
