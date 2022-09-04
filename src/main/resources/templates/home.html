@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
     <title>Chronologic</title>
 
     <div class="product-details">
@@ -72,10 +73,6 @@
             width: 0;
         }
     }
-
-
-
-    /* ----------------------------MENU STYLE--------------------- */
 
     /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
     header {
@@ -178,7 +175,6 @@
         }
 
     }
-
     /*......................CARRUSEL IMÁGENES.....................................*/
     * {
         box-sizing: border-box
@@ -295,12 +291,12 @@
     /*PARRAFO WEB Y LOGOS*/
     #ParrafoWeb {
         text-align: center;
-        
+
     }
 
     #tituloTexto {
         /* max-width: 900px; */
-        background-color:#ffffffc7;
+        background-color: #ffffffc7;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         border-radius: 150px 100px 150px 100px;
         text-align: center;
@@ -312,7 +308,7 @@
         /* max-width: 900px; */
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         text-align: center;
-        background-color:#ffffffc7;
+        background-color: #ffffffc7;
         border-radius: 20px 100px 150px;
         margin-left: 15%;
         margin-right: 15%;
@@ -321,6 +317,165 @@
         padding-top: 1.5%;
         padding-bottom: 1.5%;
     }
+
+    /* Login Container (default to float:right) */
+#loginContainer {
+    position:relative;
+    float:right;
+    font-size:12px;
+}
+
+/* Login Button */
+#loginButton { 
+    display:inline-block;
+    float:right;
+    background:#d2e0ea url(../images/buttonbg.png) repeat-x; 
+    border:1px solid #899caa; 
+    border-radius:3px;
+    -moz-border-radius:3px;
+    position:relative;
+    z-index:30;
+    cursor:pointer;
+}
+
+/* Login Button Text */
+#loginButton span {
+    color:#445058; 
+    font-size:14px; 
+    font-weight:bold; 
+    text-shadow:1px 1px #fff; 
+    padding:7px 29px 9px 10px;
+    background:url(../images/loginArrow.png) no-repeat 53px 7px;
+    display:block
+}
+
+#loginButton:hover {
+    background:url(../images/buttonbgHover.png) repeat-x;
+}
+
+/* Login Box */
+#loginBox {
+    position:absolute;
+    top:34px;
+    right:0;
+    display:none;
+    z-index:29;
+}
+
+/* If the Login Button has been clicked */    
+#loginButton.active {
+    border-radius:3px 3px 0 0;
+}
+
+#loginButton.active span {
+    background-position:53px -76px;
+}
+
+/* A Line added to overlap the border */
+#loginButton.active em {
+    position:absolute;
+    width:100%;
+    height:1px;
+    background:#d2e0ea;
+    bottom:-1px;
+}
+
+/* Login Form */
+#loginForm {
+    width:248px; 
+    border:1px solid #899caa;
+    border-radius:3px 0 3px 3px;
+    -moz-border-radius:3px 0 3px 3px;
+    margin-top:-1px;
+    background:#d2e0ea;
+    padding:6px;
+}
+
+#loginForm fieldset {
+    margin:0 0 12px 0;
+    display:block;
+    border:0;
+    padding:0;
+}
+
+fieldset#body {
+    background:#fff;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    padding:10px 13px;
+    margin:0;
+}
+
+#loginForm #checkbox {
+    width:auto;
+    margin:1px 9px 0 0;
+    float:left;
+    padding:0;
+    border:0;
+    *margin:-3px 9px 0 0; /* IE7 Fix */
+}
+
+#body label {
+    color:#3a454d;
+    margin:9px 0 0 0;
+    display:block;
+    float:left;
+}
+
+#loginForm #body fieldset label {
+    display:block;
+    float:none;
+    margin:0 0 6px 0;
+}
+
+/* Default Input */
+#loginForm input {
+    width:92%;
+    border:1px solid #899caa;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    color:#3a454d;
+    font-weight:bold;
+    padding:8px 8px;
+    box-shadow:inset 0px 1px 3px #bbb;
+    -webkit-box-shadow:inset 0px 1px 3px #bbb;
+    -moz-box-shadow:inset 0px 1px 3px #bbb;
+    font-size:12px;
+}
+
+/* Sign In Button */
+#loginForm #login {
+    width:auto;
+    float:left;
+    background:#339cdf url(../images/loginbuttonbg.png) repeat-x;
+    color:#fff;
+    padding:7px 10px 8px 10px;
+    text-shadow:0px -1px #278db8;
+    border:1px solid #339cdf;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    margin:0 12px 0 0;
+    cursor:pointer;
+    *padding:7px 2px 8px 2px; /* IE7 Fix */
+}
+
+/* Forgot your password */
+#loginForm span {
+    text-align:center;
+    display:block;
+    padding:7px 0 4px 0;
+}
+
+#loginForm span a {
+    color:#3a454d;
+    text-shadow:1px 1px #fff;
+    font-size:12px;
+}
+
+input:focus {
+    outline:none;
+}
 </style>
 
 <body>
@@ -341,7 +496,30 @@
                     <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
                     <li><a th:href="@{/destinos}">DESTINOS</a></li>
                     <li><a th:href="@{/FAQS}">FAQS</a></li>
-                    <li><a th:href="@{/signIn}">LOGIN</a></li>
+                    <li><a th:href="@{/signIn}">
+                            <div id="loginContainer">
+                                <a href="#" id="loginButton"><span>LOG IN</span><em></em></a>
+                                <div style="clear:both"></div>
+                                <div id="loginBox">
+                                    <form id="loginForm">
+                                        <fieldset id="body">
+                                            <fieldset>
+                                                <label for="email">Email</label>
+                                                <input type="text" name="email" id="email" />
+                                            </fieldset>
+                                            <fieldset>
+                                                <label for="password">Contrase&ntilde;a</label>
+                                                <input type="password" name="password" id="password" />
+                                            </fieldset>
+                                            <input type="submit" id="login" value="Entrar" />
+                                            <label for="checkbox"><input type="checkbox"
+                                                    id="checkbox" />Recu&eacute;rdame</label>
+                                        </fieldset>
+                                        <span><a href="#">Perdiste tu contrase&ntilde;a?</a></span>
+                                    </form>
+                                </div>
+                            </div>
+                        </a></li>
                 </div>
             </ul>
         </nav>
@@ -362,49 +540,46 @@
             <div class="numbertext">1 / 6</div>
             <img src="https://github.com/AsunPaterna/img_chrono/blob/main/panoramicaNave.jpg?raw=true"
                 style="width:100%">
-            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/aboutUs}"><b>¡Sobre los
-                    viajes en el
-                    tiempo!</b></a></div>
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/aboutUs}"><b>¡Sobre
+                        los
+                        viajes en el
+                        tiempo!</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">2 / 6</div>
-            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/aventura.jpg?raw=true"
-                style="width:100%">
-            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
-                    th:href="@{/aventura}"> <b>Aventura</b></a></div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/aventura.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/aventura}">
+                    <b>Aventura</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">3 / 6</div>
-            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/familias.jpg?raw=true"
-                style="width:100%">
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/familias.jpg?raw=true" style="width:100%">
             <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
                     th:href="@{/familiar}"><b>Familiar</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">4 / 6</div>
-            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/cultural.jpg?raw=true"
-                style="width:100%">
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/cultural.jpg?raw=true" style="width:100%">
             <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
                     th:href="@{/cultural}"><b>Cultural</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">5 / 6</div>
-            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/parejas.jpg?raw=true"
-                style="width:100%">
-            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/pareja}"><b>Pareja</b></a>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/parejas.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
+                    th:href="@{/pareja}"><b>Pareja</b></a>
             </div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">6 / 6</div>
-            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/oferta.jpg?raw=true"
-                style="width:100%">
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/oferta.jpg?raw=true" style="width:100%">
             <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/signIn}"><b>¡Ofertas
-                    exclusivas socios!</b></a></div>
+                        exclusivas socios!</b></a></div>
         </div>
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
@@ -425,13 +600,15 @@
     <div id="ParrafoWeb">
         <h2 id="tituloTexto">Viajes Chronologic</h2>
         <br>
-        <p id="parrafoTexto">¿Quién no ha soñado alguna vez con conocer a Cleopatra? <br>   
+        <p id="parrafoTexto">¿Quién no ha soñado alguna vez con conocer a Cleopatra? <br>
             ¿Ver en primera fila los espectáculos del Coliseo? <br>¿O visitar Desembarco del Rey? <br>
-            El ser humano ha fantaseado con viajar en el tiempo desde siempre…. En <b>Chronologic</b> nos encargamos de hacerlo
+            El ser humano ha fantaseado con viajar en el tiempo desde siempre…. En <b>Chronologic</b> nos encargamos de
+            hacerlo
             realidad. Somos la primera agencia de viajes especializada en viajes inter-temporales e inter-dimensionales
             del mundo. Con nosotros no solo podrás viajar a diversos momentos de la historia, sino también dentro de tus
             universos de fantasía favoritos.
-            Además, con nuestras nuevas cabinas de alta gama<b> Modelo 815 de Oceanic</b>, viajarás con todas las comodidades,
+            Además, con nuestras nuevas cabinas de alta gama<b> Modelo 815 de Oceanic</b>, viajarás con todas las
+            comodidades,
             de forma segura y siempre acompañado por uno de nuestros chrono-guías.
         </p>
     </div><br><br>
@@ -466,6 +643,30 @@
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
         }
+
+
+        // Login Form
+
+        $(function () {
+            var button = $('#loginButton');
+            var box = $('#loginBox');
+            var form = $('#loginForm');
+            button.removeAttr('href');
+            button.mouseup(function (login) {
+                box.toggle();
+                button.toggleClass('active');
+            });
+            form.mouseup(function () {
+                return false;
+            });
+            $(this).mouseup(function (login) {
+                if (!($(login.target).parent('#loginButton').length > 0)) {
+                    button.removeClass('active');
+                    box.hide();
+                }
+            });
+        });
+
     </script>
 </body>
 
