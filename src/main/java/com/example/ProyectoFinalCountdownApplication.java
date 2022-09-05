@@ -14,9 +14,11 @@ import org.springframework.context.annotation.Bean;
 
 import com.example.entities.Categoria;
 import com.example.entities.Cliente;
+import com.example.entities.Empleado;
 import com.example.entities.Viaje;
 import com.example.service.ICategoriaService;
 import com.example.service.IClienteService;
+import com.example.service.IEmpleadoService;
 // import com.example.service.IClienteService;
 import com.example.service.IViajeService;
 
@@ -31,7 +33,7 @@ public class ProyectoFinalCountdownApplication {
 
 	///////////////////FALTA POR AÑADIR EL IEMPLEADOSERVICE
 	@Bean
-	public CommandLineRunner demoData(ICategoriaService categoriaSrv, IViajeService viajeSrv, IClienteService clienteSrv){
+	public CommandLineRunner demoData(ICategoriaService categoriaSrv, IViajeService viajeSrv, IClienteService clienteSrv, IEmpleadoService empleadoSrv){
 		return args ->{
 			//Categoria id:1 -> Aventura
 			//Categoria id:2 -> Cultural
@@ -120,6 +122,10 @@ public class ProyectoFinalCountdownApplication {
 			.fechaRegreso(LocalDate.parse("2022-01-10")).telefono("999887766").email("ee@ee.com")
 			.viaje(viajes2).build());
 
+
+			//Empleado
+			empleadoSrv.guardar(Empleado.builder().nombre("Julifrana Rodriguez Mancha").direccion("Calle Falsa, 123. Murcia").telefono("666555111").build());
+			empleadoSrv.guardar(Empleado.builder().nombre("Socorro Luengo Velez").direccion("Avenida Yuste, 33, 5ºF. Los infiernos, Murcia").telefono("999111777").build());
  
 		};
 	}

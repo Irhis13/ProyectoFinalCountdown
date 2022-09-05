@@ -95,13 +95,16 @@ public class MainController {
 
 
     @GetMapping("/portalEmpleado")
-    public String getPortalEmpleado1(Model model, Model model1){
+    public String getPortalEmpleado1(Model model, Model model1, Model model2){
 
         List<Viaje> viajes = servicioViaje.getViajes();
         model.addAttribute("viajesDisponibles", viajes);
 
         List<Cliente> clientes = servicioCliente.getClientes();
         model1.addAttribute("clientesRegistrados", clientes);
+
+        List<Empleado> empleados = servicioEmpleado.getEmpleados();
+        model2.addAttribute("listaEmpleados", empleados);
 
         return "portalEmpleado";
     }
@@ -145,7 +148,7 @@ public class MainController {
 @GetMapping("/formularioEmpleado")
 public String mostrarFormularioEmpleado(ModelMap map){
     map.addAttribute("empleado", new Empleado()); 
-    // map.addAttribute("listaEmpleados", servicioEmpleado.getEmpleados());
+
     
     return "formularioAltaEmpleado";
 }
