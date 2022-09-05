@@ -87,7 +87,7 @@ public class MainController {
         // model.addAttribute("viajes", servicioViaje.getViaje(1));
         return "carritoCompra";
     }
-
+////////////////////////////**********************
     @GetMapping("/pasarelaPago")
     public String getPasarelaPago(){
         return "pasarelaPago";
