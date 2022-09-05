@@ -91,7 +91,7 @@
     }
 
     nav {
-        background: #2fcdcd;
+        background: #7c8181;
         height: 80px;
         width: 100%;
     }
@@ -144,12 +144,6 @@
         display: none;
     }
 
-    /* section {
-        background: url(fondo.jpg) no-repeat;
-        background-size: cover;
-        background-position: center center;
-        height: calc(100vh - 80px);
-    } */
 
     @media (max-width: 952px) {
         .enlace {
@@ -198,7 +192,7 @@
         }
     }
 
-    /* ------------------------IAMGENES--------------------- */
+    /* ------------------------IMAGENES--------------------- */
     #sombreado {
         position: absolute;
         top: 0;
@@ -260,9 +254,9 @@
         position: fixed;
         top: 60px;
         right: -100%;
-        width: 360px;
+        width: 200px;
         min-height: 100vh;
-        padding: 20px;
+        padding: 10px;
         /* background: var(--bg-color); */
         background: rgb(95, 85, 62);
         opacity: 0.8;
@@ -499,13 +493,8 @@
        
     </header>
     <br><br><br><br><br><br><br><br>
-    <!--logo-->
 
-        <h1 style="color:rgb(0, 255, 30);">
-            AQUÍ VA EL LOGO DE ROCIO
-        </h1><br><br><br><br>
-   
-
+    <!-- -----------CODIGO DEL CART----------------- -->
     <section id="sec2">
         <!-- Cesta -->
         <div class="cart">
@@ -516,11 +505,11 @@
             </div>
             <!-- Total -->
             <div class="total">
-                <div class="total-title">Total</div>
+                <div class="total-title">TOTAL:</div>
                 <div class="total-price">€0</div>
             </div>
             <!-- Botón de comprar -->
-            <button type="button" class="btn-buy">Comprar</button>
+            <a th:href="@{/pasarelaPago}"><input type="button" value="COMPRAR"></a>
             <!-- Icono Cerrar cesta -->
             <i class='bx bx-x' id="close-cart"></i>
 
@@ -528,7 +517,7 @@
         </div>
     </section>
     <!-- Tienda -->
-    <h2 class="section-title">CATEGORIA: Aventuras</h2><br>cfw
+    <h2 class="section-title">CATEGORIA : Aventuras</h2><br>cfw
     <br><br><br>
     <section class="shop container">
         <div class="shop-content">
@@ -548,11 +537,6 @@
                     <br><br>
                 </div>
             </div>
-
-
-
-
-
         </div>
     </section>
 
@@ -640,8 +624,8 @@
             var shopProducts = button.parentElement;
             var title = shopProducts.getElementsByClassName("product-title")[0].innerText;
             var price = shopProducts.getElementsByClassName("price")[0].innerText;
-            var productImg = shopProducts.getElementsByClassName("product-img")[0].src;
-            addProductToCart(title, price, productImg);
+
+            addProductToCart(title, price);
             updatetotal();
         }
         function addProductToCart(title, price, productImg) {
@@ -656,7 +640,7 @@
                 }
             }
             var cartBoxContent = `
-                        <img src="${productImg}" alt="" class="cart-img">
+                        
                         <div class="detail-box">
                             <div class="cart-product-title">${title}</div>
                             <div class="cart-price">${price}</div>
