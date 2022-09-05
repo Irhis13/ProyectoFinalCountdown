@@ -194,22 +194,24 @@ public String mostrarFormularioCliente(ModelMap map){
     public String crearCliente(@ModelAttribute(name="cliente")
     Cliente cliente
     // , @RequestParam(name ="imagen", required = false)
-    // MultipartFile imagenDni
+    // MultipartFile foto
     ){
         System.out.println("***************************Inicio metodo crearCliente");
+        /*He puesto lo de guardar aquí de forma provisional hasta que solucionemos lo de la imagen */
         servicioCliente.guardar(cliente);
-        // if(imagenDni != null){
+        System.out.println("PROBANDO QUE GUARDA: "+ cliente.getNombre());
+
+        // if(foto != null){
         //     System.out.println("**********************IMAGEN NO NULA");
-        //     String rutaAbsoluta ="C://Users//mpaterna//Documents//recursosEmpleado/";
-        //     Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+imagenDni.getOriginalFilename());
+        //     String rutaAbsoluta ="C://Users//mpaterna//Documents//recursosEmpleado";
+        //     Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+foto.getOriginalFilename());
         //     System.out.println("******************************DENTRO DEL IF");
 
         //     try {
-        //         byte[] bytesImagenDni = imagenDni.getBytes();
-        //         Files.write(rutaCompleta, bytesImagenDni);
-        //         cliente.setImagenDni(imagenDni.getOriginalFilename());
+        //         byte[] bytesFoto = foto.getBytes();
+        //         Files.write(rutaCompleta, bytesFoto);
+        //         cliente.setImagenDni(foto.getOriginalFilename());
         //         servicioCliente.guardar(cliente);
-                System.out.println("PROBANDO QUE GUARDA: "+ cliente.getNombre());
         //     } catch (Exception e) {
         //         System.out.println("No vaaaaaaaaaaaa");
         //         e.printStackTrace();
