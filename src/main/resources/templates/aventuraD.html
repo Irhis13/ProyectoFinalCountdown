@@ -20,10 +20,10 @@
     @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Montserrat&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
     * {
-        font-family: 'Montserrat', sans-seri;
+        font-family: 'Montserrat', sans-serif;
         margin: 0;
         padding: 0;
         scroll-padding-top: 2px;
@@ -308,7 +308,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 20px;
-        background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
+        background-color: #55534e;
         opacity: 0.8;
         color: #f0f7fa;
     }
@@ -387,29 +387,7 @@
         }
 
     }
-    .logoSaludo {
-        user-select: none;
-        white-space: nowrap;
-        overflow: hidden;
-        width: 10em;
-        animation: anim 6s infinite;
-        font-size: 2rem;
-        font-family: 'Fugaz One', cursive;
-        color: var(--text-color);
-        font-weight: 400;
-    }
 
-    @keyframes anim {
-        from {
-            width: 0;
-        }
-    }
-
-    #titulo{
-        color: white;
-        margin-left: 80%;
-        /* margin-right: 5%; */
-    }
     #sombreado {
         position: absolute;
         top: 0;
@@ -421,7 +399,7 @@
         opacity: 0;
         border-radius: 25px;
         transition: .5s ease;
-        background-color: #ffffffdf;
+        background-color: #ffffff84;
     }
 
     #divImagenes:hover #sombreado {
@@ -442,7 +420,10 @@
         text-align: center;
     }
 
-    #img1 {
+    #img1,
+    #img2,
+    #img3,
+    #img4 {
         border-radius: 25px;
     }
 
@@ -452,34 +433,7 @@
     }
 
     #txt1 {
-        padding: 17px;
-        text-align: justify;
-    }
-
-    #precioCard {
-        padding-left: 120px;
-    }
-
-    
-    /*--------------BOTONES*/
-    #btn1 {
-        background-color: white;
-        border-radius: 5px;
-        color: black;
-        border: 2px solid #4c9e9e;
-        padding: 10px 20px;
-
-    }
-
-    #btn1:hover {
-        background-color: #4c9e9e;
-        border-radius: 5px;
-        font-size: 14px;
-        color: white;
-        padding: 10px 20px;
-    }
-    a{
-        color:#6ed2d2;
+        margin: 15px;
     }
 </style>
 
@@ -492,12 +446,12 @@
         </div>
         <nav class="nav">
             <!-- LOGO -->
-            <div class="logoSaludo">Chronologic</div>
+            <div class="logo">Chronologic</div>
             <!-- NAVIGATION MENU -->
             <ul class="nav-links">
                 <!-- NAVIGATION MENUS -->
                 <div class="menu">
-                    <li><a th:href="@{/chronologic}">HOME</a></li>
+                    <li><a th:href="@{/home}">HOME</a></li>
                     <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
                     <li><a th:href="@{/destinos}">DESTINOS</a></li>
                     <li><a th:href="@{/FAQS}">FAQS</a></li>
@@ -532,11 +486,10 @@
         </div>
         </div>
     </section>
-
     <!-- Tienda -->
     <section class="shop container">
         <div class="shop-content">
-            <h1 id="titulo" class="section-title">Aventuras</h1>
+            <h2 class="section-title">Aventuras</h2>
             <br>
             <br>
             <!-- Content -->
@@ -548,26 +501,24 @@
                         <div id="sombreado">
                             <div id="tit1" class="product-title" th:text="${viaje.nombre}"></div>
                             <p id="txt1" th:text="${viaje.descripcion}"></p>
-                            <span class="price" id="precioCard" th:text="${viaje.precio}">
-                            </span><a> €</a>
+                            <span class="price" th:text="${viaje.precio}"></span>
                         </div>
                         <i class='bx bx-shopping-bag add-cart'></i>
                     </div>
                     <br><br>
                 </div>
             </div>
+
+
+
+
+
         </div>
     </section>
-<br><br>
-    <h3 style="color:white; padding-left: 35px;" >Sigue explorando...</h3>
-    <div class="breadcrumb" style="padding-left:80px;">
-        <br>
-      <a th:href="@{/cultural}">Cultural</a><a> - </a><a th:href="@{/familiar}">Familiar</a><a> - </a><a th:href="@{/pareja}">Pareja</a></li>
-    </div>
 
     <br><br><br>
-    <footer th:replace=" baseTemplate :: footer"></footer>
-    <br><br><br>
+
+
 
     <script>
         //  Cesta
