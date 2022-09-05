@@ -176,7 +176,9 @@ public String mostrarFormularioCliente(ModelMap map){
     @PostMapping("/crearViaje") 
     public String crearViaje(@ModelAttribute(name="viaje")
     Viaje viaje){
+        System.out.println("PROBANDO: "+ viaje);
         servicioViaje.guardar(viaje);
+
         return "redirect:/portalEmpleado";
     }
 
