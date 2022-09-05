@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categoría: Aventura</title>
 
-    <div class="product-details">
-
         <!-- Link a iconos redes FontAwesome-->
         <script src="https://kit.fontawesome.com/e0d651bf64.js" crossorigin="anonymous"></script>
         <!-- Box Icons -->
@@ -50,12 +48,17 @@
         margin: auto;
         width: 50%;
     }
-
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
+    
+    .logoSaludo {
+        user-select: none;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 10em;
+        animation: anim 6s infinite;
+        font-size: 2rem;
+        font-family: 'Fugaz One', cursive;
+        color: var(--text-color);
+        font-weight: 400;
     }
 
     .logo {
@@ -285,109 +288,126 @@
 
 
     /* ----------------------------MENU STYLE--------------------- */
+     /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
+     header {
 
-    /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
-    header {
+width: 100%;
+position: fixed;
+z-index: 100;
 
-        width: 100%;
-        position: fixed;
-        z-index: 100;
+}
 
-    }
+a {
+text-decoration: none;
+}
 
-    a {
-        text-decoration: none;
-    }
+li {
+list-style: none;
+}
 
-    li {
-        list-style: none;
-    }
+nav {
+background: #2fcdcd;
+height: 80px;
+width: 100%;
+}
 
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        background-color: #55534e;
-        opacity: 0.8;
-        color: #f0f7fa;
-    }
+.enlace {
+position: absolute;
+padding: 20px 50px;
+}
 
-    .nav-links a {
-        color: #fff;
-    }
+.logo {
+height: 40px;
+}
 
-    /* LOGO */
-    .logo {
-        font-size: 32px;
-    }
+nav ul {
+float: right;
+margin-right: 20px;
+}
 
-    /* NAVBAR MENU */
-    .menu {
-        display: flex;
-        gap: 1em;
-        font-size: 18px;
-    }
+nav ul li {
+display: inline-block;
+line-height: 80px;
+margin: 0 5px;
+}
 
-    .menu li:hover {
-        background-color: #4c9e9e;
-        border-radius: 5px;
-        transition: 0.3s ease;
-    }
+nav ul li a {
+color: #fff;
+font-size: 18px;
+padding: 7px 13px;
+border-radius: 3px;
+text-transform: uppercase;
+}
 
-    .menu li {
-        padding: 5px 14px;
-    }
+li a.active,
+li a:hover {
+background: #000090;
+transition: .5s;
+}
+
+.checkbtn {
+font-size: 30px;
+color: #fff;
+float: right;
+line-height: 80px;
+margin-right: 40px;
+cursor: pointer;
+display: none;
+}
+
+#check {
+display: none;
+}
+
+@media (max-width: 952px) {
+.enlace {
+    padding-left: 20px;
+}
+
+nav ul li a {
+    font-size: 16px;
+}
+}
+
+@media (max-width: 858px) {
+.checkbtn {
+    display: block;
+}
+
+ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+}
+
+nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+}
+
+nav ul li a {
+    font-size: 20px;
+}
+
+li a:hover,
+li a.active {
+    background: none;
+    color: red;
+}
+
+#check:checked~ul {
+    left: 0;
+}
+}
 
 
-    @media (max-width:600px) {
-        .nav>.nav-btn {
-            display: inline-block;
-            position: absolute;
-            right: 0px;
-            top: 0px;
-        }
-
-        .nav>.nav-btn>label {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            padding: 13px;
-        }
-
-        .nav>.nav-btn>label:hover,
-        .nav #nav-check:checked~.nav-btn>label {
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-
-        .nav>.nav-links {
-            position: absolute;
-            display: block;
-            width: 100%;
-            background-color: #333;
-            height: 0px;
-            transition: all 0.3s ease-in;
-            overflow-y: hidden;
-            top: 50px;
-            left: 0px;
-        }
-
-        .nav>.nav-links>a {
-            display: block;
-            width: 100%;
-        }
-
-        .nav>#nav-check:not(:checked)~.nav-links {
-            height: 0px;
-        }
-
-        .nav>#nav-check:checked~.nav-links {
-            height: calc(100vh - 50px);
-            overflow-y: auto;
-        }
-
-    }
-
+    /* ---------------------------------------------------- */
     #sombreado {
         position: absolute;
         top: 0;
@@ -433,6 +453,7 @@
     }
 
     #txt1 {
+        
         margin: 15px;
     }
 </style>
@@ -442,27 +463,30 @@
     <!-- Cabecera -->
     <header>
 
-        <div class="nav-btn">
-        </div>
-        <nav class="nav">
-            <!-- LOGO -->
-            <div class="logo">Chronologic</div>
-            <!-- NAVIGATION MENU -->
-            <ul class="nav-links">
-                <!-- NAVIGATION MENUS -->
-                <div class="menu">
-                    <li><a th:href="@{/home}">HOME</a></li>
-                    <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
-                    <li><a th:href="@{/destinos}">DESTINOS</a></li>
-                    <li><a th:href="@{/FAQS}">FAQS</a></li>
-                    <li><a th:href="@{/signIn}">LOGIN</a></li>
-                    <li><i class='bx bx-shopping-bag' id="cart-icon">
-                            <p style="font-size: 15px ;"> Ver el carrito</p>
-                        </i></li>
-                </div>
+
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="#" class="enlace">
+                <!-- LOGO -->
+                <div class="logoSaludo">Chronologic</div>
+            </a>
+            <ul>
+
+                <li><a class="active" th:href="@{/chronologic}">HOME</a></li>
+                <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                <li><a th:href="@{/destinos}">DESTINOS</a></li>
+                <li><a th:href="@{/FAQS}">FAQS</a></li>
+                <li><a th:href="@{/signIn}">LOGIN</a></li>
+                <li><i class='bx bx-shopping-bag' id="cart-icon">
+                    <p style="font-size: 15px ;"> Ver el carrito</p>
+                </i></li>
             </ul>
         </nav>
-        </div><br><br><br><br><br><br>
+        <br><br><br><br><br><br>
+
     </header>
 
     <section id="sec2">
