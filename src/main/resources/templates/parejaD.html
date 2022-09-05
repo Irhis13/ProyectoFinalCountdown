@@ -37,7 +37,7 @@
 
     body {
         /* background-color: black; */
-        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/grisOscuro.jpg?raw=true");
+        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/2.jpg?raw=true");
         /* color: var(--text-color1); */
         background-size: 100%;
     }
@@ -91,7 +91,7 @@
     }
 
     nav {
-        background: #7c8181;
+        background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
         height: 80px;
         width: 100%;
     }
@@ -542,7 +542,17 @@
 
     <br><br><br>
 
-    <div th:replace="baseTemplate :: footer"></div>
+    <h3 style="color:white; padding-left: 35px;">Sigue explorando...</h3>
+    <div class="breadcrumb" style="padding-left:80px;"><br>
+        <a th:href="@{/aventura}">Aventura</a><a> - </a><a th:href="@{/cultural}">Cultural</a>
+        <a> - </a><a th:href="@{/familiar}">Familiar</a> - <a th:href="@{/pareja}">Pareja</a>
+    </div>
+
+    <br><br><br>
+
+    <footer th:replace=" baseTemplate :: footer"></footer>
+
+    <br>
 
     <script>
         //  Cesta

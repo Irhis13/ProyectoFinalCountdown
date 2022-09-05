@@ -39,7 +39,7 @@
 
     body {
         /* background-color: black; */
-        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/grisOscuro.jpg?raw=true");
+        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/2.jpg?raw=true");
         /* color: var(--text-color1); */
         background-size: 100%;
     }
@@ -93,7 +93,7 @@
     }
 
     nav {
-        background: #2fcdcd;
+        background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
         height: 80px;
         width: 100%;
     }
@@ -342,7 +342,6 @@
         padding-top: 1.5%;
         padding-bottom: 1.5%;
     }
-
 </style>
 
 <body>
@@ -364,10 +363,11 @@
                 <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
                 <li><a th:href="@{/destinos}">DESTINOS</a></li>
                 <li><a th:href="@{/FAQS}">FAQS</a></li>
+                <li><a th:href="@{/signIn}">LOGIN</a></li>
             </ul>
         </nav>
-        <br><br><br><br><br><br>
-    </header>
+
+    </header><br><br><br><br><br><br>
 
     <!--logo-->
     <div id="imgLogo" style="align-items:center;">
@@ -457,7 +457,7 @@
         </p>
     </div><br><br>
 
-   
+
     <footer th:replace=" baseTemplate :: footer"></footer>
 
 
