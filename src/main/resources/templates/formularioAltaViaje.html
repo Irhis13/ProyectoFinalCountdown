@@ -35,15 +35,10 @@
 <body style="background-color:rgba(141, 236, 212, 0.877)">
 
     <body>
-
         <br>
         <h1 class="text-center" style="position:relative; color:rgb(9, 9, 9) ; font-family:Verdana;">Formulario para dar
-            de
-            Alta un Viaje</h1>
-
-        <br>
-        <br>
-
+            de Alta un Viaje</h1>
+        <br><br>
         <h1 class="text-center" style="color: rgb(85, 26, 96);">ACCESO SÓLO EMPLEADOS</h1>
         <br>
         <br>
@@ -52,8 +47,6 @@
             <div class="container-fluid px-1 py-5 mx-auto">
                 <div class="row d-flex justify-content-center">
                     <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-
-
                         <div class="container mt-3">
                             <form th:object="${viaje}" th:action="@{/crearViaje}" method="post">
                                 <div class="mb-3 mt-3">
@@ -78,42 +71,37 @@
                                     style="width:675px;">
                                     <div class="col-md-12 text-center"></div>
                                     <div style="align-self:center ;"></div>
-                                    
+
                                     <option value="" selected>Seleccione departamento</option>
                                     <button type="submit" class="btn btn-primary">Confirmar</button>
                                     <option th:each=" categoria: ${categorias}" th:value="${categoria.id}"
                                         th:text="${categoria.nombre}"></option>
-                                </select>
+                                </select><br>
+                                <!-- </form> -->
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                                </div>
+
                             </form>
                         </div>
-
-                        <!-- <form th:object="${viaje}" th:action="@{/crearViaje}" method="post">
-                      <label for="nombre">Nombre:</label>
-                        
-                      <input type="text" class="form-control" placeholder="Nombre viaje" th:field="*{nombre}" required>
-                      <br><br>
-
-                        <a>Descripción: </a>
-                        <input type="text" class="form-control" placeholder="Descripcion viaje" th:field="*{descripcion}" required>
-                        <br>
-                        <br> -->
-
-                    </div>
-                </div>
-
-                <br>
-                <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
-                    </form>
+                    </div><br>
                 </div>
             </div>
         </div>
-        </div>
-<div id="botonEmpleado"></div>
+        <div id="botonEmpleado"></div>
         <div th:replace="baseTemplate :: botonPortalEmpleado"></div>
 
 
-
+        <!-- <form th:object="${viaje}" th:action="@{/crearViaje}" method="post">
+                              <label for="nombre">Nombre:</label>
+                                
+                              <input type="text" class="form-control" placeholder="Nombre viaje" th:field="*{nombre}" required>
+                              <br><br>
+        
+                                <a>Descripción: </a>
+                                <input type="text" class="form-control" placeholder="Descripcion viaje" th:field="*{descripcion}" required>
+                                <br>
+                                <br> -->
 
 
     </body>

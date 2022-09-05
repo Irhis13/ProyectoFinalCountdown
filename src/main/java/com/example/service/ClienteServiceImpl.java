@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.IClienteDao;
-import com.example.dao.IViajeDao;
+// import com.example.dao.IViajeDao;
 import com.example.entities.Cliente;
 import com.example.entities.Viaje;
 
@@ -17,39 +17,39 @@ public class ClienteServiceImpl implements IClienteService {
     @Autowired
     private IClienteDao daoCliente;
 
-    @Autowired
-    private IViajeDao daoViaje;
+    // @Autowired
+    // private IViajeDao daoViaje;
 
     @Override
     public List<Cliente> getClientes() {
         return daoCliente.findAll();
     }
-     
+
     List<Viaje> listaViajes = new ArrayList<>();
 
     @Override
     public Cliente getCliente(int idCliente) {
-        //REPASARRR
+        // REPASARRR
         return daoCliente.findById(idCliente).get();
         // return null;
     }
 
     @Override
     public void guardar(Cliente cliente) {
-        //Nuevo cliente
+        // Nuevo cliente
         daoCliente.save(cliente);
-        
+
     }
 
     @Override
     public void eliminar(int idCliente) {
         daoCliente.deleteById(idCliente);
-        
+
     }
 
     @Override
-    public void modificar(int idCliente,Cliente cliente) {
-        //Que seleccione el cliente, no que lo introduzca con un combobox
+    public void modificar(int idCliente, Cliente cliente) {
+        // Que seleccione el cliente, no que lo introduzca con un combobox
         Cliente clienteDB = daoCliente.findById(idCliente).get();
         clienteDB.setNombre(cliente.getNombre());
         clienteDB.setApellidos(cliente.getApellidos());
@@ -60,9 +60,7 @@ public class ClienteServiceImpl implements IClienteService {
         clienteDB.setEmail(cliente.getEmail());
         clienteDB.setViaje(cliente.getViaje());
 
-        daoCliente.save(cliente);        
+        daoCliente.save(cliente);
     }
 
-
-    
 }
