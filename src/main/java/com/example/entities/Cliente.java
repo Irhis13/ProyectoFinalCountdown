@@ -30,7 +30,7 @@ public class Cliente {
     private String nombre;
     @NotNull
     private String apellidos;
-    @NotNull
+    // @NotNull
     private String imagenDni;
 
     /*No tiene por qué tener fechas de viaje de entrada*/

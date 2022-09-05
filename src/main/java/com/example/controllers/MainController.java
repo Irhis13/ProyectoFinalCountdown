@@ -176,7 +176,7 @@ public String mostrarFormularioCliente(ModelMap map){
     @PostMapping("/crearViaje") 
     public String crearViaje(@ModelAttribute(name="viaje")
     Viaje viaje){
-        System.out.println("PROBANDO: "+ viaje);
+        System.out.println("PROBANDO: "+ viaje.getNombre());
         servicioViaje.guardar(viaje);
 
         return "redirect:/portalEmpleado";
@@ -186,28 +186,35 @@ public String mostrarFormularioCliente(ModelMap map){
     public String crearEmpleado(@ModelAttribute(name="empleado")
     Empleado empleado){
         servicioEmpleado.guardar(empleado);
-
+        System.out.println("PROBADO "+ empleado.getNombre());
         return "redirect:/portalEmpleado";
     }
-
+    
     @PostMapping("/crearCliente")
     public String crearCliente(@ModelAttribute(name="cliente")
-    Cliente cliente, @RequestParam(name ="imagen", required = false)
-    MultipartFile imagenDni){
+    Cliente cliente
+    // , @RequestParam(name ="imagen", required = false)
+    // MultipartFile imagenDni
+    ){
+        System.out.println("***************************Inicio metodo crearCliente");
+        servicioCliente.guardar(cliente);
+        // if(imagenDni != null){
+        //     System.out.println("**********************IMAGEN NO NULA");
+        //     String rutaAbsoluta ="C://Users//mpaterna//Documents//recursosEmpleado/";
+        //     Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+imagenDni.getOriginalFilename());
+        //     System.out.println("******************************DENTRO DEL IF");
 
-        if(imagenDni != null){
-            String rutaAbsoluta ="C://Users//mpaterna//Documents//recursosEmpleado/";
-            Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+imagenDni.getOriginalFilename());
-            
-            try {
-                byte[] bytesImagenDni = imagenDni.getBytes();
-                Files.write(rutaCompleta, bytesImagenDni);
-                cliente.setImagenDni(imagenDni.getOriginalFilename());
-                servicioCliente.guardar(cliente);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        //     try {
+        //         byte[] bytesImagenDni = imagenDni.getBytes();
+        //         Files.write(rutaCompleta, bytesImagenDni);
+        //         cliente.setImagenDni(imagenDni.getOriginalFilename());
+        //         servicioCliente.guardar(cliente);
+                System.out.println("PROBANDO QUE GUARDA: "+ cliente.getNombre());
+        //     } catch (Exception e) {
+        //         System.out.println("No vaaaaaaaaaaaa");
+        //         e.printStackTrace();
+        //     }
+        // }
         return "redirect:/portalEmpleado";
     }
 
