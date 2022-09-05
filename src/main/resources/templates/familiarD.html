@@ -517,12 +517,12 @@
         </div>
     </section>
     <!-- Tienda -->
-    <h2 class="section-title">CATEGORIA : Aventuras</h2><br>
+    <h2 class="section-title">CATEGORIA : Familiar</h2><br>
     <br><br><br>
     <section class="shop container">
         <div class="shop-content">
             <!-- Content -->
-            <div th:each="viaje : ${viajeAventura}">
+            <div class="shop-content" th:each="viaje : ${viajeFamiliar}">
                 <!-- Box 1 -->
                 <div id="divImagenes">
                     <div class="product-box">
@@ -530,7 +530,8 @@
                         <div id="sombreado">
                             <div id="tit1" class="product-title" th:text="${viaje.nombre}"></div>
                             <p id="txt1" th:text="${viaje.descripcion}"></p>
-                            <span class="price" th:text="${viaje.precio}"></span>
+                            <span class="price" id="precioCard" th:text="${viaje.precio}">
+                            </span><a> €</a>
                         </div>
                         <i class='bx bx-shopping-bag add-cart'></i>
                     </div>
