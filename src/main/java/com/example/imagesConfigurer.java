@@ -13,6 +13,7 @@ public class imagesConfigurer implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         WebMvcConfigurer.super.addResourceHandlers(registry);
-        registry.addResourceHandler("/recursosEmpleado/**").addResourceLocations("file:///C:/Users/mpaterna/Documents/recursosEmpleado/");
+        registry.addResourceHandler("/recursosEmpleado/**")
+        .addResourceLocations("file:///C:/Users/mpaterna/Documents/recursosEmpleado/");
     }
 }

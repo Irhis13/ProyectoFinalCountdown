@@ -27,13 +27,10 @@ public class MainController {
 
     @Autowired
     private IViajeService servicioViaje;
-
     @Autowired
     private ICategoriaService servicioCategoria;
-    
     @Autowired
     private IClienteService servicioCliente;
-
     @Autowired
     private IEmpleadoService servicioEmpleado;
 
@@ -75,8 +72,6 @@ public class MainController {
         return "FAQS";
     }
 
-
-
     @GetMapping("/login/{id}") 
     public ModelAndView getLogin(@PathVariable(name = "id") String id){
         Cliente cliente = servicioCliente.getCliente(Integer.parseInt(id));
@@ -86,12 +81,6 @@ public class MainController {
         mav.addObject("cliente", cliente);
         return mav;
     }
-
-    // @GetMapping("/longi")
-    // String getLogin(Model model){
-    //     model.addAttribute("cliente", servicioCliente.getCliente(1));
-    //     return "login";
-    // }
 
     @GetMapping("/carritoCompra") //Aquí implementar paramrequest!!!
     public String getCarrito(/*Model model*/){
@@ -164,18 +153,18 @@ public String mostrarFormularioEmpleado(ModelMap map){
 @GetMapping("/formularioCliente")
 public String mostrarFormularioCliente(ModelMap map){
     map.addAttribute("cliente", new Cliente()); 
-    map.addAttribute("viajes", servicioViaje.getViajes());
-    map.addAttribute("clientes", servicioCliente.getClientes());
+    // map.addAttribute("viajes", servicioViaje.getViajes());
+    // map.addAttribute("clientes", servicioCliente.getClientes());
     
     return "formularioAltaCliente";
 }
 
-    @GetMapping("/formularioViaje")
-    public String mostrarFormularioViaje(ModelMap map){
-        map.addAttribute("viaje", new Viaje()); 
-        map.addAttribute("categorias", servicioCategoria.getCategorias());
+@GetMapping("/formularioViaje")
+   public String mostrarFormularioViaje(ModelMap map){
+    map.addAttribute("viaje", new Viaje()); 
+    map.addAttribute("categorias", servicioCategoria.getCategorias());
         
-        return "formularioAltaViaje";
+    return "formularioAltaViaje";
     }
 
 ///////////////////////////////////////////////////////////////////////////////////////////

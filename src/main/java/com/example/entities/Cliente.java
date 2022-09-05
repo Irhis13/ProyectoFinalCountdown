@@ -3,13 +3,10 @@ package com.example.entities;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
@@ -36,20 +33,21 @@ public class Cliente {
     @NotNull
     private String imagenDni;
 
-    @NotNull
+    /*No tiene por qué tener fechas de viaje de entrada*/
+    // @NotNull 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaSalida;
-
-    @NotNull
+    // @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaRegreso;
+
     @NotNull
     private String telefono;
     @NotNull
     private String email;
 
     @OneToMany
-    @NotNull
+    // @NotNull
     private List<Viaje> viaje;
 
 }

@@ -19,8 +19,8 @@ import lombok.NoArgsConstructor;
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
     private int idEmpleado;
+    
     @NotNull
     private String nombre;
     @NotNull
