@@ -38,7 +38,7 @@
     }
 
     body {
-        background-color: black;
+        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/2.jpg?raw=true");
         /* background-image: ; */
         /* color: var(--text-color1); */
         background-size: 100%;
@@ -115,9 +115,6 @@
     }
 
 
-
-    /* ----------------------------MENU STYLE--------------------- */
-
     /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
     header {
 
@@ -135,91 +132,116 @@
         list-style: none;
     }
 
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
+    nav {
         background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
-        /* opacity: 0.8; */
-        color: #f0f7fa;
+        height: 80px;
+        width: 100%;
     }
 
-    .nav-links a {
-        color: #fff;
+    .enlace {
+        position: absolute;
+        padding: 20px 50px;
     }
 
-    /* LOGO */
     .logo {
-        font-size: 32px;
+        height: 40px;
     }
 
-    /* NAVBAR MENU */
-    .menu {
-        display: flex;
-        gap: 1em;
+    nav ul {
+        float: right;
+        margin-right: 20px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+    }
+
+    nav ul li a {
+        color: #fff;
         font-size: 18px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
     }
 
-    .menu li:hover {
-        background-color: #4c9e9e;
-        border-radius: 5px;
-        transition: 0.3s ease;
+    li a.active,
+    li a:hover {
+        background: #000090;
+        transition: .5s;
     }
 
-    .menu li {
-        padding: 5px 14px;
+    .checkbtn {
+        font-size: 30px;
+        color: #fff;
+        float: right;
+        line-height: 80px;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
     }
 
+    #check {
+        display: none;
+    }
 
-    @media (max-width:600px) {
-        .nav>.nav-btn {
-            display: inline-block;
-            position: absolute;
-            right: 0px;
-            top: 0px;
+    section {
+        background: url(fondo.jpg) no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: calc(100vh - 80px);
+    }
+
+    @media (max-width: 952px) {
+        .enlace {
+            padding-left: 20px;
         }
 
-        .nav>.nav-btn>label {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            padding: 13px;
+        nav ul li a {
+            font-size: 16px;
         }
+    }
 
-        .nav>.nav-btn>label:hover,
-        .nav #nav-check:checked~.nav-btn>label {
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-
-        .nav>.nav-links {
-            position: absolute;
+    @media (max-width: 858px) {
+        .checkbtn {
             display: block;
-            width: 100%;
-            background-color: #333;
-            height: 0px;
-            transition: all 0.3s ease-in;
-            overflow-y: hidden;
-            top: 50px;
-            left: 0px;
         }
 
-        .nav>.nav-links>a {
+        ul {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #2c3e50;
+            top: 80px;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+        }
+
+        nav ul li {
             display: block;
-            width: 100%;
+            margin: 50px 0;
+            line-height: 30px;
         }
 
-        .nav>#nav-check:not(:checked)~.nav-links {
-            height: 0px;
+        nav ul li a {
+            font-size: 20px;
         }
 
-        .nav>#nav-check:checked~.nav-links {
-            height: calc(100vh - 50px);
-            overflow-y: auto;
+        li a:hover,
+        li a.active {
+            background: none;
+            color: red;
         }
 
+        #check:checked~ul {
+            left: 0;
+        }
     }
 
+
+    /* ------------------IMAGENES----------------------- */
 
     #divImagenes:hover #sombreado {
         opacity: 1;
@@ -284,7 +306,7 @@
         text-align: center;
     }
 
-    #tituloFoto{
+    #tituloFoto {
         font-family: 'Fugaz One', cursive;
         color: #c3226f;
         font-size: 30px;
@@ -293,12 +315,12 @@
 
     #ParrafoWeb {
         text-align: center;
-        
+
     }
 
     #tituloTexto {
         /* max-width: 900px; */
-        background-color:#ffffffc7;
+        background-color: #ffffffc7;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         border-radius: 150px 30px;
         text-align: center;
@@ -310,7 +332,7 @@
         /* max-width: 900px; */
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         text-align: center;
-        background-color:#ffffffc7;
+        background-color: #ffffffc7;
         border-radius: 30px 150px;
         margin-left: 15%;
         margin-right: 15%;
@@ -325,26 +347,26 @@
 
     <!-- Cabecera -->
     <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="#" class="enlace">
+                <!-- LOGO -->
+                <div class="logoSaludo">Chronologic</div>
+            </a>
+            <ul>
 
-        <div class="nav-btn">
-        </div>
-        <nav class="nav">
-            <!-- LOGO -->
-            <div class="logoSaludo">Chronologic</div>
-            <!-- NAVIGATION MENU -->
-            <ul class="nav-links">
-                <!-- NAVIGATION MENUS -->
-                <div class="menu">
-                    <li><a th:href="@{/chronologic}">HOME</a></li>
-                    <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
-                    <li><a th:href="@{/destinos}">DESTINOS</a></li>
-                    <li><a th:href="@{/FAQS}">FAQS</a></li>
-                    <li><a th:href="@{/signIn}">LOGIN</a></li>
-                </div>
+                <li><a class="active" th:href="@{/chronologic}">HOME</a></li>
+                <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                <li><a th:href="@{/destinos}">DESTINOS</a></li>
+                <li><a th:href="@{/FAQS}">FAQS</a></li>
+                <li><a th:href="@{/signIn}">LOGIN</a></li>
             </ul>
         </nav>
-        </div><br><br><br><br><br><br>
-    </header>
+
+    </header><br><br><br><br><br><br>
 
 
 
@@ -361,9 +383,11 @@
     <div id="ParrafoWeb">
         <h2 id="tituloTexto">Conócenos</h2>
         <br>
-        <p id="parrafoTexto">Somos Herminia, Flora y Casiopea<br><br>Juntas fundamos <b>Chronologic</b> un poco por casualidad. Tras una copiosa merienda<br>
-            y algún que otro rito oculto, se nos ocurrió investigar los secretos del espacio-tiempo <br>para poder hacer 
-            fotos comprometedoras a nuestros enemigos. <br>Una cosa llevó a la otra, invertimos un par de millones en tecnología puntera,<br>
+        <p id="parrafoTexto">Somos Herminia, Flora y Casiopea<br><br>Juntas fundamos <b>Chronologic</b> un poco por
+            casualidad. Tras una copiosa merienda<br>
+            y algún que otro rito oculto, se nos ocurrió investigar los secretos del espacio-tiempo <br>para poder hacer
+            fotos comprometedoras a nuestros enemigos. <br>Una cosa llevó a la otra, invertimos un par de millones en
+            tecnología puntera,<br>
             echamos a Elon Musk del negocio y ahora vosotros podéis hacer turismo en el tiempo. <br><br>
             ¡Nuestra tecnología es ecológica, avalada por la Unión Europea y ya no licua huesos!<br><br>
         </p>
