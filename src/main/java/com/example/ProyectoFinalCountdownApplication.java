@@ -27,26 +27,26 @@ import com.example.service.IViajeService;
 
 
 @SpringBootApplication
-public class ProyectoFinalCountdownApplication {
+public class ProyectoFinalCountdownApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoFinalCountdownApplication.class, args);
 	}
-///////////////////////// COMENTAMOS XQ YA NO NECESITAMOS LA GENERACIÓN DE LA ENCRIPTACIÓN //////////	
-	// @Autowired
-	// private BCryptPasswordEncoder passEnconder;
+///////////////////////// TODO: Comentar después de añadir las claves encriptadas en la BBDD //////////	
+	@Autowired
+	private BCryptPasswordEncoder passEnconder;
 
-	// @Override
-	// public void run(String... args) throws Exception {
+	@Override
+	public void run(String... args) throws Exception {
 		
-	// 	// Creamos user y admin para que tengan sus contraseñas
-	// 	String pass1="user";
-	// 	String pass2="admin";
+		// Creamos user y admin para que tengan sus contraseñas
+		String pass1="user";
+		String pass2="admin";
 
-	// 	// Encripta las contraseñas de admin y usuario
-	// 	System.out.println(passEnconder.encode(pass1));
-	// 	System.out.println(passEnconder.encode(pass2));
-	// }
+		// Encripta las contraseñas de admin y usuario
+		System.out.println(passEnconder.encode(pass1));
+		System.out.println(passEnconder.encode(pass2));
+	}
 
 
 	///////////////////FALTA POR AÑADIR EL IEMPLEADOSERVICE
