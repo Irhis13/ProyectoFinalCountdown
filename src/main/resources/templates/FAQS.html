@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head th:replace=" baseTemplate :: cabecera">
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Chronologic</title>
-    
-        <div class="product-details">
-    
-            <!-- Link a iconos redes FontAwesome-->
-            <script src="https://kit.fontawesome.com/e0d651bf64.js" crossorigin="anonymous"></script>
-            <!-- Box Icons -->
-            <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    </head>
+
+<head th:replace=" baseTemplate :: cabecera">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronologic</title>
+
+    <div class="product-details">
+
+        <!-- Link a iconos redes FontAwesome-->
+        <script src="https://kit.fontawesome.com/e0d651bf64.js" crossorigin="anonymous"></script>
+        <!-- Box Icons -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-     /* Google Fonts */
-     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+    /* Google Fonts */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
     @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
@@ -38,9 +39,7 @@
     }
 
     body {
-        background-color: black;
-        /* background-image: ; */
-        /* color: var(--text-color1); */
+        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/2.jpg?raw=true");
         background-size: 100%;
 
     }
@@ -104,7 +103,7 @@
         animation: anim 6s infinite;
         font-size: 2rem;
         font-family: 'Fugaz One', cursive;
-        color: var(--text-color);
+        color: white;
         font-weight: 400;
     }
 
@@ -113,10 +112,6 @@
             width: 0;
         }
     }
-
-
-
-    /* ----------------------------MENU STYLE--------------------- */
 
     /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
     header {
@@ -135,91 +130,115 @@
         list-style: none;
     }
 
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
+    nav {
         background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
-        /* opacity: 0.8; */
-        color: #f0f7fa;
+        height: 80px;
+        width: 100%;
     }
 
-    .nav-links a {
-        color: #fff;
+    .enlace {
+        position: absolute;
+        padding: 20px 50px;
     }
 
-    /* LOGO */
     .logo {
-        font-size: 32px;
+        height: 40px;
     }
 
-    /* NAVBAR MENU */
-    .menu {
-        display: flex;
-        gap: 1em;
+    nav ul {
+        float: right;
+        margin-right: 20px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+    }
+
+    nav ul li a {
+        color: #fff;
         font-size: 18px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
     }
 
-    .menu li:hover {
-        background-color: #4c9e9e;
-        border-radius: 5px;
-        transition: 0.3s ease;
+    li a.active,
+    li a:hover {
+        background: #000090;
+        transition: .5s;
     }
 
-    .menu li {
-        padding: 5px 14px;
+    .checkbtn {
+        font-size: 30px;
+        color: #fff;
+        float: right;
+        line-height: 80px;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
     }
 
+    #check {
+        display: none;
+    }
 
-    @media (max-width:600px) {
-        .nav>.nav-btn {
-            display: inline-block;
-            position: absolute;
-            right: 0px;
-            top: 0px;
+    section {
+        background: url(fondo.jpg) no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: calc(100vh - 80px);
+    }
+
+    @media (max-width: 952px) {
+        .enlace {
+            padding-left: 20px;
         }
 
-        .nav>.nav-btn>label {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            padding: 13px;
+        nav ul li a {
+            font-size: 16px;
         }
+    }
 
-        .nav>.nav-btn>label:hover,
-        .nav #nav-check:checked~.nav-btn>label {
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-
-        .nav>.nav-links {
-            position: absolute;
+    @media (max-width: 858px) {
+        .checkbtn {
             display: block;
-            width: 100%;
-            background-color: #333;
-            height: 0px;
-            transition: all 0.3s ease-in;
-            overflow-y: hidden;
-            top: 50px;
-            left: 0px;
         }
 
-        .nav>.nav-links>a {
+        ul {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #2c3e50;
+            top: 80px;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+        }
+
+        nav ul li {
             display: block;
-            width: 100%;
+            margin: 50px 0;
+            line-height: 30px;
         }
 
-        .nav>#nav-check:not(:checked)~.nav-links {
-            height: 0px;
+        nav ul li a {
+            font-size: 20px;
         }
 
-        .nav>#nav-check:checked~.nav-links {
-            height: calc(100vh - 50px);
-            overflow-y: auto;
+        li a:hover,
+        li a.active {
+            background: none;
+            color: red;
         }
 
+        #check:checked~ul {
+            left: 0;
+        }
     }
 
+    /* ----------------------OTROS-------------------- */
     .logoSaludo {
         user-select: none;
         white-space: nowrap;
@@ -228,7 +247,7 @@
         animation: anim 6s infinite;
         font-size: 2rem;
         font-family: 'Fugaz One', cursive;
-        color: var(--text-color);
+        color: white;
         font-weight: 400;
     }
 
@@ -249,7 +268,7 @@
 
     /* Parámetros para el estilo del body y de los elementos del acordeón */
 
-    h3{
+    h3 {
         font-family: 'Montserrat', sans-serif;
         color: #f0f7fa;
     }
@@ -257,8 +276,8 @@
     .accordion {
         margin-left: 10vw;
         position: relative;
-        background-color: #eee;
-        color: #444;
+        background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
+        color: white;
         cursor: pointer;
         padding: 18px;
         width: 80%;
@@ -286,11 +305,12 @@
         background-color: white;
         overflow: hidden;
     }
-#titulo{
-    color: white;
+
+    #titulo {
+        color: black;
         margin-left: 42%;
         margin-right: 42%;
-}
+    }
 </style>
 
 
@@ -299,32 +319,34 @@ Faqs cuando el usuario haga click sobre una pregunta -->
 
 <body>
     <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="#" class="enlace">
+                <!-- LOGO -->
+                <div class="logoSaludo">Chronologic</div>
+            </a>
+            <ul>
 
-        <div class="nav-btn">
-        </div>
-        <nav class="nav">
-            <!-- LOGO -->
-            <div class="logoSaludo">Chronologic</div>
-            <!-- NAVIGATION MENU -->
-            <ul class="nav-links">
-                <!-- NAVIGATION MENUS -->
-                <div class="menu">
-                    <li><a th:href="@{/chronologic}">HOME</a></li>
-                    <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
-                    <li><a th:href="@{/destinos}">DESTINOS</a></li>
-                    <li><a th:href="@{/FAQS}">FAQS</a></li>
-                    <li><a th:href="@{/signIn}">LOGIN</a></li>
-                </div>
+                <li><a class="active" th:href="@{/chronologic}">HOME</a></li>
+                <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                <li><a th:href="@{/destinos}">DESTINOS</a></li>
+                <li><a th:href="@{/FAQS}">FAQS</a></li>
+                <li><a th:href="@{/signIn}">LOGIN</a></li>
             </ul>
         </nav>
         
-    </header>
-</div><br><br><br><br><br><br><br>
+    </header><br><br><br>
+
+    <br><br><br><br><br><br><br>
     <h3 id="titulo">Preguntas frecuentes</h3>
     <br><br>
 
 
-    <button class="accordion"><i class="fa-solid fa-atom fa-xl"></i><b> ¿Es seguro viajar en el espacio-tiempo?</b></button>
+    <button class="accordion"><i class="fa-solid fa-atom fa-xl"></i><b> ¿Es seguro viajar en el
+            espacio-tiempo?</b></button>
     <div class="panel">
         <p>Por supuesto, disponemos de las últimas tecnologías para que no sufras ningún
             daño durante tu viaje. Además, nuestras cabinas de última generación Modelo 815 Oceanic cuentan con
@@ -334,20 +356,20 @@ Faqs cuando el usuario haga click sobre una pregunta -->
     <button class="accordion"><i class="fa-solid fa-users fa-lg"></i> <b>¿Estaré solo durante el viaje?</b></button>
     <div class="panel">
         <p>Todos nuestros paquetes están pensados para viajes en grupo o en pareja.
-            Si prefieres viajar en solitario, contanta con nosotros <br> <a href="#"
-                class="stretched-link">aquí</a></p>
+            Si prefieres viajar en solitario, contanta con nosotros <br> <a href="#" class="stretched-link">aquí</a></p>
     </div><br>
 
-    <button class="accordion"><i class="fa-solid fa-magnifying-glass-dollar fa-lg"></i> <b>¿Qué incluye el precio?</b></button>
+    <button class="accordion"><i class="fa-solid fa-magnifying-glass-dollar fa-lg"></i> <b>¿Qué incluye el
+            precio?</b></button>
     <div class="panel">
         <p>Nuestros viajes incluyen transporte, alojamiento y pensión completa. Además,
             por un módico precio podrás contratar algunos extras como vestuario y reportaje
             fotográfico. <br></p>
     </div>
-<br><br><br><br><br><br><br><br>
-<footer th:replace=" baseTemplate :: footer"></footer>
-<br>
+    <br><br><br><br><br><br><br><br>
 
+    <footer th:replace=" baseTemplate :: footer"></footer>
+    <br>
 
 
     <!-- Script insertado en el propio html en lugar de crear un archivo .js -->

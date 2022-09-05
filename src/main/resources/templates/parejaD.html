@@ -16,11 +16,9 @@
 </head>
 <style>
     /* Google Fonts */
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Montserrat&display=swap');
 
     * {
         font-family: 'Montserrat', sans-serif;
@@ -38,11 +36,10 @@
     }
 
     body {
-        background-color: black;
-        /* background-image: ; */
+        /* background-color: black; */
+        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/2.jpg?raw=true");
         /* color: var(--text-color1); */
         background-size: 100%;
-
     }
 
     .container {
@@ -58,11 +55,193 @@
         padding: 20px;
     }
 
-    .logo {
-        font-size: 1.5rem;
-        color: var(--text-color);
+    .logoSaludo {
+        user-select: none;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 10em;
+        animation: anim 6s infinite;
+        font-size: 2rem;
+        font-family: 'Fugaz One', cursive;
+        color: white;
         font-weight: 400;
     }
+
+    @keyframes anim {
+        from {
+            width: 0;
+        }
+    }
+
+    /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
+    header {
+
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    nav {
+        background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
+        height: 80px;
+        width: 100%;
+    }
+
+    .enlace {
+        position: absolute;
+        padding: 20px 50px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    nav ul {
+        float: right;
+        margin-right: 20px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+    }
+
+    nav ul li a {
+        color: #fff;
+        font-size: 18px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+    }
+
+    li a.active,
+    li a:hover {
+        background: #000090;
+        transition: .5s;
+    }
+
+    .checkbtn {
+        font-size: 30px;
+        color: #fff;
+        float: right;
+        line-height: 80px;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
+    }
+
+    #check {
+        display: none;
+    }
+
+
+    @media (max-width: 952px) {
+        .enlace {
+            padding-left: 20px;
+        }
+
+        nav ul li a {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 858px) {
+        .checkbtn {
+            display: block;
+        }
+
+        ul {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #2c3e50;
+            top: 80px;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+        }
+
+        nav ul li {
+            display: block;
+            margin: 50px 0;
+            line-height: 30px;
+        }
+
+        nav ul li a {
+            font-size: 20px;
+        }
+
+        li a:hover,
+        li a.active {
+            background: none;
+            color: red;
+        }
+
+        #check:checked~ul {
+            left: 0;
+        }
+    }
+
+    /* ------------------------IMAGENES--------------------- */
+    #sombreado {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        border-radius: 25px;
+        transition: .5s ease;
+        background-color: #ffffff84;
+    }
+
+    #divImagenes:hover #sombreado {
+        opacity: 1;
+    }
+
+    .text {
+        color: rgb(0, 0, 0);
+        background-color: rgba(255, 255, 255, 0.354);
+        border-radius: 15px;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    #img1,
+    #img2,
+    #img3,
+    #img4 {
+        border-radius: 25px;
+    }
+
+    #tit1 {
+        justify-items: center;
+        margin-left: 30%;
+    }
+
+    #txt1 {
+        margin: 15px;
+    }
+
+    /* ---------------------CODIGO DEL CARRITO------------------- */
 
     #cart-icon {
         font-size: 1.8rem;
@@ -73,14 +252,14 @@
     /* Cesta */
     .cart {
         position: fixed;
-        top: 100px;
+        top: 60px;
         right: -100%;
-        width: 360px;
+        width: 200px;
         min-height: 100vh;
-        padding: 0px;
-        background: var(--bg-color);
+        padding: 10px;
+        /* background: var(--bg-color); */
         background: rgb(95, 85, 62);
-        opacity: 0.9;
+        opacity: 0.8;
         box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
         transition: 0.3s;
     }
@@ -185,6 +364,7 @@
         font-weight: 600;
         text-align: center;
         margin-bottom: 1.5rem;
+        color: black;
     }
 
     .shop {
@@ -245,7 +425,7 @@
             padding: 15px;
         }
 
-        #shop-content {
+        section {
             padding: 3rem 0 2rem;
         }
 
@@ -282,194 +462,38 @@
             width: 280px;
         }
     }
-
-
-    /* ----------------------------MENU STYLE--------------------- */
-
-    /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
-    header {
-
-        width: 100%;
-        position: fixed;
-        z-index: 100;
-
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    li {
-        list-style: none;
-    }
-
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
-        opacity: 0.8;
-        color: #f0f7fa;
-    }
-
-    .nav-links a {
-        color: #fff;
-    }
-
-    /* LOGO */
-    .logo {
-        font-size: 32px;
-    }
-
-    /* NAVBAR MENU */
-    .menu {
-        display: flex;
-        gap: 1em;
-        font-size: 18px;
-    }
-
-    .menu li:hover {
-        background-color: #4c9e9e;
-        border-radius: 5px;
-        transition: 0.3s ease;
-    }
-
-    .menu li {
-        padding: 5px 14px;
-    }
-
-
-    @media (max-width:600px) {
-        .nav>.nav-btn {
-            display: inline-block;
-            position: absolute;
-            right: 0px;
-            top: 0px;
-        }
-
-        .nav>.nav-btn>label {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            padding: 13px;
-        }
-
-        .nav>.nav-btn>label:hover,
-        .nav #nav-check:checked~.nav-btn>label {
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-
-        .nav>.nav-links {
-            position: absolute;
-            display: block;
-            width: 100%;
-            background-color: #333;
-            height: 0px;
-            transition: all 0.3s ease-in;
-            overflow-y: hidden;
-            top: 50px;
-            left: 0px;
-        }
-
-        .nav>.nav-links>a {
-            display: block;
-            width: 100%;
-        }
-
-        .nav>#nav-check:not(:checked)~.nav-links {
-            height: 0px;
-        }
-
-        .nav>#nav-check:checked~.nav-links {
-            height: calc(100vh - 50px);
-            overflow-y: auto;
-        }
-
-    }
-
-    #sombreado {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        opacity: 0;
-        border-radius: 25px;
-        transition: .5s ease;
-        background-color: #ffffffdf;
-    }
-
-    #divImagenes:hover #sombreado {
-        opacity: 1;
-    }
-
-    .text {
-        color: rgb(0, 0, 0);
-        background-color: rgba(255, 255, 255, 0.354);
-        border-radius: 15px;
-        font-size: 20px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-
-    #img1 {
-        border-radius: 25px;
-    }
-
-    #tit1 {
-        justify-items: center;
-        margin-left: 30%;
-    }
-
-    #txt1 {
-        padding: 17px;
-        text-align: justify;
-    }
-
-    #precioCard{
-        padding-left: 120px;
-    }
-    a{
-        color:#6ed2d2;
-    }
 </style>
 
 <body>
 
     <!-- Cabecera -->
     <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="" class="enlace">
+                <!-- LOGO -->
+                <div class="logoSaludo">Chronologic</div>
+            </a>
+            <ul>
 
-        <div class="nav-btn">
-        </div>
-        <nav class="nav">
-            <!-- LOGO -->
-            <div class="logo">Chronologic</div>
-            <!-- NAVIGATION MENU -->
-            <ul class="nav-links">
-                <!-- NAVIGATION MENUS -->
-                <div class="menu">
-                    <li><a th:href="@{/chronologic}">HOME</a></li>
-                    <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
-                    <li><a th:href="@{/destinos}">DESTINOS</a></li>
-                    <li><a th:href="@{/FAQS}">FAQS</a></li>
-                    <li><a th:href="@{/signIn}">LOGIN</a></li>
-                    <li><i class='bx bx-shopping-bag' id="cart-icon">
-                            <p style="font-size: 15px ;"> Ver el carrito</p>
-                        </i></li>
-                </div>
+                <li><a class="active" th:href="@{/chronologic}">HOME</a></li>
+                <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                <li><a th:href="@{/destinos}">DESTINOS</a></li>
+                <li><a th:href="@{/FAQS}">FAQS</a></li>
+                <li><a th:href="@{/signIn}">LOGIN</a></li>
+                <li><i class='bx bx-shopping-bag' id="cart-icon">
+                        <p style="font-size: 15px ;"> Ver el carrito</p>
+                    </i></li>
             </ul>
         </nav>
-        </div><br><br><br><br><br><br>
-    </header>
 
+    </header>
+    <br><br><br><br><br><br><br><br>
+
+    <!-- -----------CODIGO DEL CART----------------- -->
     <section id="sec2">
         <!-- Cesta -->
         <div class="cart">
@@ -480,11 +504,11 @@
             </div>
             <!-- Total -->
             <div class="total">
-                <div class="total-title">Total</div>
+                <div class="total-title">TOTAL:</div>
                 <div class="total-price">€0</div>
             </div>
             <!-- Botón de comprar -->
-            <button type="button" class="btn-buy">Comprar</button>
+            <a th:href="@{/pasarelaPago}"><input type="button" value="COMPRAR"></a>
             <!-- Icono Cerrar cesta -->
             <i class='bx bx-x' id="close-cart"></i>
 
@@ -492,13 +516,12 @@
         </div>
     </section>
     <!-- Tienda -->
+    <h2 class="section-title">CATEGORIA : Pareja</h2><br>
+    <br><br><br>
     <section class="shop container">
         <div class="shop-content">
-            <h2 class="section-title">Cultural</h2>
-            <br>
-            <br>
             <!-- Content -->
-            <div th:each="viaje : ${viajeCultural}">
+            <div class="shop-content" th:each="viaje : ${viajePareja}">
                 <!-- Box 1 -->
                 <div id="divImagenes">
                     <div class="product-box">
@@ -514,25 +537,22 @@
                     <br><br>
                 </div>
             </div>
-
-
-
-
-
         </div>
     </section>
 
-    <br><br>
-    <h3 style="color:white; padding-left: 35px;" >Sigue explorando...</h3>
-    <div class="breadcrumb" style="padding-left:80px;">
-        <br>
-      <a th:href="@{/aventura}">Aventura</a><a> - </a><a th:href="@{/familiar}">Familiar</a><a> - </a><a th:href="@{/pareja}">Pareja</a></li>
+    <br><br><br>
+
+    <h3 style="color:black; padding-left: 35px;">Sigue explorando...</h3>
+    <div class="breadcrumb" style="padding-left:80px;"><br>
+        <a th:href="@{/aventura}">Aventura</a><a> - </a><a th:href="@{/cultural}">Cultural</a>
+        <a> - </a><a th:href="@{/familiar}">Familiar</a> - <a th:href="@{/pareja}">Pareja</a>
     </div>
 
     <br><br><br>
-    <footer th:replace=" baseTemplate :: footer"></footer>
-    <br>
 
+    <footer th:replace=" baseTemplate :: footer"></footer>
+
+    <br>
 
     <script>
         //  Cesta
@@ -614,8 +634,8 @@
             var shopProducts = button.parentElement;
             var title = shopProducts.getElementsByClassName("product-title")[0].innerText;
             var price = shopProducts.getElementsByClassName("price")[0].innerText;
-            var productImg = shopProducts.getElementsByClassName("product-img")[0].src;
-            addProductToCart(title, price, productImg);
+
+            addProductToCart(title, price);
             updatetotal();
         }
         function addProductToCart(title, price, productImg) {
@@ -630,7 +650,7 @@
                 }
             }
             var cartBoxContent = `
-                        <img src="${productImg}" alt="" class="cart-img">
+                        
                         <div class="detail-box">
                             <div class="cart-product-title">${title}</div>
                             <div class="cart-price">${price}</div>

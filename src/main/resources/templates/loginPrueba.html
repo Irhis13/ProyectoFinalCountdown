@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Chronologic</title>
 
 	<div class="product-details">
@@ -16,12 +18,28 @@
 </head>
 <!-- ------------------------------------------------ESTILO DEL HTML------------------------------------------------- -->
 <style>
+	/* Google Fonts */
+	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+	@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Montserrat&display=swap');
+
+	* {
+		font-family: 'Montserrat', sans-serif;
+		margin: 0;
+		padding: 0;
+		scroll-padding-top: 2px;
+		scroll-behavior: smooth;
+		box-sizing: content-box;
+		list-style: none;
+		text-decoration: none;
+	}
+
 	body {
 		margin: 0;
-		color: #6a6f8c;
-		background-image: url("");
-		font: 600 16px/18px 'Open Sans', sans-serif;
-
+		background-size: 100%;
+		background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/2.jpg?raw=true");
 	}
 
 	*,
@@ -61,7 +79,7 @@
 		height: 100%;
 		position: absolute;
 		padding: 90px 70px 50px 70px;
-		background: rgba(15, 15, 15, 0.9);
+		background-color: rgb(98, 57, 182);
 		background-blend-mode: color-dodge;
 		opacity: 0.8;
 	}
@@ -211,31 +229,159 @@
 	.foot-lnk {
 		text-align: center;
 	}
+
+	/*------------------------CODIGO DEFINITIVO MENU--------------------------*/
+	header {
+		width: 100%;
+		position: fixed;
+		z-index: 100;
+	}
+
+	li {
+		list-style: none;
+	}
+
+	nav {
+		background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
+		height: 80px;
+		width: 100%;
+	}
+
+	.enlace {
+		position: absolute;
+		padding: 20px 50px;
+	}
+
+	.logo {
+		height: 40px;
+	}
+
+	nav ul {
+		float: right;
+		margin-right: 20px;
+	}
+
+	nav ul li {
+		display: inline-block;
+		line-height: 80px;
+		margin: 0 5px;
+	}
+
+	nav ul li a {
+		color: #fff;
+		font-size: 18px;
+		padding: 7px 13px;
+		border-radius: 3px;
+		text-transform: uppercase;
+	}
+
+	li a.active,
+	li a:hover {
+		background: #000090;
+		transition: .5s;
+	}
+
+	.checkbtn {
+		font-size: 30px;
+		color: #fff;
+		float: right;
+		line-height: 80px;
+		margin-right: 40px;
+		cursor: pointer;
+		display: none;
+	}
+
+	#check {
+		display: none;
+	}
+
+	@media (max-width: 952px) {
+		.enlace {
+			padding-left: 20px;
+		}
+
+		nav ul li a {
+			font-size: 16px;
+		}
+	}
+
+	@media (max-width: 858px) {
+		.checkbtn {
+			display: block;
+		}
+
+		ul {
+			position: fixed;
+			width: 100%;
+			height: 100vh;
+			background: #2c3e50;
+			top: 80px;
+			left: -100%;
+			text-align: center;
+			transition: all .5s;
+		}
+
+		nav ul li {
+			display: block;
+			margin: 50px 0;
+			line-height: 30px;
+		}
+
+		nav ul li a {
+			font-size: 20px;
+		}
+
+		li a:hover,
+		li a.active {
+			background: none;
+			color: red;
+		}
+
+		#check:checked~ul {
+			left: 0;
+		}
+	}
+
+	.logoSaludo {
+		user-select: none;
+		white-space: nowrap;
+		overflow: hidden;
+		width: 10em;
+		animation: anim 6s infinite;
+		font-size: 2rem;
+		font-family: 'Fugaz One', cursive;
+		color: white;
+		font-weight: 400;
+	}
+
+
+	@keyframes anim {
+		from {
+			width: 0;
+		}
+	}
 </style>
 
 
 <body>
 	<header>
-
-		<div class="nav-btn">
-		</div>
-		<nav class="nav">
-			<!-- LOGO -->
-			<div class="logoSaludo">Chronologic</div>
-			<!-- NAVIGATION MENU -->
-			<ul class="nav-links">
-				<!-- NAVIGATION MENUS -->
-				<div class="menu">
-					<li><a th:href="@{/chronologic}">HOME</a></li>
-					<li><a th:href="@{/aboutUs}">ABOUT US</a></li>
-					<li><a th:href="@{/destinos}">DESTINOS</a></li>
-					<li><a th:href="@{/FAQS}">FAQS</a></li>
-					<li><a th:href="@{/signIn}">LOGIN</a></li>
-				</div>
+		<nav>
+			<input type="checkbox" id="check">
+			<label for="check" class="checkbtn">
+				<i class="fas fa-bars"></i>
+			</label>
+			<a href="" class="enlace">
+				<!-- LOGO -->
+				<div class="logoSaludo">Chronologic</div>
+			</a>
+			<ul>
+				<li><a class="active" th:href="@{/chronologic}">HOME</a></li>
+				<li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+				<li><a th:href="@{/destinos}">DESTINOS</a></li>
+				<li><a th:href="@{/FAQS}">FAQS</a></li>
 			</ul>
 		</nav>
-		</div><br><br><br><br><br><br>
-	</header>
+	</header><br><br><br><br><br><br>
 
 	<div class="login-wrap">
 		<div class="login-html">
@@ -285,7 +431,8 @@
 					</div>
 					<div class="group">
 						<button>
-							<a type="submit" class="button" value="Sign Up" th:href="@{/login/1}">Sign in</a>
+							<a th:href="@{/login/1}"><input type="button" value="Sign Up"></a>
+							<!-- <a type="submit" class="button" value="Sign Up" th:href="@{/login/1}">Sign in</a> -->
 						</button>
 
 					</div>
@@ -296,7 +443,12 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div><br><br>
+
+
+
+	<footer th:replace=" baseTemplate :: footer"></footer>
+	<br>
 
 </body>
 

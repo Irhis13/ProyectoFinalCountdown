@@ -43,13 +43,6 @@
 
     }
 
-    /* 
-    .container {
-        max-width: 1068px;
-        margin: auto;
-        width: 50%;
-    } */
-
     .nav {
         display: flex;
         align-items: center;
@@ -103,7 +96,7 @@
         animation: anim 6s infinite;
         font-size: 2rem;
         font-family: 'Fugaz One', cursive;
-        color: var(--text-color);
+        color: white;
         font-weight: 400;
     }
 
@@ -113,17 +106,11 @@
         }
     }
 
-
-
-    /* ----------------------------MENU STYLE--------------------- */
-
     /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
     header {
-
         width: 100%;
         position: fixed;
         z-index: 100;
-
     }
 
     a {
@@ -134,112 +121,108 @@
         list-style: none;
     }
 
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
+    nav {
         background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
-        /* opacity: 0.8; */
-        color: #f0f7fa;
+        height: 80px;
+        width: 100%;
     }
 
-    .nav-links a {
-        color: #fff;
+    .enlace {
+        position: absolute;
+        padding: 20px 50px;
     }
 
-    /* LOGO */
     .logo {
-        font-size: 32px;
+        height: 40px;
     }
 
-    /* NAVBAR MENU */
-    .menu {
-        display: flex;
-        gap: 1em;
+    nav ul {
+        float: right;
+        margin-right: 20px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+    }
+
+    nav ul li a {
+        color: #fff;
         font-size: 18px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
     }
 
-    .menu li:hover {
-        background-color: #4c9e9e;
-        border-radius: 5px;
-        transition: 0.3s ease;
+    li a.active,
+    li a:hover {
+        background: #000090;
+        transition: .5s;
     }
 
-    .menu li {
-        padding: 5px 14px;
+    .checkbtn {
+        font-size: 30px;
+        color: #fff;
+        float: right;
+        line-height: 80px;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
     }
 
+    #check {
+        display: none;
+    }
 
-    @media (max-width:600px) {
-        .nav>.nav-btn {
-            display: inline-block;
-            position: absolute;
-            right: 0px;
-            top: 0px;
+    @media (max-width: 952px) {
+        .enlace {
+            padding-left: 20px;
         }
 
-        .nav>.nav-btn>label {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            padding: 13px;
+        nav ul li a {
+            font-size: 16px;
         }
+    }
 
-        .nav>.nav-btn>label:hover,
-        .nav #nav-check:checked~.nav-btn>label {
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-
-        .nav>.nav-links {
-            position: absolute;
+    @media (max-width: 858px) {
+        .checkbtn {
             display: block;
-            width: 100%;
-            background-color: #333;
-            height: 0px;
-            transition: all 0.3s ease-in;
-            overflow-y: hidden;
-            top: 50px;
-            left: 0px;
         }
 
-        .nav>.nav-links>a {
+        ul {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #2c3e50;
+            top: 80px;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+        }
+
+        nav ul li {
             display: block;
-            width: 100%;
+            margin: 50px 0;
+            line-height: 30px;
         }
 
-        .nav>#nav-check:not(:checked)~.nav-links {
-            height: 0px;
+        nav ul li a {
+            font-size: 20px;
         }
 
-        .nav>#nav-check:checked~.nav-links {
-            height: calc(100vh - 50px);
-            overflow-y: auto;
+        li a:hover,
+        li a.active {
+            background: none;
+            color: red;
         }
 
-    }
-
-
-
-    .logoSaludo {
-        user-select: none;
-        white-space: nowrap;
-        overflow: hidden;
-        width: 10em;
-        animation: anim 6s infinite;
-        font-size: 2rem;
-        font-family: 'Fugaz One', cursive;
-        color: var(--text-color);
-        font-weight: 400;
-    }
-
-    @keyframes anim {
-        from {
-            width: 0;
+        #check:checked~ul {
+            left: 0;
         }
     }
 
-
+    /* ------------------------OTROS--------------------- */
 
     img {
         height: 150px;
@@ -247,10 +230,6 @@
 
     * {
         box-sizing: border-box;
-    }
-
-    body {
-        font-family: Arial, Helvetica, sans-serif;
     }
 
     /* Float four columns side by side */
@@ -283,28 +262,25 @@
 
     /* Style the counter cards */
     .card {
-        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         padding: 16px;
         text-align: center;
-        background-color: #f1f1f1;
+        background-color: #d1dce1;
         border-radius: 25px;
     }
 
-    h3 {
-        /* background-color: #4c9e9e63;
-        border-radius: 150px; */
-    }
 
     #titulo {
-        color: white;
+        color: black;
         margin-left: 35%;
         margin-right: 35%;
     }
- #info{
-    color: white;
-    margin-left: 12%;
-    margin-right: 12%;
- }
+
+    #info {
+        color: black;
+        margin-left: 12%;
+        margin-right: 12%;
+    }
 
     /*--------------BOTONES*/
     #btn1 {
@@ -330,30 +306,33 @@
     <!-- Cabecera -->
     <header>
 
-        <div class="nav-btn">
-        </div>
-        <nav class="nav">
-            <!-- LOGO -->
-            <div class="logoSaludo">Chronologic</div>
-            <!-- NAVIGATION MENU -->
-            <ul class="nav-links">
-                <!-- NAVIGATION MENUS -->
-                <div class="menu">
-                    <li><a th:href="@{/chronologic}">HOME</a></li>
-                    <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
-                    <li><a th:href="@{/destinos}">DESTINOS</a></li>
-                    <li><a th:href="@{/FAQS}">FAQS</a></li>
-                    <li><a th:href="@{/signIn}">LOGIN</a></li>
-                </div>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="#" class="enlace">
+                <!-- LOGO -->
+                <div class="logoSaludo">Chronologic</div>
+            </a>
+            <ul>
+
+                <li><a class="active" th:href="@{/chronologic}">HOME</a></li>
+                <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                <li><a th:href="@{/destinos}">DESTINOS</a></li>
+                <li><a th:href="@{/FAQS}">FAQS</a></li>
+                <li><a th:href="@{/signIn}">LOGIN</a></li>
             </ul>
         </nav>
-        </div><br><br><br>
-    </header>
-    <br><br><br>
+    </header><br><br><br><br><br><br>
+
+
+
     <h2 id="titulo">Categorias de nuestros viajes</h2><br>
     <div id="info">
-        <p>Hemos organizado por categorias los tipos de viaje que podemos hacer. ¡Atrévete a descubrir todos nuestros destinos!
-        </p><br><br>     
+        <p>Hemos organizado por categorias los tipos de viaje que podemos hacer. ¡Atrévete a descubrir todos nuestros
+            destinos!
+        </p><br><br>
     </div>
 
     <div id="parteCards">
@@ -361,7 +340,7 @@
             <div class="row">
                 <div class="column">
                     <div class="card">
-                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/AventuraCuadradoPeq.jpg?raw=true">
+                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/AventuraCuadradoPeq.jpg?raw=true" style="box-shadow: 5px 5px 5px #453e5c;">
                         <h3>Aventura</h3><br>
                         <p>Aventuras para los que sueñan a lo grande, adentrate en la selva, navega con los mejores y
                             disfruta de los dinosaurios.</p><br><br>
@@ -373,7 +352,7 @@
                 <br><br>
                 <div class="column">
                     <div class="card">
-                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/CulturalCuadradoPeq.jpg?raw=true">
+                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/CulturalCuadradoPeq.jpg?raw=true" style="box-shadow: 5px 5px 5px #453e5c;">
                         <h3>Cultura</h3><br>
                         <p>Para quién sueña con conocer la cultura de primera mano, desde tomar el té con Jane Austen
                             hasta pasear por Pompeya, todo es posible.</p><br>
@@ -387,7 +366,7 @@
                 <!-- <div class="row"> -->
                 <div class="column">
                     <div class="card">
-                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/FamiliaCuadradoPeq2.jpg?raw=true">
+                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/FamiliaCuadradoPeq2.jpg?raw=true" style="box-shadow: 5px 5px 5px #453e5c;">
                         <h3>Familiar</h3><br>
                         <p>Para disfrutar tanto tú como tu familia, recorrer el laberinto del Minotauro se hace mejor en
                             compañía, procura no dejar a nadie atrás.</p><br>
@@ -399,7 +378,7 @@
                 <br><br>
                 <div class="column">
                     <div class="card">
-                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/ParejasCuadradoPeq2.jpg?raw=true">
+                        <img src="https://github.com/AsunPaterna/img_chrono/blob/main/ParejasCuadradoPeq2.jpg?raw=true" style="box-shadow: 5px 5px 5px #453e5c;">
                         <h3>Pareja</h3><br>
                         <p>Estar enamorado es atemporal, aunque puedes disfrutar de ese romance besandote en cada siglo
                             y en cada monumento en construcción.</p><br>
