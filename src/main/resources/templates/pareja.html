@@ -1,129 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<header>
+
+<head th:replace=" baseTemplate :: cabecera">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Chronologic</title>
-    <div class="nav-btn">
-    </div>
-    <nav class="nav">
-        <!-- LOGO -->
-        <div class="logo">Chronologic</div>
-        <!-- NAVIGATION MENU -->
-        <ul class="nav-links">
-            <!-- NAVIGATION MENUS -->
-            <div class="menu">
-                <li><a th:href="@{/home}">HOME</a></li>
-                <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
-                <li><a th:href="@{/FAQS}">FAQS</a></li>
-                <li><a th:href="@{/signIn}">LOGIN</a></li>
-            </div>
-        </ul>
-    </nav>
-    </div>
-</header><br><br><br><br><br><br>
+
+    <div class="product-details">
+
+        <!-- Link a iconos redes FontAwesome-->
+        <script src="https://kit.fontawesome.com/e0d651bf64.js" crossorigin="anonymous"></script>
+        <!-- Box Icons -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
+    /* Google Fonts */
     @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Montserrat&display=swap');
 
-    header {
-        width: 100%;
-        position: fixed;
-        z-index: 100;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    li {
-        list-style: none;
-    }
-
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        background-color: #ffffff4e;
-        opacity: 0.8;
-        color: #f0f7fa;
-    }
-
-    .nav-links a {
-        color: #fff;
-    }
-
-    /* LOGO */
-    .logo {
-        font-size: 48px;
-        font-family: 'IM Fell DW Pica', serif;
-        color: #fff;
-    }
-
-    /* NAVBAR MENU */
-    .menu {
-        display: flex;
-        gap: 1em;
-        font-size: 18px;
+    * {
         font-family: 'Montserrat', sans-serif;
-    }
-
-    .menu li:hover {
-        background-image: url("https://c.tenor.com/dxA2j-gsp4oAAAAC/glitch-static.gif");
-        opacity: 0.4;
-        border-radius: 5px;
-        transition: 0.1s ease;
-    }
-
-    .menu li {
-        padding: 5px 14px;
-    }
-
-
-    @media (max-width:600px) {
-        .nav>.nav-btn {
-            display: inline-block;
-            position: absolute;
-            right: 0px;
-            top: 0px;
-        }
-
-        .nav>.nav-btn>label {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            padding: 13px;
-        }
-
-        .nav>.nav-btn>label:hover,
-        .nav #nav-check:checked~.nav-btn>label {
-            background-color: rgba(0, 0, 0, 0.3);
-        }
-
-        .nav>.nav-links {
-            position: absolute;
-            display: block;
-            width: 100%;
-            background-color: rgb(42, 42, 42);
-            height: 0px;
-            transition: all 0.3s ease-in;
-            overflow-y: hidden;
-            top: 50px;
-            left: 0px;
-        }
-
-        .nav>.nav-links>a {
-            display: block;
-            width: 100%;
-        }
-
-        .nav>#nav-check:not(:checked)~.nav-links {
-            height: 0px;
-        }
-
-        .nav>#nav-check:checked~.nav-links {
-            height: calc(100vh - 50px);
-            overflow-y: auto;
-        }
+        margin: 0;
+        padding: 0;
+        scroll-padding-top: 2px;
+        scroll-behavior: smooth;
+        box-sizing: content-box;
+        list-style: none;
+        text-decoration: none;
     }
 
     body {
@@ -139,42 +47,47 @@
         color: #f0f7fa;
 
     }
-/*///////////////////////////////////////////////////BODY//////////////////////////////////////////////////////////////////*/
-    
-    #titulo {
-        margin-left: 35%;
-    }
-    
+
     #disposicion {
         margin-left: 37%;
     }
-    
+
     #categoriasTable {
         width: 70%
     }
-    
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+
+    table {
+        background-color: rgba(255, 255, 255, 0.411);
     }
-    
-    
+
     /*///////////////////////////////////////////////////CARDS////////////////////////////////////////////////////////////////////*/
+
+    #titulo {
+        margin-left: 35%;
+    }
+
+    #disposicion {
+        margin-left: 37%;
+    }
+
+    #categoriasTable {
+        width: 70%
+    }
+
     .container {
         margin-left: 15%;
-        position:relative;
+        position: relative;
         width: 820px;
         display: flex;
         align-items: center;
-        justify-content:space-between;
+        justify-content: space-between;
         padding: 30px;
     }
 
     .container .card {
         position: relative;
         max-width: 300px;
-        height: 200px;
+        height: 215px;
         background-color: #fff;
         margin: 30px 10px;
         padding: 20px 15px;
@@ -187,14 +100,14 @@
     }
 
     .container .card:hover {
-        height: 390px;
+        height: 370px;
     }
 
     .container .card .image {
         position: relative;
-        width: 260px;
+        width: 300px;
         height: 200px;
-        top: -40%;
+        top: -30%;
         left: 8px;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         z-index: 1;
@@ -224,23 +137,341 @@
         transition-delay: 0.2s;
 
     }
+
+    /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
+    header {
+
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+
+    }
+
+    /* LOGUITO */
+    .logoSaludo {
+        user-select: none;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 10em;
+        animation: anim 6s infinite;
+        font-size: 2rem;
+        font-family: 'Fugaz One', cursive;
+        color: var(--text-color);
+        font-weight: 400;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    nav {
+        background: #2fcdcd;
+        height: 80px;
+        width: 100%;
+    }
+
+    .enlace {
+        position: absolute;
+        padding: 20px 50px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    nav ul {
+        float: right;
+        margin-right: 20px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+    }
+
+    nav ul li a {
+        color: #fff;
+        font-size: 18px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+    }
+
+    li a.active,
+    li a:hover {
+        background: #000090;
+        transition: .5s;
+    }
+
+    .checkbtn {
+        font-size: 30px;
+        color: #fff;
+        float: right;
+        line-height: 80px;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
+    }
+
+    #check {
+        display: none;
+    }
+
+    @media (max-width: 952px) {
+        .enlace {
+            padding-left: 20px;
+        }
+
+        nav ul li a {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 858px) {
+        .checkbtn {
+            display: block;
+        }
+
+        ul {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #2c3e50;
+            top: 80px;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+        }
+
+        nav ul li {
+            display: block;
+            margin: 50px 0;
+            line-height: 30px;
+        }
+
+        nav ul li a {
+            font-size: 20px;
+        }
+
+        li a:hover,
+        li a.active {
+            background: none;
+            color: red;
+        }
+
+        #check:checked~ul {
+            left: 0;
+        }
+    }
+
+    /* --------------------CODIGO LOGIN-------------------------------- */
+
+
+    /* Login Button */
+    #loginButton {
+        background: #c2dff4;
+        border: 1px solid #899caa;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+    }
+
+
+    #loginButton:hover {
+        background-color: #000090;
+    }
+
+    /* Login Box */
+    #loginBox {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
+        z-index: 29;
+    }
+
+    /* If the Login Button has been clicked */
+    #loginButton.active {
+        border-radius: 3px 3px 0 0;
+    }
+
+    #loginButton.active span {
+        background-position: 53px -80px;
+    }
+
+    /* A Line added to overlap the border */
+    #loginButton.active em {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: #d2e0ea;
+        bottom: -1px;
+    }
+
+    /* Login Form */
+    #loginForm {
+        width: 248px;
+        border: 1px solid #899caa;
+        border-radius: 3px 0 3px 3px;
+        -moz-border-radius: 3px 0 3px 3px;
+        margin-top: -1px;
+        background: #d2e0ea;
+        padding: 6px;
+    }
+
+    #loginForm fieldset {
+        margin: 0 0 12px 0;
+        display: block;
+        border: 0;
+        padding: 0;
+    }
+
+    fieldset#body {
+        background: #fff;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        padding: 10px 13px;
+        margin: 0;
+    }
+
+    #loginForm #checkbox {
+        width: auto;
+        margin: 1px 9px 0 0;
+        float: left;
+        padding: 0;
+        border: 0;
+        *margin: -3px 9px 0 0;
+        /* IE7 Fix */
+    }
+
+    #body label {
+        color: #3a454d;
+        margin: 9px 0 0 0;
+        display: block;
+        float: left;
+    }
+
+    #loginForm #body fieldset label {
+        display: block;
+        float: none;
+        margin: 0 0 6px 0;
+    }
+
+    /* Default Input */
+    #loginForm input {
+        width: 92%;
+        border: 1px solid #899caa;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        color: #3a454d;
+        font-weight: bold;
+        padding: 8px 8px;
+        box-shadow: inset 0px 1px 3px #bbb;
+        -webkit-box-shadow: inset 0px 1px 3px #bbb;
+        -moz-box-shadow: inset 0px 1px 3px #bbb;
+        font-size: 12px;
+    }
+
+    /* Sign In Button */
+    #loginForm #login {
+        width: auto;
+        float: left;
+        /* background: #339cdf url(../images/loginbuttonbg.png) repeat-x; */
+        color: #fff;
+        padding: 7px 10px 8px 10px;
+        text-shadow: 0px -1px #278db8;
+        border: 1px solid #339cdf;
+        box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        margin: 0 12px 0 0;
+        cursor: pointer;
+        *padding: 7px 2px 8px 2px;
+        /* IE7 Fix */
+    }
+
+    /* Forgot your password */
+    #loginForm span {
+        text-align: center;
+        display: block;
+        padding: 7px 0 4px 0;
+    }
+
+    #loginForm span a {
+        color: #3a454d;
+        text-shadow: 1px 1px #fff;
+        font-size: 12px;
+    }
+
+    input:focus {
+        outline: none;
+
+    }
 </style>
 
 <body>
-	<h1 align="center">Categoria Pareja</h1>
+
+    <!-- Cabecera -->
+    <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="#" class="enlace">
+                <!-- LOGO -->
+                <div class="logoSaludo">Chronologic</div>
+            </a>
+            <ul>
+
+                <li><a class="active" th:href="@{/chronologic}">HOME</a></li>
+                <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                <li><a th:href="@{/destinos}">DESTINOS</a></li>
+                <li><a th:href="@{/FAQS}">FAQS</a></li>
+                <li><a href="#" id="loginButton"><span>LOG IN</span><em></em></a>
+                    <div style="clear:both"></div>
+                    <div id="loginBox">
+                        <form id="loginForm">
+                            <fieldset id="body">
+                                <fieldset>
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" id="email" />
+                                </fieldset>
+                                <fieldset>
+                                    <label for="password">Contrase&ntilde;a</label>
+                                    <input type="password" name="password" id="password" />
+                                </fieldset>
+                                <input type="submit" id="login" value="Entrar" />
+                                <label for="checkbox"><input type="checkbox" id="checkbox" />Recu&eacute;rdame</label>
+                            </fieldset>
+                            <span><a href="#">Perdiste tu contrase&ntilde;a?</a></span>
+                        </form>
+                    </div>
+                    </div>
+            </ul>
+        </nav>
+    </header><br><br><br><br><br><br><br>
+
+    <h1 align="center">Categoria familiar</h1>
     <br>
     <br>
+
     <section class=container>
         <div class=card>
             <div class=image>
-                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/Parejas%20-%20MontmartePeqOk.png?raw=true">
+                <img
+                    src="https://github.com/AsunPaterna/img_chrono/blob/main/Parejas%20-%20MontmartePeqOk.png?raw=true">
             </div>
             <div class=content>
                 <h3>París Bohemio</h3>
-				<br>
-                <p>Oh là là! París, año 1890. El barrio de Montmartre es el punto de reunión de los artistas 
-		más importantes del momento. La música, el teatro, los picnics en los canales….. 
-		¿Acaso hay algo más romántico sobre la faz de la tierra? .</p>
+                <br>
+                <p>Oh là là! París, año 1890. El barrio de Montmartre es el punto de reunión de los artistas
+                    más importantes del momento. La música, el teatro, los picnics en los canales…..
+                    ¿Acaso hay algo más romántico sobre la faz de la tierra? .</p>
                 <br>
                 <p>2125 €</p>
             </div>
@@ -253,8 +484,10 @@
             </div>
             <div class=content>
                 <h3>Roma Dolce Vita</h3>
-				<br>
-                <p>Disfruta la dolce vita como un auténtico italiano. Recorre la ciudad de Roma con tu Vespa junto a tu pareja, lanza una moneda en la Fontana di Trevi o simplemente dejate llevar por la magia en el ambiente.</p>
+                <br>
+                <p>Disfruta la dolce vita como un auténtico italiano. Recorre la ciudad de Roma con tu Vespa junto a tu
+                    pareja, lanza una moneda en la Fontana di Trevi o simplemente dejate llevar por la magia en el
+                    ambiente.</p>
                 <br>
                 <p>2125 €</p>
             </div>
@@ -270,9 +503,10 @@
             </div>
             <div class=content>
                 <h3>Mamma Mia</h3>
-				<br>
-                <p>Alójate en el Hotel Villa Donna y vive en primera persona el reenuentro de un amor de juventud en las islas griegas.
-		 Toda una experiencia rodeada por una música vibrante y llena de vida.</p>
+                <br>
+                <p>Alójate en el Hotel Villa Donna y vive en primera persona el reenuentro de un amor de juventud en las
+                    islas griegas.
+                    Toda una experiencia rodeada por una música vibrante y llena de vida.</p>
                 <br>
                 <p>2125 €</p>
             </div>
@@ -280,51 +514,23 @@
 
         <div class=card>
             <div class=image>
-                <img
-                    src="https://github.com/AsunPaterna/img_chrono/blob/main/Parejas%20-%20MoulinPeq1.jpg?raw=true">
+                <img src="https://github.com/AsunPaterna/img_chrono/blob/main/Parejas%20-%20MoulinPeq1.jpg?raw=true">
             </div>
             <div class=content>
                 <h3>Moulin Rouge</h3>
-				<br>
-                <p>En el París de Toulose-Lautrec, sé testigo de la hermosa y trágica historia de amor entre el bohemio Christian 
-		y la bella artsita Satine.  Porque como dice la canción: The greatest thing you'll ever learn is just to love and 
-		be loved in return…</p>
+                <br>
+                <p>En el París de Toulose-Lautrec, sé testigo de la hermosa y trágica historia de amor entre el bohemio
+                    Christian
+                    y la bella artsita Satine. Porque como dice la canción: The greatest thing you'll ever learn is just
+                    to love and
+                    be loved in return…</p>
                 <br>
                 <p>2125 €</p>
             </div>
         </div>
 
     </section>
-	<!-- <div th:replace=" baseTemplate :: botonMenu"></div>
-  <h1>Categoria Pareja</h1>
-  <div th:replace="baseTemplate :: botonComprar"></div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>nombre</th>
-        <th>descripcion</th>
-        <th>precio</th>
-        <th>categoria</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr th:each="viaje: ${viajePareja}">
-        <td th:text="${viaje.id}"></td>
-        <td th:text="${viaje.nombre}"></td>
-        <td th:text="${viaje.descripcion}"></td>
-        <td th:text="${viaje.precio}"></td>
-        <td th:text="${viaje.categoria.nombre}"></td>
-      </tr>
-    </tbody>
-  </table>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div th:replace="baseTemplate :: footer"></div> -->
-    <br>
-    <br>
+
     <br>
     <br>
     <div th:replace="baseTemplate :: footer"></div>
