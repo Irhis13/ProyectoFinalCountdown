@@ -8,72 +8,80 @@
     <br>
     <title>Formulario Alta Cliente</title>
 
-      <!-- CSS --BOOTSTRAP-- -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <!-- CSS --BOOTSTRAP-- -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Montserrat&display=swap');
 
-<body style="background-color:rgba(242, 222, 248, 0.685)"></body>
-<body>
+    body {
+        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/2.jpg?raw=true");
+        background-size: 100%;
+    }   
+    h1{
+        font-family: 'Fugaz One', cursive;
+    }
+</style>
+
+<body style="background-color:rgba(242, 222, 248, 0.685)">
 
     <!-- <div style="margin-left:2%;"> -->
-        <h1 class="text-center" style="position:relative; color:rgb(9, 9, 9) ; font-family:Verdana;">
-            Formulario para dar de Alta un Cliente</h1>
+    <h1 class="text-center" style="position:relative; color:rgb(9, 9, 9) ;">
+        Formulario para dar de Alta un Cliente</h1>
 
-        <div div class="mb-3">
-            <div class="container mt-3">
+    <div div class="mb-3">
+        <div class="container mt-3">
             <form th:object="${cliente}" th:action="@{/crearCliente}" method="post">
                 <div class="mb-3 mt-3">
-                <a>Nombre: </a>
-                <input type="text" class="form-control" placeholder="Nombre" 
-                th:field="*{nombre}" required>
-            </div>
-
-            <div class="mb-3 mt-3">
-                <a>Apellidos: </a>
-                <input type="text" class="form-control" placeholder="Apellidos" 
-                th:field="*{apellidos}" required> 
-            </div>  
+                    <a>Nombre: </a>
+                    <input type="text" class="form-control" placeholder="Nombre" th:field="*{nombre}" required>
+                </div>
 
                 <div class="mb-3 mt-3">
-                <a>Teléfono: </a>
-                <input type="text" class="form-control" placeholder="Telefono" 
-                th:field="*{telefono}" required>
-            </div>
-            
-            <div class="mb-3 mt-3">
-                <a>Email: </a>
-                <input type="text" class="form-control" placeholder="Email" 
-                th:field="*{email}" required>
-            </div> 
+                    <a>Apellidos: </a>
+                    <input type="text" class="form-control" placeholder="Apellidos" th:field="*{apellidos}" required>
+                </div>
 
-            <div class="mb-3 mt-3">
-                <a>Fechas de Salida </a>
-                <input type="date" class="form-control" 
-                th:field="*{fechaSalida}" required>
-            </div> 
-            
-            <div class="mb-3 mt-3">
-                <a>Fechas de Vuelta </a>
-                <input type="date" class="form-control"
-                th:field="*{fechaRegreso}" required>
-            </div>
-            <br>
+                <div class="mb-3 mt-3">
+                    <a>Teléfono: </a>
+                    <input type="text" class="form-control" placeholder="Telefono" th:field="*{telefono}" required>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <a>Email: </a>
+                    <input type="text" class="form-control" placeholder="Email" th:field="*{email}" required>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <a>Fechas de Salida </a>
+                    <input type="date" class="form-control" th:field="*{fechaSalida}" required>
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <a>Fechas de Vuelta </a>
+                    <input type="date" class="form-control" th:field="*{fechaRegreso}" required>
+                </div>
+                <br>
 
 
-            <div class="mb-3 mt-3">
-            <p>Imagen del Chronopasaporte</p>
-           
-                <label for="files" class="btn" style="border-color: rgb(167, 211, 249) ; background-color: rgb(255, 254, 254);">Seleccionar Imagen</label>
-                <input id="files" style="visibility:hidden;" type="file" required>
-             <p>    ***Se puede adjuntar hasta 48 horas antes de la salida</p>
-            </div>
+                <div class="mb-3 mt-3">
+                    <p>Imagen del Chronopasaporte</p>
 
-            <br>
-            <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <label for="files" class="btn"
+                        style="border-color: rgb(167, 211, 249) ; background-color: rgb(255, 254, 254);">Seleccionar
+                        Imagen</label>
+                    <input id="files" style="visibility:hidden;" type="file" required>
+                    <p> ***Se puede adjuntar hasta 48 horas antes de la salida</p>
+                </div>
 
-            </div>
+                <br>
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+
+                </div>
             </form>
         </div>
     </div>
