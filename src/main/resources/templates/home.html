@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
     <title>Chronologic</title>
 
     <div class="product-details">
@@ -36,11 +37,10 @@
     }
 
     body {
-        background-color: black;
-        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/1094.jpg?raw=true");
+        /* background-color: black; */
+        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/grisOscuro.jpg?raw=true");
         /* color: var(--text-color1); */
         background-size: 100%;
-
     }
 
     .container {
@@ -57,6 +57,7 @@
     }
 
     .logoSaludo {
+        user-select: none;
         white-space: nowrap;
         overflow: hidden;
         width: 10em;
@@ -72,228 +73,6 @@
             width: 0;
         }
     }
-
-    #cart-icon {
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: #fae505
-    }
-
-    /* Cesta */
-    .cart {
-        position: fixed;
-        top: 100px;
-        right: -100%;
-        width: 360px;
-        min-height: 100vh;
-        padding: 0px;
-        background: var(--bg-color);
-        background: rgb(95, 85, 62);
-        opacity: 0.9;
-        box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
-        transition: 0.3s;
-    }
-
-    .cart.active {
-        right: 0;
-    }
-
-    .cart-title {
-        text-align: center;
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-top: 2rem;
-    }
-
-    .cart-box {
-        display: grid;
-        grid-template-columns: 32% 50% 18%;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .cart-img {
-        width: 100px;
-        height: 100px;
-        object-fit: contain;
-        padding: 10px;
-    }
-
-    .detail-box {
-        display: grid;
-        row-gap: 0.5rem;
-    }
-
-    .cart-product-title {
-        font-size: 1rem;
-        text-transform: uppercase;
-    }
-
-    .cart-price {
-        font-weight: 500;
-    }
-
-    .cart-quantity {
-        border: 1px solid var(--text-color);
-        outline-color: var(--main-color);
-        width: 2.4rem;
-        text-align: center;
-        font-size: 1rem;
-    }
-
-    .cart-remove {
-        font-size: 24px;
-        color: var(--main-color);
-        cursor: pointer;
-    }
-
-    .total {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 1.5rem;
-        border-top: 1px solid var(--text-color);
-    }
-
-    .total-title {
-        font-size: 1rem;
-        font-weight: 600;
-    }
-
-    .total-price {
-        margin-left: 0.5rem;
-    }
-
-    .btn-buy {
-        display: flex;
-        margin: 1.5rem auto 0 auto;
-        padding: 12px 20px;
-        border: none;
-        background: var(--text-color3);
-        color: var(--text-color2);
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-    }
-
-    .btn-buy:hover {
-        background: var(--text-color1);
-    }
-
-    #close-cart {
-        position: absolute;
-        top: 1rem;
-        right: 0.8rem;
-        font-size: 2rem;
-        color: var(--text-color);
-        cursor: pointer;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 1.5rem;
-    }
-
-    .shop {
-        margin-top: 2rem;
-    }
-
-    /* Contenido */
-    .shop-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-        gap: 1.5rem;
-    }
-
-    .product-box {
-        position: relative;
-    }
-
-    .product-box:hover {
-        padding: 10px;
-        border: 1px solid var(--text-color);
-        transition: 0.4s;
-    }
-
-    .product-img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 0.5rem;
-    }
-
-    .product-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin-bottom: 0.5rem;
-    }
-
-    .price {
-        font-weight: 500;
-    }
-
-    .add-cart {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: var(--text-color);
-        color: var(--text-color1);
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    .add-cart:hover {
-        background: hsl(249, 32%, 17%);
-    }
-
-    /* Breakpoints / Making Responsive */
-    @media (max-width: 1080px) {
-        .nav {
-            padding: 15px;
-        }
-
-        #shop-content {
-            padding: 3rem 0 2rem;
-        }
-
-        .container {
-            margin: 0 auto;
-            width: 90%;
-        }
-
-        .shop {
-            margin-top: 2rem !important;
-        }
-    }
-
-    @media (max-width: 400px) {
-        .nav {
-            padding: 11px;
-        }
-
-        .logo {
-            font-size: 1rem;
-        }
-
-        .cart {
-            width: 320px;
-        }
-    }
-
-    @media (max-width: 360px) {
-        .shop {
-            margin-top: 1rem !important;
-        }
-
-        .cart {
-            width: 280px;
-        }
-    }
-
-
-    /* ----------------------------MENU STYLE--------------------- */
 
     /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
     header {
@@ -396,7 +175,6 @@
         }
 
     }
-
     /*......................CARRUSEL IMÁGENES.....................................*/
     * {
         box-sizing: border-box
@@ -511,29 +289,193 @@
     }
 
     /*PARRAFO WEB Y LOGOS*/
-    #parrafoWeb {
-        align: center;
-        text-align: center; 
-         max-width: 900px;
-        display: grid; 
-         grid-template-columns: repeat(auto-fit, minmax(220px, auto));
-         /* gap: 1.5rem; */
-         margin-left: 50px;
+    #ParrafoWeb {
+        text-align: center;
+
     }
 
     #tituloTexto {
-        max-width: 900px;
-        background-color: #ffffff7d;
+        /* max-width: 900px; */
+        background-color: #ffffffc7;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         border-radius: 150px 100px 150px 100px;
         text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
     }
 
     #parrafoTexto {
-        max-width: 900px;
-        text-align:center;
-        background-color: #ffffff7d;
+        /* max-width: 900px; */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+        background-color: #ffffffc7;
         border-radius: 20px 100px 150px;
+        margin-left: 15%;
+        margin-right: 15%;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 1.5%;
+        padding-bottom: 1.5%;
     }
+
+    /* Login Container (default to float:right) */
+#loginContainer {
+    position:relative;
+    float:right;
+    font-size:12px;
+}
+
+/* Login Button */
+#loginButton { 
+    display:inline-block;
+    float:right;
+    background:#d2e0ea url(../images/buttonbg.png) repeat-x; 
+    border:1px solid #899caa; 
+    border-radius:3px;
+    -moz-border-radius:3px;
+    position:relative;
+    z-index:30;
+    cursor:pointer;
+}
+
+/* Login Button Text */
+#loginButton span {
+    color:#445058; 
+    font-size:14px; 
+    font-weight:bold; 
+    text-shadow:1px 1px #fff; 
+    padding:7px 29px 9px 10px;
+    background:url(https://cdn.icon-icons.com/icons2/2901/PNG/128/arrow_right_login_icon_183008.png) no-repeat 53px 7px;
+    display:block
+}
+
+#loginButton:hover {
+    background:url(../images/buttonbgHover.png) repeat-x;
+}
+
+/* Login Box */
+#loginBox {
+    position:absolute;
+    top:34px;
+    right:0;
+    display:none;
+    z-index:29;
+}
+
+/* If the Login Button has been clicked */    
+#loginButton.active {
+    border-radius:3px 3px 0 0;
+}
+
+#loginButton.active span {
+    background-position:53px -76px;
+}
+
+/* A Line added to overlap the border */
+#loginButton.active em {
+    position:absolute;
+    width:100%;
+    height:1px;
+    background:#d2e0ea;
+    bottom:-1px;
+}
+
+/* Login Form */
+#loginForm {
+    width:248px; 
+    border:1px solid #899caa;
+    border-radius:3px 0 3px 3px;
+    -moz-border-radius:3px 0 3px 3px;
+    margin-top:-1px;
+    background:#d2e0ea;
+    padding:6px;
+}
+
+#loginForm fieldset {
+    margin:0 0 12px 0;
+    display:block;
+    border:0;
+    padding:0;
+}
+
+fieldset#body {
+    background:#fff;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    padding:10px 13px;
+    margin:0;
+}
+
+#loginForm #checkbox {
+    width:auto;
+    margin:1px 9px 0 0;
+    float:left;
+    padding:0;
+    border:0;
+    *margin:-3px 9px 0 0; /* IE7 Fix */
+}
+
+#body label {
+    color:#3a454d;
+    margin:9px 0 0 0;
+    display:block;
+    float:left;
+}
+
+#loginForm #body fieldset label {
+    display:block;
+    float:none;
+    margin:0 0 6px 0;
+}
+
+/* Default Input */
+#loginForm input {
+    width:92%;
+    border:1px solid #899caa;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    color:#3a454d;
+    font-weight:bold;
+    padding:8px 8px;
+    box-shadow:inset 0px 1px 3px #bbb;
+    -webkit-box-shadow:inset 0px 1px 3px #bbb;
+    -moz-box-shadow:inset 0px 1px 3px #bbb;
+    font-size:12px;
+}
+
+/* Sign In Button */
+#loginForm #login {
+    width:auto;
+    float:left;
+    background:#339cdf url(../images/loginbuttonbg.png) repeat-x;
+    color:#fff;
+    padding:7px 10px 8px 10px;
+    text-shadow:0px -1px #278db8;
+    border:1px solid #339cdf;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    margin:0 12px 0 0;
+    cursor:pointer;
+    *padding:7px 2px 8px 2px; /* IE7 Fix */
+}
+
+/* Forgot your password */
+#loginForm span {
+    text-align:center;
+    display:block;
+    padding:7px 0 4px 0;
+}
+
+#loginForm span a {
+    color:#3a454d;
+    text-shadow:1px 1px #fff;
+    font-size:12px;
+}
+
+input:focus {
+    outline:none;
+}
 </style>
 
 <body>
@@ -550,11 +492,34 @@
             <ul class="nav-links">
                 <!-- NAVIGATION MENUS -->
                 <div class="menu">
-                    <li><a th:href="@{/home}">HOME</a></li>
+                    <li><a th:href="@{/chronologic}">HOME</a></li>
                     <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
                     <li><a th:href="@{/destinos}">DESTINOS</a></li>
                     <li><a th:href="@{/FAQS}">FAQS</a></li>
-                    <li><a th:href="@{/signIn}">LOGIN</a></li>
+                    <li><a th:href="@{/signIn}">
+                            <div id="loginContainer">
+                                <a href="#" id="loginButton"><span>LOG IN</span><em></em></a>
+                                <div style="clear:both"></div>
+                                <div id="loginBox">
+                                    <form id="loginForm">
+                                        <fieldset id="body">
+                                            <fieldset>
+                                                <label for="email">Email</label>
+                                                <input type="text" name="email" id="email" />
+                                            </fieldset>
+                                            <fieldset>
+                                                <label for="password">Contrase&ntilde;a</label>
+                                                <input type="password" name="password" id="password" />
+                                            </fieldset>
+                                            <input type="submit" id="login" value="Entrar" />
+                                            <label for="checkbox"><input type="checkbox"
+                                                    id="checkbox" />Recu&eacute;rdame</label>
+                                        </fieldset>
+                                        <span><a href="#">Perdiste tu contrase&ntilde;a?</a></span>
+                                    </form>
+                                </div>
+                            </div>
+                        </a></li>
                 </div>
             </ul>
         </nav>
@@ -568,64 +533,53 @@
     </div>
     <br>
 
-
-    <div id="ParrafoWeb" style="overflow-x:auto; align-items: center;">
-        <h2 id="tituloTexto">TEXTO INTRODUCTORIO DE VIAJES EN EL TIEMPO</h2>
-        <br>
-        <p id="parrafoTexto">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa.
-            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-            ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-            fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis
-            vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
-            elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
-            vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus
-        </p>
-    </div>
     <!-- CARRUSEL -->
     <div class="slideshow-container" id="carruselContenedor">
 
         <div class="mySlides fade">
             <div class="numbertext">1 / 6</div>
-            <img src="https://www.anaisindia.com/wp-content/uploads/2019/01/fotografia-panoramica-fotografo.jpg"
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/panoramicaNave.jpg?raw=true"
                 style="width:100%">
-            <div class="text" style="background-color:#ffffff5d;"><a th:href="@{/aboutUs}">¡Sobre los viajes en el
-                    tiempo!</a></div>
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/aboutUs}"><b>¡Sobre
+                        los
+                        viajes en el
+                        tiempo!</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">2 / 6</div>
-            <img src="https://www.anibaltrejo.com/wp-content/uploads/2019/10/Anibal-Trejo-Visuals-Fotografi%CC%81a-Panora%CC%81mica.jpg"
-                style="width:100%">
-            <div class="text" style="background-color:#ffffff5d;"><a th:href="@{/aventura}">Aventura</a></div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/aventura.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/aventura}">
+                    <b>Aventura</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">3 / 6</div>
-            <img src="https://www.anaisindia.com/wp-content/uploads/2019/01/fotografia-panoramica-fotografo.jpg"
-                style="width:100%">
-            <div class="text" style="background-color:#ffffff5d;"><a th:href="@{/familiar}">Familiar</a></div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/familias.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
+                    th:href="@{/familiar}"><b>Familiar</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">4 / 6</div>
-            <img src="https://www.anaisindia.com/wp-content/uploads/2019/01/fotografia-panoramica-fotografo.jpg"
-                style="width:100%">
-            <div class="text" style="background-color:#ffffff5d;"><a th:href="@{/cultural}">Cultural</a></div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/cultural.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
+                    th:href="@{/cultural}"><b>Cultural</b></a></div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">5 / 6</div>
-            <img src="https://www.anaisindia.com/wp-content/uploads/2019/01/fotografia-panoramica-fotografo.jpg"
-                style="width:100%">
-            <div class="text" style="background-color:#ffffff5d;"><a th:href="@{/pareja}">Pareja</a></div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/parejas.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
+                    th:href="@{/pareja}"><b>Pareja</b></a>
+            </div>
         </div>
 
         <div class="mySlides fade">
             <div class="numbertext">6 / 6</div>
-            <img src="https://www.anaisindia.com/wp-content/uploads/2019/01/fotografia-panoramica-fotografo.jpg"
-                style="width:100%">
-            <div class="text"><a th:href="@{/signIn}">¡Ofertas exclusivas socios!</a></div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/oferta.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/signIn}"><b>¡Ofertas
+                        exclusivas socios!</b></a></div>
         </div>
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
@@ -643,20 +597,21 @@
     </div>
     <br><br>
 
-    <div style="overflow-x:auto; align-items: center;">
-        <table>
-            <tr>
-                <th>First Name</th>
-            </tr>
-            <tr>
-                <td>Jill</td>
-
-            </tr>
-
-        </table>
-    </div>
-
-
+    <div id="ParrafoWeb">
+        <h2 id="tituloTexto">Viajes Chronologic</h2>
+        <br>
+        <p id="parrafoTexto">¿Quién no ha soñado alguna vez con conocer a Cleopatra? <br>
+            ¿Ver en primera fila los espectáculos del Coliseo? <br>¿O visitar Desembarco del Rey? <br>
+            El ser humano ha fantaseado con viajar en el tiempo desde siempre…. En <b>Chronologic</b> nos encargamos de
+            hacerlo
+            realidad. Somos la primera agencia de viajes especializada en viajes inter-temporales e inter-dimensionales
+            del mundo. Con nosotros no solo podrás viajar a diversos momentos de la historia, sino también dentro de tus
+            universos de fantasía favoritos.
+            Además, con nuestras nuevas cabinas de alta gama<b> Modelo 815 de Oceanic</b>, viajarás con todas las
+            comodidades,
+            de forma segura y siempre acompañado por uno de nuestros chrono-guías.
+        </p>
+    </div><br><br>
     <footer th:replace=" baseTemplate :: footer"></footer>
 
 
@@ -688,6 +643,30 @@
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
         }
+
+
+        // Login Form
+
+        $(function () {
+            var button = $('#loginButton');
+            var box = $('#loginBox');
+            var form = $('#loginForm');
+            button.removeAttr('href');
+            button.mouseup(function (login) {
+                box.toggle();
+                button.toggleClass('active');
+            });
+            form.mouseup(function () {
+                return false;
+            });
+            $(this).mouseup(function (login) {
+                if (!($(login.target).parent('#loginButton').length > 0)) {
+                    button.removeClass('active');
+                    box.hide();
+                }
+            });
+        });
+
     </script>
 </body>
 
