@@ -45,20 +45,29 @@
                 <a>Email: </a>
                 <input type="text" class="form-control" placeholder="Email" 
                 th:field="*{email}" required>
+            </div> 
 
-                <!-- <br>
-                <a>Foto de Pasaporte</a>
-                <br>
-                <p id="texto">Seleccionar Foto</p>
-                <input type="file" name="imagen" required>
-            </div> -->
+            <div class="mb-3 mt-3">
+                <a>Fechas de Salida </a>
+                <input type="date" class="form-control" 
+                th:field="*{fechaSalida}" required>
+            </div> 
+            
+            <div class="mb-3 mt-3">
+                <a>Fechas de Vuelta </a>
+                <input type="date" class="form-control"
+                th:field="*{fechaRegreso}" required>
+            </div>
             <br>
-            <p>Foto del DNI</p>
-            <div>
+
+
+            <div class="mb-3 mt-3">
+            <p>Imagen del Chronopasaporte</p>
+           
                 <label for="files" class="btn" style="border-color: rgb(167, 211, 249) ; background-color: rgb(255, 254, 254);">Seleccionar Imagen</label>
                 <input id="files" style="visibility:hidden;" type="file" required>
-              </div>
-            
+             <p>    ***Se puede adjuntar hasta 48 horas antes de la salida</p>
+            </div>
 
             <br>
             <div class="col-md-12 text-center">
