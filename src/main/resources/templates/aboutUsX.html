@@ -38,7 +38,7 @@
     }
 
     body {
-        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/2.jpg?raw=true");
+        background-color: black;
         /* background-image: ; */
         /* color: var(--text-color1); */
         background-size: 100%;
@@ -104,7 +104,7 @@
         animation: anim 6s infinite;
         font-size: 2rem;
         font-family: 'Fugaz One', cursive;
-        color: white;
+        color: var(--text-color);
         font-weight: 400;
     }
 
@@ -114,6 +114,9 @@
         }
     }
 
+
+
+    /* ----------------------------MENU STYLE--------------------- */
 
     /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
     header {
@@ -132,116 +135,91 @@
         list-style: none;
     }
 
-    nav {
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
         background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
-        height: 80px;
-        width: 100%;
+        /* opacity: 0.8; */
+        color: #f0f7fa;
     }
 
-    .enlace {
-        position: absolute;
-        padding: 20px 50px;
+    .nav-links a {
+        color: #fff;
     }
 
+    /* LOGO */
     .logo {
-        height: 40px;
+        font-size: 32px;
     }
 
-    nav ul {
-        float: right;
-        margin-right: 20px;
-    }
-
-    nav ul li {
-        display: inline-block;
-        line-height: 80px;
-        margin: 0 5px;
-    }
-
-    nav ul li a {
-        color: #fff;
+    /* NAVBAR MENU */
+    .menu {
+        display: flex;
+        gap: 1em;
         font-size: 18px;
-        padding: 7px 13px;
-        border-radius: 3px;
-        text-transform: uppercase;
     }
 
-    li a.active,
-    li a:hover {
-        background: #000090;
-        transition: .5s;
+    .menu li:hover {
+        background-color: #4c9e9e;
+        border-radius: 5px;
+        transition: 0.3s ease;
     }
 
-    .checkbtn {
-        font-size: 30px;
-        color: #fff;
-        float: right;
-        line-height: 80px;
-        margin-right: 40px;
-        cursor: pointer;
-        display: none;
+    .menu li {
+        padding: 5px 14px;
     }
 
-    #check {
-        display: none;
-    }
 
-    section {
-        background: url(fondo.jpg) no-repeat;
-        background-size: cover;
-        background-position: center center;
-        height: calc(100vh - 80px);
-    }
-
-    @media (max-width: 952px) {
-        .enlace {
-            padding-left: 20px;
+    @media (max-width:600px) {
+        .nav>.nav-btn {
+            display: inline-block;
+            position: absolute;
+            right: 0px;
+            top: 0px;
         }
 
-        nav ul li a {
-            font-size: 16px;
+        .nav>.nav-btn>label {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            padding: 13px;
         }
-    }
 
-    @media (max-width: 858px) {
-        .checkbtn {
+        .nav>.nav-btn>label:hover,
+        .nav #nav-check:checked~.nav-btn>label {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .nav>.nav-links {
+            position: absolute;
             display: block;
-        }
-
-        ul {
-            position: fixed;
             width: 100%;
-            height: 100vh;
-            background: #2c3e50;
-            top: 80px;
-            left: -100%;
-            text-align: center;
-            transition: all .5s;
+            background-color: #333;
+            height: 0px;
+            transition: all 0.3s ease-in;
+            overflow-y: hidden;
+            top: 50px;
+            left: 0px;
         }
 
-        nav ul li {
+        .nav>.nav-links>a {
             display: block;
-            margin: 50px 0;
-            line-height: 30px;
+            width: 100%;
         }
 
-        nav ul li a {
-            font-size: 20px;
+        .nav>#nav-check:not(:checked)~.nav-links {
+            height: 0px;
         }
 
-        li a:hover,
-        li a.active {
-            background: none;
-            color: red;
+        .nav>#nav-check:checked~.nav-links {
+            height: calc(100vh - 50px);
+            overflow-y: auto;
         }
 
-        #check:checked~ul {
-            left: 0;
-        }
     }
 
-
-    /* ------------------IMAGENES----------------------- */
 
     #divImagenes:hover #sombreado {
         opacity: 1;
@@ -315,7 +293,6 @@
 
     #ParrafoWeb {
         text-align: center;
-
     }
 
     #tituloTexto {
@@ -347,26 +324,26 @@
 
     <!-- Cabecera -->
     <header>
-        <nav>
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbtn">
-                <i class="fas fa-bars"></i>
-            </label>
-            <a href="#" class="enlace">
-                <!-- LOGO -->
-                <div class="logoSaludo">Chronologic</div>
-            </a>
-            <ul>
 
-                <li><a class="active" th:href="@{/chronologic}">HOME</a></li>
-                <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
-                <li><a th:href="@{/destinos}">DESTINOS</a></li>
-                <li><a th:href="@{/FAQS}">FAQS</a></li>
-                <li><a th:href="@{/signIn}">LOGIN</a></li>
+        <div class="nav-btn">
+        </div>
+        <nav class="nav">
+            <!-- LOGO -->
+            <div class="logoSaludo">Chronologic</div>
+            <!-- NAVIGATION MENU -->
+            <ul class="nav-links">
+                <!-- NAVIGATION MENUS -->
+                <div class="menu">
+                    <li><a th:href="@{/chronologic}">HOME</a></li>
+                    <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                    <li><a th:href="@{/destinos}">DESTINOS</a></li>
+                    <li><a th:href="@{/FAQS}">FAQS</a></li>
+                    <li><a th:href="@{/signIn}">LOGIN</a></li>
+                </div>
             </ul>
         </nav>
-
-    </header><br><br><br><br><br><br>
+        </div><br><br><br><br><br><br>
+    </header>
 
 
 
@@ -392,6 +369,14 @@
             ¡Nuestra tecnología es ecológica, avalada por la Unión Europea y ya no licua huesos!<br><br>
         </p>
     </div>
+    <br><br><br>
+    <br>
+    <center>
+        <div>
+            <p style="color:white ;">Contacta con nosotras llamando al 555-CHRONO o envíanos un email a
+                info@chronologicviajes.com</p>
+        </div>
+    </center>
     <br><br><br>
     <footer th:replace=" baseTemplate :: footer"></footer>
     <br>
