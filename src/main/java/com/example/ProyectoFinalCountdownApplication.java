@@ -5,12 +5,15 @@ import java.util.ArrayList;
 // import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 // import java.time.LocalDate;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.example.entities.Categoria;
 import com.example.entities.Cliente;
@@ -29,6 +32,21 @@ public class ProyectoFinalCountdownApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoFinalCountdownApplication.class, args);
 	}
+///////////////////////// COMENTAMOS XQ YA NO NECESITAMOS LA GENERACIÓN DE LA ENCRIPTACIÓN //////////	
+	// @Autowired
+	// private BCryptPasswordEncoder passEnconder;
+
+	// @Override
+	// public void run(String... args) throws Exception {
+		
+	// 	// Creamos user y admin para que tengan sus contraseñas
+	// 	String pass1="user";
+	// 	String pass2="admin";
+
+	// 	// Encripta las contraseñas de admin y usuario
+	// 	System.out.println(passEnconder.encode(pass1));
+	// 	System.out.println(passEnconder.encode(pass2));
+	// }
 
 
 	///////////////////FALTA POR AÑADIR EL IEMPLEADOSERVICE
