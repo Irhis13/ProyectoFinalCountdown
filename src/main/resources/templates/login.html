@@ -10,6 +10,7 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Montserrat&display=swap');
 
 
     h1 {
@@ -23,6 +24,7 @@
 
     #titulo{
         background-color: rgba(255, 255, 255, 0.493);
+        font-family: 'Fugaz One', cursive;
         width: 500px;
         margin-left: 32%;
         text-align: center;
@@ -32,6 +34,7 @@
         background-color: rgba(255, 255, 255, 0.493);
         text-align: center;
         border-radius: 30px;
+        
     }
 
     #btnCrear, #btnSalir {
@@ -59,51 +62,69 @@
         background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
         text-decoration: none;
     }
+    body{
+       
+        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/2.jpg?raw=true");
+        background-size: 100%;
+
+    }
+    #btn1 {
+        background-color: white;
+        border-radius: 5px;
+        color: black;
+        border: 2px solid #4c9e9e;
+        padding: 15px 30px;
+
+    }
+
+    #btn1:hover {
+        background-color: #4c9e9e;
+        border-radius: 5px;
+        font-size: 14px;
+        color: white;
+        padding: 15px 30px;
+    } h1{
+        font-family: 'Fugaz One', cursive;
+    }
+    a{
+        font-family: 'Montserrat', sans-serif;
+    }
     
 </style>
 
 <body>
     <div id="titulo">
-        <h1>Página de Login/Perfil Cliente</h1>
+        <h1>Perfil Cliente</h1>
     </div>
-    <!-- Referenciar para que vaya a FormularioAltaCliente -->
-    <button id="btnCrear">
-           <a th:href="@{/formularioCliente }">
-            Crear cliente
-        </a>
-    </button>    
+    <!-- Referenciar para que vaya a FormularioAltaCliente -->   
 
     <!--Método Salir del login -->
-    <button id="btnSalir">
+    <center>
+    <button id="btn1">
         <a th:href="@{/chronologic}">
             Salir
         </a>
     </button>
+</center>
 
 <br><br>
     <!-- Método que muestre historico de viajes o proximos viajes -->
-    <table class="table table-striped">
+
+    <div id="datosClienteDiv">
+        <a><b>Número identificación cliente: </b></a><a th:text="${cliente.id}"></a><br>
+        <a><b>Nombre: </b></a><a th:text="${cliente.nombre}"></a><br>
+        <a><b>Apellidos: </b></a><a th:text="${cliente.apellidos}"></a>
+    </div> <br><br>
+
+    <center><b>
+    <a id="titulo2">Tus proximos viajes:</a><br>
+</center></b><table>
         <thead>
             <tr>
-                <th>id</th>
-                <th>nombre</th>
-                <th>apellidos</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td th:text="${cliente.id}"></td>
-                <td th:text="${cliente.nombre}"></td>
-                <td th:text="${cliente.apellidos}"></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a id="titulo2">Tus proximos viajes:</a>
-    <table>
-        <thead>
-            <tr>
-
+<th>id</th>
+<th>nombre</th>
+<th>descripcion</th>
+<th>precio</th>
             </tr>
         </thead>
         <tbody>
@@ -115,11 +136,7 @@
             </tr>
         </tbody>
     </table>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div th:replace="baseTemplate :: footer"></div>
+
 </body>
 
 </html>
