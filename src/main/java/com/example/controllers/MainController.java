@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.ui.ModelMapExtensionsKt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -103,9 +104,6 @@ public class MainController {
         List<Cliente> clientes = servicioCliente.getClientes();
         model1.addAttribute("clientesRegistrados", clientes);
 
-        List<Empleado> empleados = servicioEmpleado.getEmpleados();
-        model2.addAttribute("listaEmpleados", empleados);
-
         return "portalEmpleado";
     }
     
@@ -146,9 +144,9 @@ public class MainController {
 ////////////////////////////////////FORMULARIOS/////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////
 @GetMapping("/formularioEmpleado")
-public String mostrarFormularioEmpleado(ModelMap map){
+public String mostrarFormularioEmpleado(ModelMap map, ModelMap map1){
     map.addAttribute("empleado", new Empleado()); 
-
+    map1.addAttribute("empleadosLista", servicioEmpleado.getEmpleados());
     
     return "formularioAltaEmpleado";
 }
