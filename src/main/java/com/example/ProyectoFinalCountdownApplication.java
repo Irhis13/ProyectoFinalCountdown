@@ -82,7 +82,7 @@ public class ProyectoFinalCountdownApplication {
 			viajeSrv.guardar(Viaje.builder().nombre("Narnia").descripcion("Embárcate en el Lucero del Alba del Principe Caspian, prueba unas exquisitas delicias turcas en el palacio de la Reina de Hielo y disfruta de la compañía del Señor Tumnus o Aslan.")
 			.precio(2125.0).categoria(categoriaSrv.getCategoria(3)).enlaceImagen("https://github.com/AsunPaterna/img_chrono/blob/main/Familiar%20-%20NarniaOKPeq.jpg?raw=true").build());
 			viajeSrv.guardar(Viaje.builder().nombre("Ruta de la Seda").descripcion("Contempla Samarkanda, la ciudad de los mil colores. Disfruta de las idas y venidas de mercaderes que les despachaban a romanos y persas las sedas de Oriente. Visita en familia los oasis repletos de animales exóticos que dieron fama a la leyenda.")
-			.precio(2125.0).categoria(categoriaSrv.getCategoria(3)).enlaceImagen("https://github.com/AsunPaterna/img_chrono/blob/main/RutaSedaVerde.jpg?raw=true").build());
+			.precio(2125.0).categoria(categoriaSrv.getCategoria(3)).enlaceImagen("https://github.com/AsunPaterna/img_chrono/blob/main/RutaSedaVerdeBg.jpg?raw=true").build());
 			
 			// ////////Categoria id:4 - PAREJA
 			viajeSrv.guardar(Viaje.builder().nombre("París Bohemio").descripcion("Oh là là! París, año 1890. El barrio de Montmartre es el punto de reunión de los artistas más importantes del momento. La música, el teatro, los picnics en los canales….. ¿Acaso hay algo más romántico sobre la faz de la tierra? ")
