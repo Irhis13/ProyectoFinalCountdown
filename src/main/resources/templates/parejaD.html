@@ -208,6 +208,7 @@
     }
 
     #divImagenes:hover #sombreado {
+        background-color: rgba(255, 255, 255, 0.800);
         opacity: 1;
     }
 
@@ -234,7 +235,7 @@
 
     #tit1 {
         justify-items: center;
-        margin-left: 30%;
+        
     }
 
     #txt1 {
@@ -410,13 +411,14 @@
         bottom: 0;
         right: 0;
         background: var(--text-color);
-        color: var(--text-color1);
+        color: #fff;
         padding: 10px;
         cursor: pointer;
     }
 
     .add-cart:hover {
-        background: hsl(249, 32%, 17%);
+        background: hsl(321, 61%, 42%);
+        border-radius: 12px;
     }
 
     /* Breakpoints / Making Responsive */
@@ -527,10 +529,12 @@
                     <div class="product-box">
                         <img id="img1" th:src="${viaje.enlaceImagen}" alt="" class="product-img">
                         <div id="sombreado">
-                            <div id="tit1" class="product-title" th:text="${viaje.nombre}"></div>
+                            <center>
+                            <div id="tit1" class="product-title" th:text="${viaje.nombre}"></div></center>
                             <p id="txt1" th:text="${viaje.descripcion}"></p>
+                            <center>
                             <span class="price" id="precioCard" th:text="${viaje.precio}">
-                            </span><a> €</a>
+                            </span><a> €</a></center>
                         </div>
                         <i class='bx bx-shopping-bag add-cart'></i>
                     </div>

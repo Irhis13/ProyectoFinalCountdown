@@ -218,6 +218,8 @@
                             <th>Descripcion</th>
                             <th>Precio</th>
                             <th>Categoria</th>
+                            <th>Eliminar</th>
+                            <th>Modificar</th>
                         </tr>
                         <tr th:each="viaje: ${viajesDisponibles}">
                             <td th:text="${viaje.id}"></td>
@@ -225,7 +227,9 @@
                             <td th:text="${viaje.descripcion}"></td>
                             <td th:text="${viaje.precio}"></td>
                             <td th:text="${viaje.categoria.nombre}"></td>
-                    </table>
+                            <td><a th:href="@{/eliminar/}+${viaje.id}">Eliminar</a></td>
+                            <td><a th:href="@{/modificar/}+${viaje.id}">Modificar</a></td>
+                        </table>
                 </div>
             </div>
         </div>

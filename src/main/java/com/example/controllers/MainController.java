@@ -224,7 +224,7 @@ public String mostrarFormularioCliente(ModelMap map){
         mav.setViewName("formularioAltaViaje");
         mav.addObject("viaje", viaje);
         mav.addObject("categorias", categorias);
-
+        
         return mav;
     }
 
@@ -232,7 +232,7 @@ public String mostrarFormularioCliente(ModelMap map){
     public String eliminar(@PathVariable(name="id") int id){
         servicioViaje.eliminar(id);
 
-        return "redirect:/listado";
+        return "redirect:/portalEmpleado";
     }
 }
 
