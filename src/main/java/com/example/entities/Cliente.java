@@ -32,6 +32,8 @@ public class Cliente {
     private String apellidos;
     // @NotNull
     private String imagenDni;
+    @NotNull
+    private String contrasena;
 
     /*No tiene por qué tener fechas de viaje de entrada*/
     // @NotNull 

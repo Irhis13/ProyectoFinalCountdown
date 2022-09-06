@@ -115,12 +115,12 @@ public class ProyectoFinalCountdownApplication {
 			clienteSrv.guardar(Cliente.builder().nombre("Herminia").apellidos("Garcia Velez")
 			.imagenDni("1.jpg").fechaSalida(LocalDate.parse("2020-10-10"))
 			.fechaRegreso(LocalDate.parse("2022-10-10")).telefono("999887766")
-			.email("aa@aa.com").viaje(viajes1).build());			
+			.email("aa@aa.com").contrasena("1234").viaje(viajes1).build());			
 			
 			clienteSrv.guardar(Cliente.builder().nombre("Eufrasia").apellidos("Cochamba Luengo")
 			.imagenDni("2.jpg").fechaSalida(LocalDate.parse("2020-01-10"))
 			.fechaRegreso(LocalDate.parse("2022-01-10")).telefono("999887766").email("ee@ee.com")
-			.viaje(viajes2).build());
+			.contrasena("1234").viaje(viajes2).build());
 
 
 			//Empleado
