@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-// import org.springframework.ui.ModelMapExtensionsKt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -83,12 +82,6 @@ public class MainController {
         return mav;
     }
 
-    @GetMapping("/carritoCompra") //Aquí implementar paramrequest!!!
-    public String getCarrito(/*Model model*/){
-        // model.addAttribute("viajes", servicioViaje.getViaje(1));
-        return "carritoCompra";
-    }
-
     @GetMapping("/pasarelaPago")
     public String getPasarelaPago(){
         return "pasarelaPago";
@@ -154,8 +147,6 @@ public String mostrarFormularioEmpleado(ModelMap map, ModelMap map1){
 @GetMapping("/formularioCliente")
 public String mostrarFormularioCliente(ModelMap map){
     map.addAttribute("cliente", new Cliente()); 
-    // map.addAttribute("viajes", servicioViaje.getViajes());
-    // map.addAttribute("clientes", servicioCliente.getClientes());
     
     return "formularioAltaCliente";
 }
@@ -173,7 +164,6 @@ public String mostrarFormularioCliente(ModelMap map){
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 
-///////////NO CONSIGO QUE ME GUARDE EL VIAJE/EMPLEADO/CLIENTE EN BBDD
     @PostMapping("/crearViaje") 
     public String crearViaje(@ModelAttribute(name="viaje")
     Viaje viaje){
@@ -197,24 +187,18 @@ public String mostrarFormularioCliente(ModelMap map){
     , @RequestParam(name ="imagenDni", required = false)
     MultipartFile imagenDni
     ){
-        System.out.println("***************************Inicio metodo crearCliente");
-        /*He puesto lo de guardar aquí de forma provisional hasta que solucionemos lo de la imagen */
         servicioCliente.guardar(cliente);
-        System.out.println("PROBANDO QUE GUARDA: "+ cliente.getNombre());
-
+        
         if(imagenDni != null){
-            System.out.println("**********************IMAGEN NO NULA");
             String rutaAbsoluta ="C://Users//mpaterna//Documents//recursosEmpleado";
             Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+imagenDni.getOriginalFilename());
-            System.out.println("******************************DENTRO DEL IF");
-
+            
             try {
                 byte[] bytesimagenDni = imagenDni.getBytes();
                 Files.write(rutaCompleta, bytesimagenDni);
                 cliente.setImagenDni(imagenDni.getOriginalFilename());
                 servicioCliente.guardar(cliente);
             } catch (Exception e) {
-                System.out.println("No vaaaaaaaaaaaa");
                 e.printStackTrace();
             }
         }

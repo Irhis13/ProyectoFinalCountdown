@@ -28,10 +28,6 @@ public class Viaje {
     private double precio;
     private String enlaceImagen;
     
-    //Booleanos
-    // private boolean vestuarioExtra;
-    // private boolean reportajeExra;  
-    
     @ManyToOne
     @NotNull
     private Categoria categoria;
