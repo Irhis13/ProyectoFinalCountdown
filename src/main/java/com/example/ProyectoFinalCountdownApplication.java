@@ -126,7 +126,7 @@ public class ProyectoFinalCountdownApplication {
 			//Empleado
 			empleadoSrv.guardar(Empleado.builder().nombre("Julifrana Rodriguez Mancha").direccion("Calle Falsa, 123. Murcia").telefono("666555111").build());
 			empleadoSrv.guardar(Empleado.builder().nombre("Socorro Luengo Velez").direccion("Avenida Yuste, 33, 5ºF. Los infiernos, Murcia").telefono("999111777").build());
- 
+			empleadoSrv.guardar(Empleado.builder().nombre("Angustias Portman Daurá").direccion("Callejon Diagon, 98, Cebolla(Toledo)").telefono("999888777").build());
 		};
 	}
 }
