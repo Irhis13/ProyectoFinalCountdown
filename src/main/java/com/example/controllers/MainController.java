@@ -194,30 +194,30 @@ public String mostrarFormularioCliente(ModelMap map){
     @PostMapping("/crearCliente")
     public String crearCliente(@ModelAttribute(name="cliente")
     Cliente cliente
-    // , @RequestParam(name ="imagen", required = false)
-    // MultipartFile foto
+    , @RequestParam(name ="imagenDni", required = false)
+    MultipartFile imagenDni
     ){
         System.out.println("***************************Inicio metodo crearCliente");
         /*He puesto lo de guardar aquí de forma provisional hasta que solucionemos lo de la imagen */
         servicioCliente.guardar(cliente);
         System.out.println("PROBANDO QUE GUARDA: "+ cliente.getNombre());
 
-        // if(foto != null){
-        //     System.out.println("**********************IMAGEN NO NULA");
-        //     String rutaAbsoluta ="C://Users//mpaterna//Documents//recursosEmpleado";
-        //     Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+foto.getOriginalFilename());
-        //     System.out.println("******************************DENTRO DEL IF");
+        if(imagenDni != null){
+            System.out.println("**********************IMAGEN NO NULA");
+            String rutaAbsoluta ="C://Users//mpaterna//Documents//recursosEmpleado";
+            Path rutaCompleta = Paths.get(rutaAbsoluta+"//"+imagenDni.getOriginalFilename());
+            System.out.println("******************************DENTRO DEL IF");
 
-        //     try {
-        //         byte[] bytesFoto = foto.getBytes();
-        //         Files.write(rutaCompleta, bytesFoto);
-        //         cliente.setImagenDni(foto.getOriginalFilename());
-        //         servicioCliente.guardar(cliente);
-        //     } catch (Exception e) {
-        //         System.out.println("No vaaaaaaaaaaaa");
-        //         e.printStackTrace();
-        //     }
-        // }
+            try {
+                byte[] bytesimagenDni = imagenDni.getBytes();
+                Files.write(rutaCompleta, bytesimagenDni);
+                cliente.setImagenDni(imagenDni.getOriginalFilename());
+                servicioCliente.guardar(cliente);
+            } catch (Exception e) {
+                System.out.println("No vaaaaaaaaaaaa");
+                e.printStackTrace();
+            }
+        }
         return "redirect:/portalEmpleado";
     }
 
