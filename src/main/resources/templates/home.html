@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace=" baseTemplate :: cabecera">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Chronologic</title>
+
+    <div class="product-details">
+
+        <!-- Link a iconos redes FontAwesome-->
+        <script src="https://kit.fontawesome.com/e0d651bf64.js" crossorigin="anonymous"></script>
+        <!-- Box Icons -->
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+    /* Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Montserrat&display=swap');
+
+    * {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        scroll-padding-top: 2px;
+        scroll-behavior: smooth;
+        box-sizing: content-box;
+        list-style: none;
+        text-decoration: none;
+    }
+
+    img {
+        width: 50%;
+    }
+
+    body {
+        /* background-color: black; */
+        background-image: url("https://github.com/AsunPaterna/img_chrono/blob/main/2.jpg?raw=true");
+        /* color: var(--text-color1); */
+        background-size: 100%;
+    }
+
+    .container {
+        max-width: 1068px;
+        margin: auto;
+        width: 50%;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .logoSaludo {
+        user-select: none;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 10em;
+        animation: anim 6s infinite;
+        font-size: 2rem;
+        font-family: 'Fugaz One', cursive;
+        color: white;
+        font-weight: 400;
+    }
+
+    @keyframes anim {
+        from {
+            width: 0;
+        }
+    }
+
+    /*------------------------CODIGO DEFINITIVO MENU--------------------------*/
+    header {
+
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    nav {
+        background: linear-gradient(to bottom right, #696575 0%, #453e5c 100%);
+        height: 80px;
+        width: 100%;
+    }
+
+    .enlace {
+        position: absolute;
+        padding: 20px 50px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    nav ul {
+        float: right;
+        margin-right: 20px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+    }
+
+    nav ul li a {
+        color: #fff;
+        font-size: 18px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+    }
+
+    li a.active,
+    li a:hover {
+        background: #000090;
+        transition: .5s;
+    }
+
+    .checkbtn {
+        font-size: 30px;
+        color: #fff;
+        float: right;
+        line-height: 80px;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
+    }
+
+    #check {
+        display: none;
+    }
+
+    section {
+        background: url(fondo.jpg) no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: calc(100vh - 80px);
+    }
+
+    @media (max-width: 952px) {
+        .enlace {
+            padding-left: 20px;
+        }
+
+        nav ul li a {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 858px) {
+        .checkbtn {
+            display: block;
+        }
+
+        ul {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #2c3e50;
+            top: 80px;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+        }
+
+        nav ul li {
+            display: block;
+            margin: 50px 0;
+            line-height: 30px;
+        }
+
+        nav ul li a {
+            font-size: 20px;
+        }
+
+        li a:hover,
+        li a.active {
+            background: none;
+            color: red;
+        }
+
+        #check:checked~ul {
+            left: 0;
+        }
+    }
+
+    /*......................CARRUSEL IMÁGENES.....................................*/
+    * {
+        box-sizing: border-box
+    }
+
+
+    .mySlides {
+        display: none
+    }
+
+    img {
+        vertical-align: middle;
+    }
+
+    /* Slideshow container */
+    #carruselContenedor {
+        max-width: 1300px;
+        position: relative;
+        margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption text */
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+        background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+
+        .prev,
+        .next,
+        .text {
+            font-size: 11px
+        }
+    }
+
+
+    /*PARRAFO WEB Y LOGOS*/
+    #ParrafoWeb {
+        text-align: center;
+
+    }
+
+    #tituloTexto {
+        /* max-width: 900px; */
+        background-color: #ffffffc7;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 150px 100px 150px 100px;
+        text-align: center;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    #parrafoTexto {
+        /* max-width: 900px; */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        text-align: center;
+        background-color: #ffffffc7;
+        border-radius: 20px 100px 150px;
+        margin-left: 15%;
+        margin-right: 15%;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 1.5%;
+        padding-bottom: 1.5%;
+    }
+
+    #imgLogo {
+        width: 550px;
+    }
+</style>
+
+<body>
+
+    <!-- Cabecera -->
+    <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="#" class="enlace">
+                <!-- LOGO -->
+                <div class="logoSaludo">Chronologic</div>
+            </a>
+            <ul>
+
+                <li><a class="active" th:href="@{/chronologic}">HOME</a></li>
+                <li><a th:href="@{/aboutUs}">ABOUT US</a></li>
+                <li><a th:href="@{/destinos}">DESTINOS</a></li>
+                <li><a th:href="@{/FAQS}">FAQS</a></li>
+                <li><a th:href="@{/signIn}">LOGIN</a></li>
+            </ul>
+        </nav>
+
+    </header><br><br><br><br><br><br>
+
+    <!--logo-->
+        <!-- <div id="imgLogo" style="align-items:center;">
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/Ilustracio%CC%81n-sin-ti%CC%81tulo.png?raw=true" alt="">
+        </div> -->
+    <br>
+
+    <!-- CARRUSEL -->
+    <div class="slideshow-container" id="carruselContenedor">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 6</div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/panoramicaNave.jpg?raw=true"
+                style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/aboutUs}"><b>¡Sobre
+                        los
+                        viajes en el
+                        tiempo!</b></a></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 6</div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/aventura.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/aventura}">
+                    <b>Aventura</b></a></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 6</div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/panoramicaFamilia.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
+                    th:href="@{/familiar}"><b>Familiar</b></a></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 6</div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/cultural.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
+                    th:href="@{/cultural}"><b>Cultural</b></a></div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 6</div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/parejas.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a
+                    th:href="@{/pareja}"><b>Pareja</b></a>
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">6 / 6</div>
+            <img src="https://github.com/AsunPaterna/img_chrono/blob/main/oferta.jpg?raw=true" style="width:100%">
+            <div class="text" style="background-color:#ffffffc7; font-size: 18px;"><a th:href="@{/signIn}"><b>¡Ofertas
+                        exclusivas socios!</b></a></div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+    </div>
+    <br><br>
+
+    <div id="ParrafoWeb">
+        <h2 id="tituloTexto">Viajes Chronologic</h2>
+        <br>
+        <p id="parrafoTexto">¿Quién no ha soñado alguna vez con conocer a Cleopatra? <br>
+            ¿Ver en primera fila los espectáculos del Coliseo? <br>¿O visitar Desembarco del Rey? <br>
+            El ser humano ha fantaseado con viajar en el tiempo desde siempre…. En <b>Chronologic</b> nos encargamos de
+            hacerlo
+            realidad. Somos la primera agencia de viajes especializada en viajes inter-temporales e inter-dimensionales
+            del mundo. Con nosotros no solo podrás viajar a diversos momentos de la historia, sino también dentro de tus
+            universos de fantasía favoritos.
+            Además, con nuestras nuevas cabinas de alta gama<b> Modelo 815 de Oceanic</b>, viajarás con todas las
+            comodidades,
+            de forma segura y siempre acompañado por uno de nuestros chrono-guías.
+        </p>
+    </div><br><br>
+
+
+    <footer th:replace=" baseTemplate :: footer"></footer>
+    <br>
+
+    <!--SCRIPT DEL CARRUSEL-->
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+
+    </script>
+</body>
+
+</html>
