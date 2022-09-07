@@ -39,7 +39,6 @@ public class MainController {
 ///////////////////////////////////////////////////////////////////////////////////////////
 
     @GetMapping("/chronologic")
-    //PARA QUE SE VEAN LOS HTML
     public String getViajes(Model model){
         List<Viaje> viajes = servicioViaje.getViajes();
         // for (Viaje viaje : viajes) { /*Comprobación que funciona */
@@ -101,7 +100,7 @@ public class MainController {
     }
     
     ////////////////////////////////////////////////////////////////////////////////////////////
-    ///////GET MAPPING DE LAS PÁGINAS DE CATEGORIAS QUE TRAEN LOS VIAJES DE ESA CATEGORIA//////
+    ///////GETMAPPING DE LAS PÁGINAS DE CATEGORIAS QUE TRAEN LOS VIAJES DE ESA CATEGORIA///////
     ///////////////////////////////////////////////////////////////////////////////////////////
     @GetMapping("/aventura")
     public String getAventura(Model model){
@@ -167,7 +166,7 @@ public String mostrarFormularioCliente(ModelMap map){
     @PostMapping("/crearViaje") 
     public String crearViaje(@ModelAttribute(name="viaje")
     Viaje viaje){
-        System.out.println("PROBANDO: "+ viaje.getNombre());
+        // System.out.println("PROBANDO: "+ viaje.getNombre());
         servicioViaje.guardar(viaje);
 
         return "redirect:/portalEmpleado";
@@ -177,16 +176,14 @@ public String mostrarFormularioCliente(ModelMap map){
     public String crearEmpleado(@ModelAttribute(name="empleado")
     Empleado empleado){
         servicioEmpleado.guardar(empleado);
-        System.out.println("PROBADO "+ empleado.getNombre());
+        // System.out.println("PROBANDO "+ empleado.getNombre());
         return "redirect:/portalEmpleado";
     }
     
     @PostMapping("/crearCliente")
     public String crearCliente(@ModelAttribute(name="cliente")
-    Cliente cliente
-    , @RequestParam(name ="imagenDni", required = false)
-    MultipartFile imagenDni
-    ){
+    Cliente cliente, @RequestParam(name ="imagenDni", required = false)
+    MultipartFile imagenDni){
         servicioCliente.guardar(cliente);
         
         if(imagenDni != null){
@@ -203,15 +200,6 @@ public String mostrarFormularioCliente(ModelMap map){
             }
         }
         return "redirect:/portalEmpleado";
-    }
-
-    @PostMapping("/detalles/{id}")
-    public ModelAndView detalles(@PathVariable(name = "id") String id){
-        Viaje viaje =servicioViaje.getViaje(Integer.parseInt(id));
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("detalles");
-        mav.addObject("viaje", viaje);
-        return mav;
     }
 
     @GetMapping("/modificar/{id}")
